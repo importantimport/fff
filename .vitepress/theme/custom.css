@@ -1,0 +1,40 @@
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
+/* Fira Code */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+/* Noto Colr Emoji Glyf */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Colr+Emoji+Glyf&display=swap');
+
+:root {
+  --vp-home-hero-name-color: var(--vp-c-yellow);
+  --vp-c-brand: var(--vp-c-yellow);
+  --vp-c-brand-light: var(--vp-c-yellow-light);
+  --vp-c-brand-lighter: var(--vp-c-yellow-lighter);
+  --vp-c-brand-dark: var(--vp-c-yellow-dark);
+  --vp-c-brand-darker: var(--vp-c-yellow-darker);
+  --vp-font-family-base: 'Poppins', ui-sans-serif, system-ui, -apple-system,
+    sans-serif, 'Noto Colr Emoji Glyf', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --vp-font-family-mono: 'Fira Code', ui-monospace, monospace,
+    'Noto Colr Emoji Glyf', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --vp-code-block-bg: #fafafa;
+  --vp-code-line-number-color: #212121;
+  --vp-code-copy-code-hover-bg: rgb(255 255 255);
+  --vp-code-copy-code-active-text: #212121;
+}
+
+.dark {
+  --vp-code-block-bg: #212121;
+  --vp-code-line-number-color: #fafafa;
+  --vp-code-copy-code-hover-bg: rgb(255 255 255 / 0.05);
+  --vp-code-copy-code-active-text: #fafafa;
+}
+
+.vp-doc [class*='language-']:before {
+  color: rgba(60, 60, 60, 0.33);
+}
+
+.dark .vp-doc [class*='language-']:before {
+  color: rgba(235, 235, 235, 0.38);
+}
