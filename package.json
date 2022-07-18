@@ -1,7 +1,6 @@
 {
   "name": "fff",
   "version": "0.1.0",
-  "type": "module",
   "author": "藍+85CD",
   "license": "WTFPL",
   "description": "A Opinionated FrontMatter Variable Specs.",
