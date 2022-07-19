@@ -62,11 +62,13 @@ export default defineConfig({
     nav: nav(),
     sidebar: sidebar(),
     siteTitle: 'FFF',
+    logo: '/glowing_star.svg',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/importantimport/fff' },
     ],
     editLink: {
       pattern: 'https://github.com/importantimport/fff/edit/main/:path',
+      text: 'Suggest changes to this page',
     },
   },
 })
