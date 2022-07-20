@@ -16,7 +16,7 @@ Please follow the [Conventional Commits](https://www.conventionalcommits.org) an
 examples:
 
 ```
-docs(version/0.1.0): ✏️ fix typo
+docs(version/0.1): ✏️ fix typo
 feat(version/0.1.1-draft): ✨ add `authors` variable
 chore(deps): ⬆️ upgrade package dependencies
 ```

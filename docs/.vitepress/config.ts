@@ -36,7 +36,7 @@ const sidebar = () => [
     collapsible: true,
     items: [
       { text: 'Changelog', link: '/version/changelog' },
-      { text: '0.1.0', link: '/version/0.1.0' },
+      { text: '0.1', link: '/version/0.1' },
     ],
   },
 ]
