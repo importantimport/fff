@@ -44,6 +44,7 @@ const sidebar = () => [
 export default defineConfig({
   lang: 'en-US',
   title: 'FFF Flavored Frontmatter',
+  titleTemplate: 'FFF',
   description: 'Yet Another Opinionated Frontmatter Variable Spec.',
   appearance: true,
   lastUpdated: true,
