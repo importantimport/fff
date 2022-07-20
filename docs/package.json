@@ -1,0 +1,26 @@
+{
+  "name": "fff-docs",
+  "version": "0.1.0",
+  "private": true,
+  "author": "藍+85CD",
+  "license": "WTFPL",
+  "description": "Yet Another Opinionated Frontmatter Variable Spec.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "docs"
+  },
+  "homepage": "https://github.com/importantimport/fff/tree/main/docs",
+  "bugs": "https://github.com/importantimport/fff/issues",
+  "scripts": {
+    "preinstall": "npx -y only-allow pnpm",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "devDependencies": {
+    "markdown-it-footnote": "^3.0.3",
+    "vitepress": "1.0.0-alpha.4",
+    "vue": "^3.2.37"
+  }
+}

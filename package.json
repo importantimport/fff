@@ -1,30 +1,9 @@
 {
-  "name": "fff-flavored-frontmatter-docs",
+  "name": "fff-monorepo",
   "version": "0.1.0",
-  "author": "藍+85CD",
-  "license": "WTFPL",
-  "description": "Yet Another Opinionated Frontmatter Variable Spec.",
-  "repository": "importantimport/fff",
-  "homepage": "https://github.com/importantimport/fff",
-  "bugs": "https://github.com/importantimport/fff/issues",
+  "private": true,
   "scripts": {
     "preinstall": "npx -y only-allow pnpm",
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "serve": "vitepress serve"
-  },
-  "devDependencies": {
-    "markdown-it-footnote": "^3.0.3",
-    "vitepress": "1.0.0-alpha.4",
-    "vue": "^3.2.37"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@types/react",
-        "react",
-        "react-dom"
-      ]
-    }
+    "build": "pnpm run build -r --filter fff-docs"
   }
 }

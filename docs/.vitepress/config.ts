@@ -54,7 +54,6 @@ export default defineConfig({
     },
     config: (md) => md.use(footnote),
   },
-  srcExclude: ['README.md'],
   head: [
     ['link', { rel: 'icon', href: '/glowing_star.svg', type: 'image/svg+xml' }],
   ],

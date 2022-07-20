@@ -1,8 +1,8 @@
 # build output
-.vitepress/dist
+docs/.vitepress/dist
 
 # dependencies
-node_modules/
+node_modules
 
 # logs
 pnpm-debug.log*
