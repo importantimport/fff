@@ -8,7 +8,7 @@ hero:
     Flavored
     Frontmatter
   image: /glowing_star.svg
-  tagline: A Opinionated FrontMatter Variable Specs.
+  tagline: Yet Another Opinionated Frontmatter Variable Spec.
   actions:
   - theme: brand
     text: Get Started
