@@ -1,8 +1,21 @@
-# 🌟 FFF Flavored Frontmatter
+<div align="center">
+<a href="https://github.com/importantimport/fff">
+<img src="docs/public/glowing_star.svg" alt="fff" width="192px" />
+</a>
+</div>
 
-Yet Another Opinionated Frontmatter Variable Specs.
+<h1 align="center">FFF Flavored Frontmatter</h1>
+<p align="center">Yet Another Opinionated Frontmatter Variable Specs.</p>
 
-## 📝 License
+## 📝 Documentation
+
+The documentation is located in the `docs` folder and can be viewed from the GitHub About link.
+
+## 📦️ Package
+
+Coming soon...
+
+## 📄 License
 
 > [glowing_star.svg](docs/public/glowing_star.svg) from the [adobe-fonts/noto-emoji-svg](https://github.com/adobe-fonts/noto-emoji-svg) distributed under the [Apache License, Version 2.0](https://github.com/adobe-fonts/noto-emoji-svg/blob/main/LICENSE).
 
