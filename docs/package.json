@@ -13,7 +13,6 @@
   "homepage": "https://github.com/importantimport/fff/tree/main/docs",
   "bugs": "https://github.com/importantimport/fff/issues",
   "scripts": {
-    "preinstall": "npx -y only-allow pnpm",
     "dev": "vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve"
