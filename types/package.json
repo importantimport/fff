@@ -1,0 +1,42 @@
+{
+  "name": "fff-flavored-frontmatter",
+  "version": "0.2.0",
+  "author": "藍+85CD",
+  "license": "WTFPL",
+  "description": "Yet Another Opinionated Frontmatter Variable Specs.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "types"
+  },
+  "homepage": "https://github.com/importantimport/fff/tree/main/types",
+  "bugs": "https://github.com/importantimport/fff/issues",
+  "type": "module",
+  "module": "dist/fff.mjs",
+  "main": "dist/fff.cjs",
+  "types": "dist/fff.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/fff.mjs",
+      "require": "./dist/fff.cjs",
+      "types": "./dist/fff.d.ts"
+    }
+  },
+  "unbuild": {
+    "entries": [
+      "./fff"
+    ],
+    "clean": true,
+    "declaration": true,
+    "rollup": {
+      "emitCJS": true
+    }
+  },
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "devDependencies": {
+    "unbuild": "^0.7.4"
+  }
+}
