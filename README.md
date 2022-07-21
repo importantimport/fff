@@ -5,6 +5,12 @@
 </div>
 
 <h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
+<p align="center">
+<a href="https://npmjs.com/package/fff-flavored-frontmatter">
+<img src="https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow" alt="npm">
+</a>
+<img src="https://img.shields.io/npm/dy/fff-flavored-frontmatter?color=yellow" alt="downloads">
+</p>
 <p align="center">Yet Another Opinionated Frontmatter Variable Specs.</p>
 
 ## 📝 Documentation
@@ -13,7 +19,27 @@ The documentation is located in the [`docs`](docs) folder and can be viewed from
 
 ## 📦️ Package
 
-Coming soon...
+You can install it via pnpm, yarn or npm.
+
+```bash
+# Version 0.2.x
+pnpm add -D fff-flavored-frontmatter@~0.2.0
+```
+
+or do not enter a version to use the latest version.
+
+```bash
+# Latest
+pnpm add -D fff-flavored-frontmatter
+```
+
+For example, use in a TypeScript project:
+
+```ts
+import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
+// import type { FFFBase, FFFExtra } from 'fff-flavored-frontmatter' // if you need them
+// import type { FFFImage, FFFAudio, FFFVideo, FFFAuthor } from 'fff-flavored-frontmatter' // if you need them
+```
 
 ## 📄 License
 
