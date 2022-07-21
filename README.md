@@ -4,12 +4,12 @@
 </a>
 </div>
 
-<h1 align="center">FFF Flavored Frontmatter</h1>
+<h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
 <p align="center">Yet Another Opinionated Frontmatter Variable Specs.</p>
 
 ## 📝 Documentation
 
-The documentation is located in the `docs` folder and can be viewed from the GitHub About link.
+The documentation is located in the [`docs`](docs) folder and can be viewed from the GitHub About link.
 
 ## 📦️ Package
 
