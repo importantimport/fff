@@ -1,6 +1,6 @@
 # 🌟 FFF Flavored Frontmatter
 
-Yet Another Opinionated Frontmatter Variable Spec.
+Yet Another Opinionated Frontmatter Variable Specs.
 
 ## 📝 License
 
