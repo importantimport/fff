@@ -6,9 +6,7 @@
 
 <h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
 <p align="center">
-<a href="https://npmjs.com/package/fff-flavored-frontmatter">
-<img src="https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow" alt="npm">
-</a>
+<a href="https://npmjs.com/package/fff-flavored-frontmatter"><img src="https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow" alt="npm"></a>
 <img src="https://img.shields.io/npm/dy/fff-flavored-frontmatter?color=yellow" alt="downloads">
 </p>
 <p align="center">Yet Another Opinionated Frontmatter Variable Specs.</p>
