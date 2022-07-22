@@ -16,4 +16,14 @@ hero:
   - theme: alt
     text: View on GitHub
     link: https://github.com/importantimport/fff
+features:
+  - icon: 🐍
+    title: snake_case
+    details: Use snake_case to ensure that it is easy to type and does not require quotes in JS.
+  - icon: 🛠
+    title: highly scalable
+    details: With flags, it is possible to extend functionality without adding new variables.
+  - icon: 🌿
+    title: compatibility
+    details: Clearly named and mostly equivalent to Microformats & JSON Feed.
 ---
