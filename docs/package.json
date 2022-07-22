@@ -10,7 +10,7 @@
     "url": "https://github.com/importantimport/fff.git",
     "directory": "docs"
   },
-  "homepage": "https://github.com/importantimport/fff/tree/main/docs",
+  "homepage": "https://fff.js.org",
   "bugs": "https://github.com/importantimport/fff/issues",
   "scripts": {
     "dev": "vitepress dev",

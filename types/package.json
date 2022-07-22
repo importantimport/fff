@@ -3,13 +3,22 @@
   "version": "0.2.0",
   "author": "藍+85CD",
   "license": "WTFPL",
+  "keywords": [
+    "fff",
+    "fff-flavored-frontmatter",
+    "front",
+    "frontmatter",
+    "front matter",
+    "front-matter",
+    "typescript"
+  ],
   "description": "Yet Another Opinionated Frontmatter Variable Specs.",
   "repository": {
     "type": "git",
     "url": "https://github.com/importantimport/fff.git",
     "directory": "types"
   },
-  "homepage": "https://github.com/importantimport/fff/tree/main/types",
+  "homepage": "https://fff.js.org",
   "bugs": "https://github.com/importantimport/fff/issues",
   "type": "module",
   "module": "dist/fff.mjs",
