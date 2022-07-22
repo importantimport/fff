@@ -58,6 +58,9 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', href: '/glowing_star.svg', type: 'image/svg+xml' }],
+    ['meta', { property: 'og:image', content: 'https://fff.js.org/glowing_star.svg'}],
+    ['meta', { property: 'twitter:image', content: 'https://fff.js.org/glowing_star.svg'}],
+    ['meta', { property: 'twitter:card', content: 'summary'}]
   ],
   themeConfig: {
     nav: nav(),
