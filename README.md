@@ -27,7 +27,7 @@ yarn add fff-flavored-frontmatter # yarn
 npm i -D fff-flavored-frontmatter # npm
 ```
 
-## Usage
+### Usage
 
 Use in a ESM + TypeScript Node.js project:
 
