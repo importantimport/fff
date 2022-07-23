@@ -21,6 +21,14 @@ For non-version-related changes, please refer to the [git commit history](https:
   - make [`audio`](/version/0.2.html#audio) [`video`](/version/0.2.html#video) as base variables
   - more accurate descriptions
 
+### Version 0.2.1 (2022-07-23)
+
+- Chore:
+  - add README.md for package
+  - add `// deno-fmt-ignore-file` in fff.ts
+  - update keywords & homepage in package.json
+  - Published as a deno module to [deno.land/x](https://deno.land/x/fff)
+
 ## [Version 0.1](/version/0.1.html) (2022-07-18)
 
 - Initial version
