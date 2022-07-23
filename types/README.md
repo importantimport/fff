@@ -14,7 +14,7 @@ npm i -D fff-flavored-frontmatter # npm
 
 ## Usage
 
-Use in a ESM + TypeScript project:
+Use in a ESM + TypeScript Node.js project:
 
 ```ts
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
@@ -26,4 +26,10 @@ CJS is also supported.
 
 ```ts
 const { FFFFlavoredFrontmatter } = require('fff-flavored-frontmatter')
+```
+
+Or Deno?
+
+```ts
+import type { FFFFlavoredFrontmatter } from "https://deno.land/x/fff/fff.ts";
 ```
