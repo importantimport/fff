@@ -33,7 +33,7 @@ export default defineConfig({
         icons: [
           {
             src: 'glowing_star.svg',
-            sizes: '48x48 96x96 144x144 192x192 256x256 384x384 512x512',
+            sizes: '48x48 96x96 128x128 144x144 150x150 192x192 256x256 384x384 512x512 1024x1024',
             type: 'image/svg+xml',
             purpose: 'any',
           },
