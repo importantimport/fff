@@ -48,6 +48,6 @@ jobs:
         run: pnpm -r -F fff-flavored-frontmatter build
 
       - name: Publish to NPM
-        run: pnpm -r -F fff-flavored-frontmatter publish
+        run: pnpm -r -F fff-flavored-frontmatter publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
