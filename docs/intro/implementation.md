@@ -35,5 +35,5 @@ Replace `#badge-here` with one of the image links above for use in Markdown:
 > Don't forget to note the version!
 
 ```md
-[![fff](#badge-here)](https://github.com/importantimport/fff)
+[![fff](#badge-here)](https://fff.js.org)
 ```
