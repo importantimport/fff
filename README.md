@@ -7,6 +7,7 @@
 <h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
 <p align="center">
 <a href="https://npmjs.com/package/fff-flavored-frontmatter"><img src="https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow" alt="npm"></a>
+<a href="https://www.jsdocs.io/package/fff-flavored-frontmatter"><img src="https://img.shields.io/badge/jsdocs.io-reference-yellow" alt="jsdocs.io"></a>
 <img src="https://img.shields.io/npm/dt/fff-flavored-frontmatter?color=yellow" alt="downloads">
 <a href="https://deno.land/x/fff"><img src="https://img.shields.io/badge/available%20on-deno.land/x-black.svg?logo=deno" alt="deno.land"></a>
 </p>
