@@ -21,6 +21,7 @@
   "homepage": "https://fff.js.org",
   "bugs": "https://github.com/importantimport/fff/issues",
   "type": "module",
+  "files": ["dist"],
   "module": "dist/fff.mjs",
   "main": "dist/fff.cjs",
   "types": "dist/fff.d.ts",
