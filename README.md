@@ -24,7 +24,7 @@ The documentation is located in the [`docs`](docs) folder and can be viewed from
 
 ```bash
 pnpm add -D fff-flavored-frontmatter # pnpm
-yarn add fff-flavored-frontmatter # yarn
+yarn add -D fff-flavored-frontmatter # yarn
 npm i -D fff-flavored-frontmatter # npm
 ```
 
