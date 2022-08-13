@@ -12,7 +12,7 @@
     "front-matter",
     "typescript"
   ],
-  "description": "Yet Another Opinionated Frontmatter Variable Specs.",
+  "description": "Type definition of the FFF Flavored Frontmatter.",
   "repository": {
     "type": "git",
     "url": "https://github.com/importantimport/fff.git",

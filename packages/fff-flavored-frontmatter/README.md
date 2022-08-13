@@ -1,6 +1,6 @@
 # FFF Flavored Frontmatter
 
-🌟 Yet Another Opinionated Frontmatter Variable Specs.
+🌟 Type definition of the FFF Flavored Frontmatter.
 
 ## Installation
 
