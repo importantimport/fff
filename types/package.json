@@ -21,10 +21,10 @@
   "homepage": "https://fff.js.org",
   "bugs": "https://github.com/importantimport/fff/issues",
   "type": "module",
-  "files": ["dist"],
-  "module": "dist/fff.mjs",
-  "main": "dist/fff.cjs",
-  "types": "dist/fff.d.ts",
+  "source": "./fff.ts",
+  "module": "./dist/fff.mjs",
+  "main": "./dist/fff.cjs",
+  "types": "./dist/fff.d.ts",
   "exports": {
     ".": {
       "import": "./dist/fff.mjs",
@@ -32,6 +32,10 @@
       "types": "./dist/fff.d.ts"
     }
   },
+  "files": [
+    "fff.ts",
+    "dist"
+  ],
   "unbuild": {
     "entries": [
       "./fff"
