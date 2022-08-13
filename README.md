@@ -3,46 +3,21 @@
 <img src="docs/public/glowing_star.svg" alt="fff" width="192px" />
 </a>
 </div>
-
 <h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
-<p align="center">
-<a href="https://npmjs.com/package/fff-flavored-frontmatter"><img src="https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow" alt="npm"></a>
-<a href="https://www.jsdocs.io/package/fff-flavored-frontmatter"><img src="https://img.shields.io/badge/jsdocs.io-reference-yellow" alt="jsdocs.io"></a>
-<img src="https://img.shields.io/npm/dt/fff-flavored-frontmatter?color=yellow" alt="downloads">
-<a href="https://deno.land/x/fff"><img src="https://img.shields.io/badge/available%20on-deno.land/x-black.svg?logo=deno" alt="deno.land"></a>
-</p>
-
 <p align="center">Yet Another Opinionated Frontmatter Variable Specs.</p>
 
 ## 📝 Documentation
 
 The documentation is located in the [`docs`](docs) folder and can be viewed from the GitHub About link.
 
-## 📦️ Package
+## 📦️ Packages
 
-### Installation
+### [fff-flavored-frontmatter](/packages/fff-flavored-frontmatter/) [![npm](https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow)](https://npmjs.com/package/fff-flavored-frontmatter) [![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/fff-flavored-frontmatter) ![minified size](https://img.shields.io/bundlephobia/min/fff-flavored-frontmatter?color=yellow) ![downloads](https://img.shields.io/npm/dt/fff-flavored-frontmatter?color=yellow) [![deno.land](https://img.shields.io/badge/available%20on-deno.land/x-black.svg?logo=deno)](https://deno.land/x/fff)
 
-> pls confirm the version you need before installing, or always keep the latest version.
-
-```bash
-pnpm add -D fff-flavored-frontmatter # pnpm
-yarn add -D fff-flavored-frontmatter # yarn
-npm i -D fff-flavored-frontmatter # npm
-```
-
-### Usage
+Type definition of the FFF Flavored Frontmatter.
 
 ```ts
-// Node ESM
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
-// import type { FFFBase, FFFExtra } from 'fff-flavored-frontmatter' // if you need them
-// import type { FFFImage, FFFAudio, FFFVideo, FFFAuthor } from 'fff-flavored-frontmatter' // if you need them
-
-// Node CJS
-const { FFFFlavoredFrontmatter } = require('fff-flavored-frontmatter')
-
-// Deno
-import type { FFFFlavoredFrontmatter } from 'https://deno.land/x/fff/fff.ts'
 ```
 
 ## 📄 License
