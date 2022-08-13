@@ -4,7 +4,7 @@
 
 ## Installation
 
-> Pls confirm the version you need before installing, or always keep the latest version.
+> pls confirm the version you need before installing, or always keep the latest version.
 
 ```bash
 pnpm add -D fff-flavored-frontmatter # pnpm
@@ -14,22 +14,15 @@ npm i -D fff-flavored-frontmatter # npm
 
 ## Usage
 
-Use in a ESM + TypeScript Node.js project:
-
 ```ts
+// Node ESM
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 // import type { FFFBase, FFFExtra } from 'fff-flavored-frontmatter' // if you need them
 // import type { FFFImage, FFFAudio, FFFVideo, FFFAuthor } from 'fff-flavored-frontmatter' // if you need them
-```
 
-CJS is also supported.
-
-```ts
+// Node CJS
 const { FFFFlavoredFrontmatter } = require('fff-flavored-frontmatter')
-```
 
-Or Deno?
-
-```ts
-import type { FFFFlavoredFrontmatter } from "https://deno.land/x/fff/fff.ts";
+// Deno
+import type { FFFFlavoredFrontmatter } from 'https://deno.land/x/fff/fff.ts'
 ```
