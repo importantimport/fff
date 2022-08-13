@@ -12,7 +12,9 @@ The documentation is located in the [`docs`](docs) folder and can be viewed from
 
 ## 📦️ Packages
 
-### [fff-flavored-frontmatter](/packages/fff-flavored-frontmatter/) [![npm](https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow)](https://npmjs.com/package/fff-flavored-frontmatter) [![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/fff-flavored-frontmatter) ![minified size](https://img.shields.io/bundlephobia/min/fff-flavored-frontmatter?color=yellow) ![downloads](https://img.shields.io/npm/dt/fff-flavored-frontmatter?color=yellow) [![deno.land](https://img.shields.io/badge/available%20on-deno.land/x-black.svg?logo=deno)](https://deno.land/x/fff)
+### [fff-flavored-frontmatter](/packages/fff-flavored-frontmatter/)
+
+[![npm](https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow)](https://npmjs.com/package/fff-flavored-frontmatter) [![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/fff-flavored-frontmatter) ![minified size](https://img.shields.io/bundlephobia/min/fff-flavored-frontmatter?color=yellow) ![downloads](https://img.shields.io/npm/dt/fff-flavored-frontmatter?color=yellow) [![deno.land](https://img.shields.io/badge/available%20on-deno.land/x-black.svg?logo=deno)](https://deno.land/x/fff)
 
 Type definition of the FFF Flavored Frontmatter.
 
