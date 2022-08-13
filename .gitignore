@@ -1,6 +1,6 @@
 # build output
 docs/.vitepress/dist
-types/dist
+packages/**/dist
 
 # dependencies
 node_modules
