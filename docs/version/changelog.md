@@ -21,6 +21,14 @@ For non-version-related changes, please refer to the [git commit history](https:
   - make [`audio`](/version/0.2.html#audio) [`video`](/version/0.2.html#video) as base variables
   - more accurate descriptions
 
+### Version 0.2.2 (2022-08-17)
+
+- Improve:
+  - make [`author.name`](/version/0.2.html#additional) optional
+- Chore:
+  - fix yaml install command in package README.md
+  - update package description
+
 ### Version 0.2.1 (2022-07-23)
 
 - Chore:
