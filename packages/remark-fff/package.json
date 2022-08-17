@@ -1,0 +1,26 @@
+{
+  "name": "remark-fff",
+  "version": "0.2.2",
+  "author": "藍+85CD",
+  "license": "WTFPL",
+  "keywords": [
+    "fff",
+    "fff-flavored-frontmatter",
+    "front",
+    "frontmatter",
+    "front matter",
+    "front-matter",
+    "remark",
+    "remark-plugin",
+    "typescript"
+  ],
+  "description": "Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "packages/remark-fff"
+  },
+  "homepage": "https://fff.js.org",
+  "bugs": "https://github.com/importantimport/fff/issues",
+  "type": "module"
+}

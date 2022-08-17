@@ -49,8 +49,5 @@
   "scripts": {
     "build": "unbuild",
     "stub": "unbuild --stub"
-  },
-  "devDependencies": {
-    "unbuild": "^0.7.4"
   }
 }

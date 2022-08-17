@@ -5,5 +5,8 @@
   "scripts": {
     "preinstall": "npx -y only-allow pnpm",
     "build": "pnpm -r build"
+  },
+  "devDependencies": {
+    "unbuild": "^0.8.8"
   }
 }
