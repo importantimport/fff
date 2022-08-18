@@ -31,11 +31,9 @@ importers:
 
   packages/remark-fff:
     specifiers:
-      '@types/unist': ^2.0.6
       fff-flavored-frontmatter: workspace:*
       unified: ^10.1.2
     devDependencies:
-      '@types/unist': 2.0.6
       fff-flavored-frontmatter: link:../fff-flavored-frontmatter
       unified: 10.1.2
 
