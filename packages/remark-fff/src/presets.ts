@@ -7,8 +7,8 @@ export const hugo: RemarkFFFPreset = {
   like_of: 'likeOf',
   repost_of: 'repostOf',
   in_reply_to: 'inReplyTo',
-  flags: (fm) => [
-    ...(fm.draft ? ['draft'] : []),
-    ...(fm.visibility ? [fm.visibility] : []),
+  flags: ({ draft, visibility }) => [
+    ...(draft ? ['draft'] : []),
+    ...(visibility ? [visibility] : []),
   ],
 }

@@ -37,9 +37,10 @@ const remarkFFF: Plugin =
     options.presets.forEach((preset) =>
       (preset instanceof Object ? preset : presets[preset]).forEach(
         ({ output, input }) =>
-          input instanceof Object
-            ? (fm = { ...fm, [output]: input(fm) })
-            : (fm = { ...fm, [output]: fm[input] })
+          (fm =
+            input instanceof Object
+              ? { ...fm, [output]: input(fm) }
+              : { ...fm, [output]: fm[input] })
       )
     )
     switch (options.target) {
