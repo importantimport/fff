@@ -3,11 +3,11 @@ import type { Plugin, Transformer } from 'unified'
 import * as presets from './presets'
 
 export type RemarkFFFOptions = {
-  presets: (string | Preset)[]
+  presets: (string | RemarkFFFPreset)[]
   target: 'mdsvex' | 'astro'
 }
 
-export type Preset = {
+export type RemarkFFFPreset = {
   [key in keyof FFFFlavoredFrontmatter]: string | ((fm: Frontmatter) => unknown)
 }
 
