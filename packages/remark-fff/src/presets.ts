@@ -1,6 +1,6 @@
-import type { Preset } from './index'
+import type { RemarkFFFPreset } from './index'
 
-export const hugo: Preset = {
+export const hugo: RemarkFFFPreset = {
   image: 'images',
   tags: 'category',
   bookmark_of: 'bookmarkOf',
