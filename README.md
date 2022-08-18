@@ -22,6 +22,8 @@ Type definition of the FFF Flavored Frontmatter.
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 ```
 
+---
+
 ### [remark-fff](/packages/remark-fff/)
 
 Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter. [WIP]
