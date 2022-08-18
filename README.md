@@ -22,6 +22,10 @@ Type definition of the FFF Flavored Frontmatter.
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 ```
 
+### [remark-fff](/packages/remark-fff/)
+
+Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter. [WIP]
+
 ## 📄 License
 
 > [glowing_star.svg](docs/public/glowing_star.svg) from the [adobe-fonts/noto-emoji-svg](https://github.com/adobe-fonts/noto-emoji-svg) distributed under the [Apache License, Version 2.0](https://github.com/adobe-fonts/noto-emoji-svg/blob/main/LICENSE).
