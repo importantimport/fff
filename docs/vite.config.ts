@@ -4,15 +4,12 @@ import type { VitePluginPWAAPI } from 'vite-plugin-pwa'
 import { VitePWA } from 'vite-plugin-pwa'
 
 const RebuildPWA = (): Plugin => ({
-  // @ts-ignore
   name: 'rebuild-pwa',
   closeBundle: async () => {
     const config = await resolveConfig({}, 'build', 'production')
     const pwaPlugin: VitePluginPWAAPI = config.plugins.find(
-      // @ts-ignore
       (i) => i.name === 'vite-plugin-pwa'
-      // @ts-ignore
-    )?.api
+    )!.api
     if (pwaPlugin && pwaPlugin.generateSW && !pwaPlugin.disabled)
       await pwaPlugin.generateSW()
   },
@@ -33,7 +30,8 @@ export default defineConfig({
         icons: [
           {
             src: 'glowing_star.svg',
-            sizes: '48x48 96x96 128x128 144x144 150x150 192x192 256x256 384x384 512x512 1024x1024',
+            sizes:
+              '48x48 96x96 128x128 144x144 150x150 192x192 256x256 384x384 512x512 1024x1024',
             type: 'image/svg+xml',
             purpose: 'any',
           },
