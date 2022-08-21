@@ -43,6 +43,8 @@ Configuration (optional).
 
 #### options.presets
 
+default: `['hugo']`
+
 Specifies a preset for how remark-fff will be converted.
 
 When it is a string, the corresponding object is retrieved from [presets.ts](src/presets.ts).
@@ -68,5 +70,7 @@ remarkPlugins: [
 ```
 
 #### options.target
+
+default: `mdsvex`
 
 Packages that use this plugin currently support MDsveX and Astro.
