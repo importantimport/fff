@@ -37,7 +37,7 @@ export default defineConfig({
 })
 ```
 
-### options
+### Options
 
 Configuration (optional).
 
@@ -74,3 +74,12 @@ remarkPlugins: [
 default: `mdsvex`
 
 Packages that use this plugin currently support MDsveX and Astro.
+
+```ts
+remarkPlugins: [
+  [
+    remarkFFF,
+    { target: 'astro' }
+  ]
+],
+```
