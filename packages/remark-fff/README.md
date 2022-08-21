@@ -1,0 +1,72 @@
+# Remark FFF
+
+🌟 Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
+
+## What is this?
+
+This package is a unified (remark) plugin to convert other frontmatter variable formats to FFF Flavored Frontmatter.
+
+Using it, you can painlessly migrate posts from old to FFF-compatible blog frameworks that use Remark.
+
+## Install
+
+This package supports both ESM and CJS.
+
+```bash
+pnpm add remark-fff
+yarn add remark-fff
+npm i remark-fff
+```
+
+## Usage
+
+Use in MDsveX or Astro:
+
+```ts
+import remarkFFF from 'remark-fff'
+
+export default defineConfig({
+  ...,
+  remarkPlugins: [
+    ...,
+    // without options
+    remarkFFF
+    // with options
+    [remarkFFF, { presets: ['hugo'], target: 'astro' }]
+  ],
+})
+```
+
+### options
+
+Configuration (optional).
+
+#### options.presets
+
+Specifies a preset for how remark-fff will be converted.
+
+When it is a string, the corresponding object is retrieved from [presets.ts](src/presets.ts).
+
+You can also create your own presets!
+
+```ts
+remarkPlugins: [
+  [
+    remarkFFF,
+    {
+      presets: [
+        'hugo', // presets['hugo']
+        {
+          created: 'date',
+          summary: 'excerpt',
+          flags: ({ draft }) => draft ? ['draft'] : []
+        }
+      ]
+    }
+  ]
+],
+```
+
+#### options.target
+
+Packages that use this plugin currently support MDsveX and Astro.
