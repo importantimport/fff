@@ -3,8 +3,14 @@ import type { Plugin, Transformer } from 'unified'
 import * as presets from './presets'
 
 export type RemarkFFFOptions = {
-  presets: (string | RemarkFFFPreset)[]
   target: 'mdsvex' | 'astro'
+  presets: (string | RemarkFFFPreset)[]
+  strict?: {
+    media?: {
+      type?: 'string' | 'object'
+      array?: boolean
+    }
+  }
 }
 
 export type RemarkFFFPreset = {
@@ -34,7 +40,10 @@ const remarkFFF: Plugin =
         ? file.data.fm
         : file.data.astro!.frontmatter),
     }
-    options.presets.forEach((preset) =>
+    ;[
+      ...options.presets,
+      ...(options.strict ? [presets['strict'](options.strict)] : []),
+    ].forEach((preset) =>
       (preset instanceof Object ? preset : presets[preset]).forEach(
         ({ output, input }) =>
           (fm = {
