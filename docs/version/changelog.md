@@ -9,9 +9,9 @@ outline: deep
 For non-version-related changes, please refer to the [git commit history](https://github.com/importantimport/fff/commits/main).
 :::
 
-## [Version 0.3](/version/0.3/) (2022-08-31)
+## [Version 0.3](/version/0.3.html) (2022-08-31)
 
-- Improve: [`image`](/version/0.3/#image) type: `(string | FFFImage | (string | FFFImage)[]) => (string | FFFImage | string[] | FFFImage[])`
+- Improve: [`image`](/version/0.3.html#image) type: `(string | FFFImage | (string | FFFImage)[]) => (string | FFFImage | string[] | FFFImage[])`
 
 ## [Version 0.2](/version/0.2.html) (2022-07-21)
 
