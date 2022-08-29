@@ -20,7 +20,8 @@ If your project is already FFF compatible,
 you can use the badge from [shields.io](https://shields.io) to illustrate this.
 
 <script setup>
-  import { version } from '../package.json'
+  import { version as packageVersion } from '../package.json'
+  const version = packageVersion.split('.').slice(0,2).join('.')
 </script>
 
 <ul>
