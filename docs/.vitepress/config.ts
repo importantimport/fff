@@ -50,8 +50,6 @@ export default defineConfig({
   description: 'Yet Another Opinionated Frontmatter Variable Specs.',
   appearance: true,
   lastUpdated: true,
-  ignoreDeadLinks: true,
-  cleanUrls: 'with-subfolders',
   markdown: {
     theme: {
       light: 'material-lighter',
