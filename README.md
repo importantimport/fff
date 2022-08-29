@@ -26,6 +26,8 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 
 ### [remark-fff](/packages/remark-fff/)
 
+[![npm](https://img.shields.io/npm/v/remark-fff?color=yellow)](https://npmjs.com/package/remark-fff) [![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/remark-fff) ![minified size](https://img.shields.io/bundlephobia/min/remark-fff?color=yellow) ![downloads](https://img.shields.io/npm/dt/remark-fff?color=yellow)
+
 Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter. [WIP]
 
 ## 📄 License
