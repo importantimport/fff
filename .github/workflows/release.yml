@@ -45,9 +45,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm -r -F fff-flavored-frontmatter build
+        run: pnpm -r -F fff-flavored-frontmatter remark-fff build
 
       - name: Publish to NPM
-        run: pnpm -r -F fff-flavored-frontmatter publish --no-git-checks
+        run: pnpm -r -F fff-flavored-frontmatter remark-fff publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
