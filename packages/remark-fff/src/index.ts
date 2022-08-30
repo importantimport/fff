@@ -53,14 +53,8 @@ const remarkFFF: Plugin =
           })
       )
     )
-    switch (options.target) {
-      case 'mdsvex':
-        file.data.fm = fm
-        break
-      case 'astro':
-        file.data.astro!.frontmatter = fm
-        break
-    }
+    if (options.target === 'mdsvex') file.data.fm = fm
+    else if (options.target === 'astro') file.data.astro!.frontmatter = fm
   }
 
 export default remarkFFF
