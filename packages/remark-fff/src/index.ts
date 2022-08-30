@@ -48,11 +48,8 @@ const remarkFFF: Plugin =
         ({ output, input }) =>
           (fm = {
             ...fm,
-            ...(input instanceof Object
-              ? { [output]: input(fm) }
-              : fm[input] !== undefined
-              ? { [output]: fm[input] }
-              : {}),
+            [output]:
+              input instanceof Function ? input(fm) : (fm[input] ?? fm[output]),
           })
       )
     )
