@@ -44,12 +44,14 @@ const remarkFFF: Plugin =
       ...options.presets,
       ...(options.strict ? [presets['strict'](options.strict)] : []),
     ].forEach((preset) =>
-      (preset instanceof Object ? preset : presets[preset]).forEach(
-        ({ output, input }) =>
+      Object.entries(
+        preset instanceof Object ? preset : (presets[preset] as RemarkFFFPreset)
+      ).forEach(
+        ([output, input]) =>
           (fm = {
             ...fm,
             [output]:
-              input instanceof Function ? input(fm) : (fm[input] ?? fm[output]),
+              input instanceof Function ? input(fm) : fm[input] ?? fm[output],
           })
       )
     )
