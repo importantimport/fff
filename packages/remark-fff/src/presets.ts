@@ -19,6 +19,18 @@ export const hugo: RemarkFFFPreset = {
   ],
 }
 
+export const hexo: RemarkFFFPreset = {
+  created: 'date',
+  summary: 'excerpt',
+  tags: ({
+    tags,
+    categories,
+  }: {
+    tags: string[]
+    categories: (string | string[])[]
+  }) => [...tags, ...Array.from(new Set(categories.flat()))],
+}
+
 export const strict = (strict: RemarkFFFOptions['strict']): RemarkFFFPreset => {
   const mediaTransform = (
     media:
