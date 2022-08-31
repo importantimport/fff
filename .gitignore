@@ -7,6 +7,7 @@ node_modules
 
 # logs
 pnpm-debug.log*
+.turbo
 
 # macOS-specific files
 .DS_Store
