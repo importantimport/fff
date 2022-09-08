@@ -31,6 +31,17 @@ importers:
   packages/fff-flavored-frontmatter:
     specifiers: {}
 
+  packages/indiekit-preset-fff:
+    specifiers:
+      '@iarna/toml': ^2.2.5
+      fff-flavored-frontmatter: workspace:^0.3.0
+      yaml: ^2.1.1
+    dependencies:
+      '@iarna/toml': 2.2.5
+      yaml: 2.1.1
+    devDependencies:
+      fff-flavored-frontmatter: link:../fff-flavored-frontmatter
+
   packages/remark-fff:
     specifiers:
       fff-flavored-frontmatter: workspace:*
@@ -1368,6 +1379,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@iarna/toml/2.2.5:
+    resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
+    dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
@@ -4403,3 +4418,8 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
     dev: true
+
+  /yaml/2.1.1:
+    resolution: {integrity: sha512-o96x3OPo8GjWeSLF+wOAbrPfhFOGY0W00GNaxCDv+9hkcDJEnev1yh8S7pgHF0ik6zc8sQLuL8hjHjJULZp8bw==}
+    engines: {node: '>= 14'}
+    dev: false
