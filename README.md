@@ -38,6 +38,12 @@ export default defineConfig({
 })
 ```
 
+---
+
+### [indiekit-preset-fff](/packages/indiekit-preset-fff/)
+
+FFF Flavored Frontmatter publication preset for Indiekit. [WIP]
+
 ## 📄 License
 
 > [glowing_star.svg](docs/public/glowing_star.svg) from the [adobe-fonts/noto-emoji-svg](https://github.com/adobe-fonts/noto-emoji-svg) distributed under the [Apache License, Version 2.0](https://github.com/adobe-fonts/noto-emoji-svg/blob/main/LICENSE).
