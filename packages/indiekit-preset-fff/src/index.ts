@@ -191,7 +191,7 @@ export default class FFFPreset {
    * @param properties - Post data variables
    * @returns Rendered template
    */
-  postTemplate(properties) {
+  public postTemplate(properties: any) {
     return (
       this.frontMatter({
         title: properties.name,
@@ -221,7 +221,7 @@ export default class FFFPreset {
     )
   }
 
-  init(Indiekit: any) {
+  public init(Indiekit: any) {
     Indiekit.addPreset(this)
   }
 }
