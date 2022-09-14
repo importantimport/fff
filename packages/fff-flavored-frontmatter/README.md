@@ -15,13 +15,10 @@ npm i -D fff-flavored-frontmatter # npm
 ## Usage
 
 ```ts
-// Node ESM
+// Node
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
-// import type { FFFBase, FFFExtra } from 'fff-flavored-frontmatter' // if you need them
-// import type { FFFImage, FFFAudio, FFFVideo, FFFAuthor } from 'fff-flavored-frontmatter' // if you need them
-
-// Node CJS
-const { FFFFlavoredFrontmatter } = require('fff-flavored-frontmatter')
+// import type { FFFBase, FFFExtra } from 'fff-flavored-frontmatter'
+// import type { FFFImage, FFFAudio, FFFVideo, FFFAuthor } from 'fff-flavored-frontmatter'
 
 // Deno
 import type { FFFFlavoredFrontmatter } from 'https://deno.land/x/fff/fff.ts'
