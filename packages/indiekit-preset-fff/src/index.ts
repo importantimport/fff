@@ -198,19 +198,21 @@ export default class FFFPreset {
         summary: properties.summary,
         published: properties.published,
         tags: properties.category,
-
         image: properties.photo,
         audio: properties.audio,
         video: properties.video,
-
         bookmark_of: properties.bookmarkOf,
         like_of: properties.likeOf,
         repost_of: properties.repostOf,
         in_reply_to: properties.inReplyTo,
-
         location: properties.location,
-
         flags: [...(properties.draft ? ['draft'] : []), properties.visibility],
+        // temporary
+        start: properties.start,
+        end: properties.end,
+        rsvp: properties.rsvp,
+        checkin: properties.checkin,
+        // mp_syndicate_to: properties.mpSyndicateTo,
       } as FFFFlavoredFrontmatter) +
       `${
         properties.content.text ??
