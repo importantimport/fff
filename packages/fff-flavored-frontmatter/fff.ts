@@ -68,6 +68,14 @@ export type FFFExtra = {
   in_reply_to?: string | string[]
   /** URL(s) of syndicated copies of this post. */
   syndication?: string | string[]
+  /** the URL of the venue/location h-card which the h-entry is considered a "checkin" of. */
+  checkin?: string
+  /** a reply to an event that says whether the sender is attending. */
+  rsvp?: 'yes' | 'no' | 'maybe' | 'interested'
+  /** datetime the event starts. */
+  start?: string
+  /** datetime the event ends. */
+  end?: string
 }
 
 /** FFF Flavored Frontmatter */
