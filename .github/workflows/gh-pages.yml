@@ -12,5 +12,3 @@ jobs:
     with:
       publish_dir: docs/.vitepress/dist
       cname: fff.js.org
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
