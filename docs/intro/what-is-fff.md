@@ -8,7 +8,7 @@ Yet Another Opinionated Frontmatter Variable Specs.
 
 ## Motivation
 
-I'm working on several static blog generators (see [Implementation](/intro/implementation) for details),
+I'm working on several static blog templates (see [Implementation](/intro/implementation) for details),
 
 so I'd like to design a FrontMatter Variable Specs to be shared between these projects.
 
