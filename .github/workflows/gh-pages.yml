@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    uses: importantimport/.github/workflows/pnpm-gh-pages.yml@main
+    uses: importantimport/.github/.github/workflows/pnpm-gh-pages.yml@main
     with:
       publish_dir: docs/.vitepress/dist
       cname: fff.js.org
