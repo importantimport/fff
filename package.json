@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "tsup": "^6.2.3",
-    "turbo": "^1.4.7",
+    "turbo": "^1.5.5",
     "unbuild": "^0.8.11"
   }
 }
