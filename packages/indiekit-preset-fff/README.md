@@ -4,6 +4,8 @@ FFF Flavored Frontmatter publication preset for Indiekit.
 
 ## Installation
 
+> This package has not been released and is currently unavailable.
+
 `npm i indiekit-preset-fff`
 
 ## Usage
