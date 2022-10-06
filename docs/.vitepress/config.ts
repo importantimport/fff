@@ -32,6 +32,15 @@ const sidebar = () => [
     ],
   },
   {
+    text: 'Packages',
+    collapsible: true,
+    items: [
+      { text: 'fff-flavored-frontmatter', link: '/packages/fff-flavored-frontmatter'},
+      { text: 'remark-fff', link: '/packages/remark-fff'},
+      { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff'}
+    ]
+  },
+  {
     text: 'Version',
     collapsible: true,
     items: [
