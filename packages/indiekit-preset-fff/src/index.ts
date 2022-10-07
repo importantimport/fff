@@ -3,13 +3,19 @@ import { version } from '../package.json'
 import TOML from '@iarna/toml'
 import YAML from 'yaml'
 
+export type IndiekitPresetFFFOptions = {
+  /**
+   * Front matter format to use.
+   * @defaultValue `yaml`
+   */
+  format?: 'json' | 'toml' | 'yaml'
+}
+
 export default class FFFPreset {
   id: string
   meta: ImportMeta
   name: string
-  options: {
-    format: 'json' | 'toml' | 'yaml'
-  }
+  options: IndiekitPresetFFFOptions
 
   constructor(options = {}) {
     this.id = 'fff'
