@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { version } from '../package.json'
+import { version } from '../package.json' assert { type: 'json' }
 import footnote from 'markdown-it-footnote'
 
 const nav = () => [
