@@ -58,7 +58,7 @@ export default defineConfig({
   title: 'FFF Flavored Frontmatter',
   titleTemplate: 'FFF',
   description: 'Yet Another Opinionated Frontmatter Variable Specs.',
-  appearance: true,
+  appearance: 'dark',
   lastUpdated: true,
   markdown: {
     theme: {
