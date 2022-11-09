@@ -1,18 +1,30 @@
 ---
-title: 'Implementation'
+title: 'Implementing'
 ---
 
-# Implementation
+# Implementing
 
-All projects known to implement or partially implement FFF are listed here.
+## Make Compatible
 
-- [Urara](https://github.com/importantimport/urara) - Sweet, Powerful, IndieWeb-Compatible SvelteKit Blog Starter.
-- [Gumori](https://github.com/importantimport/gumori) - Minimal Stylesheets, IndieWeb-Compatible Astro Blog Starter.
-  - [Gumori You](https://github.com/importantimport/gumori-you) - Bringing Material Design 3 to the Astro Blog.
+This document contains all historical versions of FFF. (see [changelog](/version/changelog.html) for details)
 
-Add yours is also welcome! You can decide for yourself which variables you want to be compatible with (and expand on them)
+In general, you only need to consider compatibility with the latest version.
 
-> But pls don't have variables that are close in function but named differently: e.g. `lastmod` and `updated`.
+You can extend the functionality of FFF as much as you want, but can't intentionally create incompatibilities.
+
+For example, it is possible to make authors support `id`, but not rename tags to categories, and so on.
+
+```yaml
+authors:
+  - johndoe # compatible
+  - name: Jane Doe
+    id: janedoe # compatible
+    url: https://fff.js.org/~janedoe
+categories: # incompatible
+  - Foo
+  - Bar
+
+```
 
 ## Badges
 

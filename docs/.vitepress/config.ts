@@ -24,21 +24,25 @@ const sidebar = () => [
     collapsible: true,
     items: [
       { text: 'What is FFF?', link: '/intro/what-is-fff' },
-      { text: 'Implementation', link: '/intro/implementation' },
+      { text: 'Implementing', link: '/intro/implementing' },
       {
         text: 'Contributing',
         link: '/intro/contributing',
       },
+      { text: 'Showcase', link: '/intro/showcase' },
     ],
   },
   {
     text: 'Packages',
     collapsible: true,
     items: [
-      { text: 'fff-flavored-frontmatter', link: '/packages/fff-flavored-frontmatter'},
-      { text: 'remark-fff', link: '/packages/remark-fff'},
-      { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff'}
-    ]
+      {
+        text: 'fff-flavored-frontmatter',
+        link: '/packages/fff-flavored-frontmatter',
+      },
+      { text: 'remark-fff', link: '/packages/remark-fff' },
+      { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff' },
+    ],
   },
   {
     text: 'Version',
