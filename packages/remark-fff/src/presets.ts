@@ -44,7 +44,7 @@ export const strict = (strict: RemarkFFFOptions['strict']): RemarkFFFPreset => {
     else if (result instanceof Object && strict.media.type === 'string')
       result = (result as FFFImage | FFFAudio | FFFVideo).src
     else if (result instanceof Array) {
-      result = result.map((media) =>
+      result = result.map((media: string | FFFImage) =>
         media instanceof String && strict.media.type === 'object'
           ? ({ src: result } as FFFImage | FFFAudio | FFFVideo)
           : media instanceof Object && strict.media.type === 'string'
