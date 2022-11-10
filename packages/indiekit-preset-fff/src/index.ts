@@ -212,8 +212,10 @@ export default class FFFPreset {
         repost_of: properties['repost-of'],
         in_reply_to: properties['in-reply-to'],
         location: properties.location,
-        flags: [...(properties.draft ? ['draft'] : []), properties.visibility],
-        // temporary
+        flags: [
+          ...(properties.draft ? ['draft'] : []),
+          ...(properties.visibility ? [properties.visibility] : []),
+        ],
         start: properties.start,
         end: properties.end,
         rsvp: properties.rsvp,
