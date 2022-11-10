@@ -13,10 +13,14 @@ export const hugo: RemarkFFFPreset = {
   like_of: 'likeOf',
   repost_of: 'repostOf',
   in_reply_to: 'inReplyTo',
-  flags: ({ draft, visibility }) => [
-    ...(draft ? ['draft'] : []),
-    ...(visibility ? [visibility] : []),
-  ],
+  flags: ({ flags, draft, visibility }) =>
+    Array.from(
+      new Set([
+        ...flags,
+        ...(draft ? ['draft'] : []),
+        ...(visibility ? [visibility] : []),
+      ])
+    ),
 }
 
 export const hexo: RemarkFFFPreset = {
