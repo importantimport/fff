@@ -1,6 +1,6 @@
 {
   "name": "fff-flavored-frontmatter",
-  "version": "0.4.0-alpha.0",
+  "version": "0.4.0",
   "author": "藍+85CD",
   "license": "WTFPL",
   "keywords": [
@@ -30,7 +30,8 @@
       "import": "./dist/fff.mjs",
       "require": "./dist/fff.cjs",
       "types": "./dist/fff.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "fff.ts",

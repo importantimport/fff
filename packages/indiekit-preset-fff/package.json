@@ -1,6 +1,6 @@
 {
   "name": "indiekit-preset-fff",
-  "version": "0.4.0-alpha.0",
+  "version": "0.4.0",
   "author": "藍+85CD",
   "license": "WTFPL",
   "keywords": [
@@ -29,7 +29,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
