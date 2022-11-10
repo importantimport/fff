@@ -20,7 +20,7 @@ export default class FFFPreset {
   constructor(options = {}) {
     this.id = 'fff'
     this.meta = import.meta
-    this.name = 'FFF preset'
+    this.name = `FFF ${version} preset`
     this.options = { format: 'yaml', ...options }
   }
 
