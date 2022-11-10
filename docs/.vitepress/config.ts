@@ -1,5 +1,6 @@
-import { defineConfig } from 'vitepress'
 import { version } from '../package.json' assert { type: 'json' }
+import { defineConfig } from 'vitepress'
+import { withPwa } from '@vite-pwa/vitepress'
 import footnote from 'markdown-it-footnote'
 
 const nav = () => [
@@ -57,67 +58,123 @@ const sidebar = () => [
   },
 ]
 
-export default defineConfig({
-  lang: 'en-US',
-  title: 'FFF Flavored Frontmatter',
-  titleTemplate: 'FFF',
-  description: 'Yet Another Opinionated Frontmatter Variable Specs.',
-  appearance: 'dark',
-  lastUpdated: true,
-  markdown: {
-    theme: {
-      light: 'material-lighter',
-      dark: 'material-darker',
+export default withPwa(
+  defineConfig({
+    lang: 'en-US',
+    title: 'FFF Flavored Frontmatter',
+    titleTemplate: 'FFF',
+    description: 'Yet Another Opinionated Frontmatter Variable Specs.',
+    appearance: 'dark',
+    lastUpdated: true,
+    markdown: {
+      theme: {
+        light: 'material-lighter',
+        dark: 'material-darker',
+      },
+      config: (md) => md.use(footnote),
     },
-    config: (md) => md.use(footnote),
-  },
-  head: [
-    ['link', { rel: 'icon', href: '/glowing_star.svg', type: 'image/svg+xml' }],
-    [
-      'link',
-      {
-        rel: 'manifest',
-        href: '/manifest.webmanifest',
-        type: 'application/manifest+json',
+    head: [
+      [
+        'link',
+        { rel: 'icon', href: '/glowing_star.svg', type: 'image/svg+xml' },
+      ],
+      [
+        'link',
+        {
+          rel: 'manifest',
+          href: '/manifest.webmanifest',
+          type: 'application/manifest+json',
+        },
+      ],
+      [
+        'meta',
+        {
+          property: 'og:image',
+          content:
+            'https://og-image.vercel.app/**FFF**%20Flavored%20Frontmatter.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&images=https%3A%2F%2Ffff.js.org%2Fglowing_star.svg&widths=256&widths=384&heights=256&heights=384',
+        },
+      ],
+      [
+        'meta',
+        {
+          property: 'twitter:image',
+          content:
+            'https://og-image.vercel.app/**FFF**%20Flavored%20Frontmatter.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&images=https%3A%2F%2Ffff.js.org%2Fglowing_star.svg&widths=256&widths=384&heights=256&heights=384',
+        },
+      ],
+      ['meta', { property: 'twitter:card', content: 'summary' }],
+      [
+        'script',
+        {
+          src: 'https://plausible.kwaa.dev/js/plausible.js',
+          defer: '',
+          'data-domain': 'fff.js.org',
+        },
+      ],
+    ],
+    themeConfig: {
+      nav: nav(),
+      sidebar: sidebar(),
+      siteTitle: 'FFF',
+      logo: '/glowing_star.svg',
+      socialLinks: [
+        { icon: 'github', link: 'https://github.com/importantimport/fff' },
+      ],
+      editLink: {
+        pattern: 'https://github.com/importantimport/fff/edit/main/:path',
+        text: 'Suggest changes to this page',
       },
-    ],
-    [
-      'meta',
-      {
-        property: 'og:image',
-        content:
-          'https://og-image.vercel.app/**FFF**%20Flavored%20Frontmatter.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&images=https%3A%2F%2Ffff.js.org%2Fglowing_star.svg&widths=256&widths=384&heights=256&heights=384',
-      },
-    ],
-    [
-      'meta',
-      {
-        property: 'twitter:image',
-        content:
-          'https://og-image.vercel.app/**FFF**%20Flavored%20Frontmatter.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&images=https%3A%2F%2Ffff.js.org%2Fglowing_star.svg&widths=256&widths=384&heights=256&heights=384',
-      },
-    ],
-    ['meta', { property: 'twitter:card', content: 'summary' }],
-    [
-      'script',
-      {
-        src: 'https://plausible.kwaa.dev/js/plausible.js',
-        defer: '',
-        'data-domain': 'fff.js.org',
-      },
-    ],
-  ],
-  themeConfig: {
-    nav: nav(),
-    sidebar: sidebar(),
-    siteTitle: 'FFF',
-    logo: '/glowing_star.svg',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/importantimport/fff' },
-    ],
-    editLink: {
-      pattern: 'https://github.com/importantimport/fff/edit/main/:path',
-      text: 'Suggest changes to this page',
     },
-  },
-})
+    pwa: {
+      registerType: 'autoUpdate',
+      includeManifestIcons: false,
+      manifest: {
+        id: '/',
+        name: 'FFF Flavored Frontmatter',
+        short_name: 'FFF',
+        description: 'Yet Another Opinionated Frontmatter Variable Specs.',
+        theme_color: '#fdd835',
+        icons: [
+          {
+            src: 'glowing_star.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
+            purpose: 'any',
+          },
+        ],
+      },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gstatic-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
+    },
+  })
+)
