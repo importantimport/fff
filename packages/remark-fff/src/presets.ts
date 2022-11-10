@@ -31,6 +31,7 @@ export const hexo: RemarkFFFPreset = {
   }) => [...tags, ...Array.from(new Set(categories.flat()))],
 }
 
+/** @alpha */
 export const strict = (strict: RemarkFFFOptions['strict']): RemarkFFFPreset => {
   const mediaTransform = (
     media:
