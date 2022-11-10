@@ -41,6 +41,7 @@
     "watch": "tsup --watch"
   },
   "devDependencies": {
+    "@types/unist": "^2.0.6",
     "fff-flavored-frontmatter": "workspace:*",
     "unified": "^10.1.2"
   }
