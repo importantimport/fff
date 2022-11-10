@@ -36,6 +36,14 @@ export const hexo: RemarkFFFPreset = {
 }
 
 /** @alpha */
+export const zola: RemarkFFFPreset = {
+  summary: 'description',
+  created: 'date',
+  flags: ({ flags, draft }) =>
+    Array.from(new Set([...flags, ...(draft ? ['draft'] : [])])),
+}
+
+/** @alpha */
 export const strict = (strict: RemarkFFFOptions['strict']): RemarkFFFPreset => {
   const mediaTransform = (
     media:
