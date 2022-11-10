@@ -13,9 +13,9 @@ Using it, you can painlessly migrate posts from old to FFF-compatible blog frame
 This package supports both ESM and CJS.
 
 ```bash
-pnpm add remark-fff
-yarn add remark-fff
-npm i remark-fff
+pnpm add remark-fff # pnpm
+# yarn add remark-fff # yarn
+# npm i remark-fff # npm
 ```
 
 ## Usage

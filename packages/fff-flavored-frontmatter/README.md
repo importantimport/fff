@@ -8,8 +8,8 @@
 
 ```bash
 pnpm add -D fff-flavored-frontmatter # pnpm
-yarn add -D fff-flavored-frontmatter # yarn
-npm i -D fff-flavored-frontmatter # npm
+# yarn add -D fff-flavored-frontmatter # yarn
+# npm i -D fff-flavored-frontmatter # npm
 ```
 
 ## Usage
