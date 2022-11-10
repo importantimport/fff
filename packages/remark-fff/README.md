@@ -83,3 +83,25 @@ remarkPlugins: [
   ]
 ],
 ```
+
+#### options.strict
+
+default: `undefined`
+
+Forced conversion to a single type, currently limited to media variables.
+
+```ts
+remarkPlugins: [
+  [
+    remarkFFF,
+    {
+      strict: {
+        media: {
+          type: 'string',
+          array: false
+        }
+      }
+    }
+  ]
+],
+```
