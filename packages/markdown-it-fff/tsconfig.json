@@ -1,0 +1,3 @@
+{
+  "extends": "../remark-fff/tsconfig.json"
+}
