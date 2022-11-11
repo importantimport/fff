@@ -53,21 +53,23 @@ type Frontmatter = FFFFlavoredFrontmatter & {
   [key: string]: unknown
 }
 
-type File = {
-  data:
-    | {
-        /** MDsveX */
+type File =
+  | /** MDsveX */ {
+      filename: string
+      data: {
         fm: Frontmatter
         astro: never
       }
-    | {
+    }
+  | /** Astro */ {
+      filename: never
+      data: {
         fm: never
-        /** Astro */
         astro: {
           frontmatter: Frontmatter
         }
       }
-}
+    }
 
 const remarkFFF: Plugin<[RemarkFFFOptions]> =
   (options = { presets: ['hugo'], target: 'mdsvex' }) =>
@@ -80,9 +82,9 @@ const remarkFFF: Plugin<[RemarkFFFOptions]> =
     ;[
       ...options.presets,
       ...(options.strict ? [strict(options.strict)] : []),
-    ].forEach((preset) =>
+    ].forEach((preset: RemarkFFFPreset) =>
       Object.entries(
-        preset instanceof Object ? preset : (presets[preset] as RemarkFFFPreset)
+        preset instanceof Object ? preset : presets[preset]
       ).forEach(
         ([output, input]) =>
           (fm = {
