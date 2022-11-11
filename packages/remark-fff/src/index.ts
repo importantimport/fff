@@ -2,11 +2,16 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 import type { Processor, TransformCallback } from 'unified'
 import type { Node } from 'unist'
 import * as presets from './presets'
+import * as autofill from './autofill'
 import { strict } from './strict'
 
 export type RemarkFFFOptions = {
   target: 'mdsvex' | 'astro'
   presets: (string | RemarkFFFPreset)[]
+  autofill?: {
+    provider: 'fs'
+    path?: string | ((path: string) => string)
+  }
   strict?: {
     media?: {
       type?: 'string' | 'object'
@@ -81,6 +86,18 @@ const remarkFFF: Plugin<[RemarkFFFOptions]> =
     }
     ;[
       ...options.presets,
+      ...(options.autofill?.provider && options.target === 'mdsvex'
+        ? // currently MDsveX only
+          [
+            autofill[options.autofill.provider](
+              options.autofill.path
+                ? options.autofill.path instanceof Function
+                  ? options.autofill.path(file.filename)
+                  : autofill.path[options.autofill.path](file.filename)
+                : file.filename
+            ),
+          ]
+        : []),
       ...(options.strict ? [strict(options.strict)] : []),
     ].forEach((preset: RemarkFFFPreset) =>
       Object.entries(
