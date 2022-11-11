@@ -61,6 +61,7 @@ type Frontmatter = FFFFlavoredFrontmatter & {
 type File =
   | /** MDsveX */ {
       filename: string
+      path: never
       data: {
         fm: Frontmatter
         astro: never
@@ -68,6 +69,7 @@ type File =
     }
   | /** Astro */ {
       filename: never
+      path: string
       data: {
         fm: never
         astro: {
@@ -79,6 +81,7 @@ type File =
 const remarkFFF: Plugin<[RemarkFFFOptions]> =
   (options = { presets: ['hugo'], target: 'mdsvex' }) =>
   (_tree, file) => {
+    const path = file.filename ?? file.path
     let fm = {
       ...(options.target === 'mdsvex'
         ? file.data.fm
@@ -86,14 +89,13 @@ const remarkFFF: Plugin<[RemarkFFFOptions]> =
     }
     ;[
       ...options.presets,
-      ...(options.autofill?.provider && options.target === 'mdsvex'
-        ? // currently MDsveX only
-          [
+      ...(options.autofill?.provider
+        ? [
             autofill[options.autofill.provider](
               options.autofill.path
                 ? options.autofill.path instanceof Function
-                  ? options.autofill.path(file.filename)
-                  : autofill.path[options.autofill.path](file.filename)
+                  ? options.autofill.path(path)
+                  : autofill.path[options.autofill.path](path)
                 : file.filename
             ),
           ]
