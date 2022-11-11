@@ -26,3 +26,4 @@ Add `indiekit-preset-fff` to your list of plug-ins, specifying options as requir
 | Option   | Type     | Description                                                                            |
 | :------- | :------- | :------------------------------------------------------------------------------------- |
 | `format` | `string` | Front matter format to use (`json`, `toml` or `yaml`). _Optional_, defaults to `yaml`. |
+| `types`  | `string` | Post types to use (`urara`). _Optional_, defaults to `urara`.                          |
