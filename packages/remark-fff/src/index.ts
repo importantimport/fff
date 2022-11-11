@@ -2,6 +2,7 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 import type { Processor, TransformCallback } from 'unified'
 import type { Node } from 'unist'
 import * as presets from './presets'
+import { strict } from './strict'
 
 export type RemarkFFFOptions = {
   target: 'mdsvex' | 'astro'
@@ -78,7 +79,7 @@ const remarkFFF: Plugin<[RemarkFFFOptions]> =
     }
     ;[
       ...options.presets,
-      ...(options.strict ? [presets['strict'](options.strict)] : []),
+      ...(options.strict ? [strict(options.strict)] : []),
     ].forEach((preset) =>
       Object.entries(
         preset instanceof Object ? preset : (presets[preset] as RemarkFFFPreset)
