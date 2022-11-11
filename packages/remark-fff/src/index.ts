@@ -9,7 +9,7 @@ export type RemarkFFFOptions = {
   target: 'mdsvex' | 'astro'
   presets: (string | RemarkFFFPreset)[]
   autofill?: {
-    provider: 'fs'
+    provider: 'fs' | 'git'
     path?: string | ((path: string) => string)
   }
   strict?: {
