@@ -10,7 +10,7 @@ export const hugo: RemarkFFFPreset = {
   flags: ({ flags, draft, visibility }) =>
     Array.from(
       new Set([
-        ...flags,
+        ...(flags ?? []),
         ...(draft ? ['draft'] : []),
         ...(visibility ? [visibility] : []),
       ])
