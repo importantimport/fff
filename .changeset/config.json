@@ -7,9 +7,5 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [
-    "fff-monorepo",
-    "fff-docs",
-    "markdown-it-fff"
-  ]
+  "ignore": []
 }
