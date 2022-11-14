@@ -48,6 +48,6 @@ jobs:
         run: pnpm -r -F "./packages/**" build
 
       - name: Publish
-        run: pnpm -r -F "./packages/**" publish --no-git-checks
+        run: pnpm -r -F "./packages/**" publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
