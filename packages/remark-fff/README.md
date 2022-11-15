@@ -52,21 +52,16 @@ When it is a string, the corresponding object is retrieved from [presets.ts](src
 You can also create your own presets!
 
 ```ts
-remarkPlugins: [
-  [
-    remarkFFF,
+remarkFFF({
+  presets: [
+    'hugo', // presets['hugo']
     {
-      presets: [
-        'hugo', // presets['hugo']
-        {
-          created: 'date',
-          summary: 'excerpt',
-          flags: ({ draft }) => draft ? ['draft'] : []
-        }
-      ]
-    }
-  ]
-],
+      created: 'date',
+      summary: 'excerpt',
+      flags: ({ draft }) => (draft ? ['draft'] : []),
+    },
+  ],
+})
 ```
 
 #### options.target
@@ -76,12 +71,7 @@ default: `mdsvex`
 Packages that use this plugin currently support MDsveX and Astro.
 
 ```ts
-remarkPlugins: [
-  [
-    remarkFFF,
-    { target: 'astro' }
-  ]
-],
+remarkFFF({ target: 'astro' })
 ```
 
 #### options.strict
@@ -91,17 +81,12 @@ default: `undefined`
 Forced conversion to a single type, currently limited to media variables.
 
 ```ts
-remarkPlugins: [
-  [
-    remarkFFF,
-    {
-      strict: {
-        media: {
-          type: 'string',
-          array: false
-        }
-      }
-    }
-  ]
-],
+remarkFFF({
+  strict: {
+    media: {
+      type: 'string',
+      array: false,
+    },
+  },
+})
 ```
