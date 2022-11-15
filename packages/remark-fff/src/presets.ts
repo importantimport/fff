@@ -26,7 +26,7 @@ export const hexo: RemarkFFFPreset = {
   }: {
     tags: string[]
     categories: (string | string[])[]
-  }) => [...tags, ...Array.from(new Set(categories.flat()))],
+  }) => [...(tags ?? []), ...Array.from(new Set((categories ?? []).flat()))],
 }
 
 /** @alpha */
