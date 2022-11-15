@@ -4,8 +4,7 @@ import { statSync } from 'node:fs'
 import { EOL } from 'node:os'
 
 export const path = {
-  urara: (path: string) =>
-    new URL(`./urara${path.split('/src/routes')[1]}`, import.meta.url),
+  urara: (path: string) => path.replace('/src/routes/', '/urara/'),
 } as const
 
 /** @alpha */
