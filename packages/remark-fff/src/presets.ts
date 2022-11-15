@@ -1,3 +1,4 @@
+import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 import type { RemarkFFFPreset } from './index'
 
 export const hugo: RemarkFFFPreset = {
@@ -7,7 +8,15 @@ export const hugo: RemarkFFFPreset = {
   like_of: 'likeOf',
   repost_of: 'repostOf',
   in_reply_to: 'inReplyTo',
-  flags: ({ flags, draft, visibility }) =>
+  flags: ({
+    flags,
+    draft,
+    visibility,
+  }: {
+    flags?: FFFFlavoredFrontmatter['flags']
+    draft?: boolean
+    visibility?: 'public' | 'unlisted' | 'private'
+  }) =>
     Array.from(
       new Set([
         ...(flags ?? []),
@@ -24,8 +33,8 @@ export const hexo: RemarkFFFPreset = {
     tags,
     categories,
   }: {
-    tags: string[]
-    categories: (string | string[])[]
+    tags?: FFFFlavoredFrontmatter['tags']
+    categories?: (string | string[])[]
   }) => [...(tags ?? []), ...Array.from(new Set((categories ?? []).flat()))],
 }
 
@@ -33,6 +42,11 @@ export const hexo: RemarkFFFPreset = {
 export const zola: RemarkFFFPreset = {
   summary: 'description',
   created: 'date',
-  flags: ({ flags, draft }) =>
-    Array.from(new Set([...flags, ...(draft ? ['draft'] : [])])),
+  flags: ({
+    flags,
+    draft,
+  }: {
+    flags?: FFFFlavoredFrontmatter['flags']
+    draft?: boolean
+  }) => Array.from(new Set([...flags, ...(draft ? ['draft'] : [])])),
 }
