@@ -8,7 +8,7 @@
 
 ## 📝 Documentation
 
-The documentation is located in the [`docs`](docs) folder and can be viewed from the GitHub About link.
+The documentation is located in the [`docs`](docs) folder and can be viewed from [fff.js.org](https://fff.js.org).
 
 ## 📦️ Packages
 
