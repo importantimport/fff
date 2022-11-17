@@ -32,7 +32,7 @@ export default class FFFPreset {
 
   get info() {
     return {
-      name: 'FFF Flavored Frontmatter' + version,
+      name: 'FFF Flavored Frontmatter ' + version,
     }
   }
 
