@@ -1,4 +1,4 @@
-import type { FFFFlavoredFrontmatter } from './types'
+import type { FFFFlavoredFrontmatter, FFFImage } from './types'
 
 /**
  * Post Type Discovery
@@ -24,3 +24,65 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
   else if (fm.image) return 'photo'
   else return 'note'
 }
+
+/**
+ * From FFF to JSON Feed Item (Version 1.1)
+ * @alpha
+ * @see {@link https://jsonfeed.org/version/1.1}
+ * @param fm FFF Flavored Frontmatter
+ * @returns JSON Feed Item Object (without content / id / url)
+ */
+export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): {} => ({
+  title: fm.title,
+  summary: fm.summary,
+  image:
+    fm.image instanceof Array
+      ? fm.image[0] instanceof Object
+        ? (fm.image[0] as FFFImage).src
+        : fm.image[0]
+      : fm.image instanceof Object
+      ? (fm.image as FFFImage).src
+      : fm.image,
+  date_published: fm.published ?? fm.created,
+  date_modified: fm.updated,
+  authors: fm.authors,
+  tags: fm.tags,
+  language: fm.lang,
+  /**
+   * JSON Feed IndieWeb Extension
+   * @see {@link https://indieweb.org/JSON_Feed#IndieWeb_Extension}
+   */
+  _indieweb: {
+    type: typeDiscovery(fm),
+    syndication: fm.syndication,
+    'in-reply-to': fm.in_reply_to,
+    'bookmark-of': fm.bookmark_of,
+    'repost-of': fm.repost_of,
+    'like-of': fm.like_of,
+  },
+  // TODO: https://www.jsonfeed.org/version/1.1/#attachments-a-name-attachments-a
+  // TODO: https://www.jsonfeed.org/podcasting/
+})
+
+// /**
+//  * From FFF to JF2 Feed Child (Editor's Draft 09 February 2019)
+//  * @alpha
+//  * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
+//  * @param fm FFF Flavored Frontmatter
+//  * @returns JF2 Feed Child Object (without content / uid / url)
+//  */
+// export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter): {} => ({
+//   type: 'entry',
+//   name: fm.title,
+//   published: fm.published ?? fm.created,
+//   updated: fm.updated,
+//   category: fm.tags,
+//   photo: !fm.title && fm.image,
+//   featured: fm.title && fm.image,
+//   author: fm.authors && {
+//     type: 'card',
+//     name: fm.authors[0].name,
+//     photo: fm.authors[0].avatar,
+//     url: fm.authors[0].url,
+//   },
+// })
