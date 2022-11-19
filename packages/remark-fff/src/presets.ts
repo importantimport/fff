@@ -1,6 +1,10 @@
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 import type { RemarkFFFPreset } from './index'
 
+/**
+ * @see {@link https://gohugo.io/content-management/front-matter/#predefined}
+ * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
+ */
 export const hugo: RemarkFFFPreset = {
   image: 'images',
   tags: 'category',
@@ -26,6 +30,7 @@ export const hugo: RemarkFFFPreset = {
     ),
 }
 
+/** @see {@link https://hexo.io/docs/front-matter.html} */
 export const hexo: RemarkFFFPreset = {
   created: 'date',
   summary: 'excerpt',
@@ -38,7 +43,7 @@ export const hexo: RemarkFFFPreset = {
   }) => [...(tags ?? []), ...Array.from(new Set((categories ?? []).flat()))],
 }
 
-/** @alpha */
+/** @see {@link https://www.getzola.org/documentation/content/page/#front-matter} */
 export const zola: RemarkFFFPreset = {
   summary: 'description',
   created: 'date',
