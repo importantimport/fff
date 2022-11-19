@@ -3,6 +3,7 @@ import type { FFFFlavoredFrontmatter, FFFImage } from './types'
 /**
  * Post Type Discovery
  * @see {@link https://ptd.spec.indieweb.org/}
+ * @see {@link https://indieweb.org/posts#Types_of_Posts}
  * @param fm FFF Flavored Frontmatter
  * @returns lower case post type string
  */
