@@ -55,3 +55,9 @@ export const zola: RemarkFFFPreset = {
     draft?: boolean
   }) => Array.from(new Set([...flags, ...(draft ? ['draft'] : [])])),
 }
+
+/**
+ * @see {@link https://content.nuxtjs.org/guide/writing/markdown/#front-matter}
+ * since nuxt content is similar to zola, it is straightforward to use
+ */
+export const nuxt: RemarkFFFPreset = zola
