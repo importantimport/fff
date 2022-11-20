@@ -43,6 +43,49 @@ export const hexo: RemarkFFFPreset = {
   }) => [...(tags ?? []), ...Array.from(new Set((categories ?? []).flat()))],
 }
 
+/**
+ * @alpha
+ * @see {@link https://jekyllrb.com/docs/front-matter/}
+ * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-jekyll/index.js}
+ */
+export const jekyll: RemarkFFFPreset = {
+  summary: 'excerpt',
+  created: 'date',
+  image: 'photo',
+  bookmark_of: 'bookmark-of',
+  like_of: 'like-of',
+  repost_of: 'repost-of',
+  in_reply_to: 'in-reply-to',
+  tags: ({
+    tags,
+    category,
+    categories,
+  }: {
+    tags?: FFFFlavoredFrontmatter['tags']
+    category?: string[]
+    categories?: string[]
+  }) =>
+    Array.from(
+      new Set([...(tags ?? []), ...(category ?? []), ...(categories ?? [])])
+    ),
+  flags: ({
+    flags,
+    draft,
+    visibility,
+  }: {
+    flags?: FFFFlavoredFrontmatter['flags']
+    draft?: boolean
+    visibility?: 'public' | 'unlisted' | 'private'
+  }) =>
+    Array.from(
+      new Set([
+        ...(flags ?? []),
+        ...(draft ? ['draft'] : []),
+        ...(visibility ? [visibility] : []),
+      ])
+    ),
+}
+
 /** @see {@link https://www.getzola.org/documentation/content/page/#front-matter} */
 export const zola: RemarkFFFPreset = {
   summary: 'description',
