@@ -46,9 +46,11 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@mdit-vue/plugin-frontmatter": "^0.11.1",
     "@types/linkify-it": "^3.0.2",
     "@types/markdown-it": "^12.2.3",
     "@types/mdurl": "^1.0.2",
-    "fff-flavored-frontmatter": "workspace:*"
+    "fff-flavored-frontmatter": "workspace:*",
+    "markdown-it": "^13.0.1"
   }
 }
