@@ -16,7 +16,8 @@ Add `indiekit-preset-fff` to your list of plug-ins, specifying options as requir
 {
   "plugins": ["indiekit-preset-fff"],
   "indiekit-preset-fff": {
-    "format": "json"
+    "format": "yaml",
+    "types": "urara"
   }
 }
 ```

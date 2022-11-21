@@ -50,7 +50,8 @@ FFF Flavored Frontmatter publication preset for Indiekit.
 {
   "plugins": ["indiekit-preset-fff"],
   "indiekit-preset-fff": {
-    "format": "yaml"
+    "format": "yaml",
+    "types": "urara"
   }
 }
 ```
