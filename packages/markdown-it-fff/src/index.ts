@@ -37,7 +37,8 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
   md.renderer.render = (t, o, env: MarkdownItEnv) => {
     let fm = {
       ...env.frontmatter,
-      excerpt: env.excerpt,
+      title: env.frontmatter.title ?? env.title,
+      excerpt: env.frontmatter.excerpt ?? env.excerpt,
     }
 
     ;[
