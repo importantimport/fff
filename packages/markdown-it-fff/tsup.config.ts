@@ -1,3 +1,1 @@
-import config from '../remark-fff/tsup.config'
-
-export default config
+export { default } from '../remark-fff/tsup.config'
