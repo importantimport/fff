@@ -6,10 +6,12 @@ type Frontmatter = FFFFlavoredFrontmatter & {
   [key: string]: unknown
 }
 
-/** `@mdit-vue/plugin-frontmatter` */
 type MarkdownItEnv = {
-  /** renderExcerpt */
+  /** `@mdit-vue/plugin-title` */
+  title?: string
+  /** `@mdit-vue/plugin-frontmatter` renderExcerpt */
   excerpt?: string
+  /** `@mdit-vue/plugin-frontmatter` frontmatter */
   frontmatter: Frontmatter
 }
 
