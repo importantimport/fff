@@ -49,6 +49,6 @@
   },
   "scripts": {
     "build": "unbuild",
-    "stub": "unbuild --stub"
+    "build:watch": "unbuild --stub"
   }
 }

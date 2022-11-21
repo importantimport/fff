@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "watch": "tsup --watch"
+    "build:watch": "tsup --watch"
   },
   "devDependencies": {
     "@types/unist": "^2.0.6",

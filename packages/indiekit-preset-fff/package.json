@@ -46,7 +46,8 @@
     }
   },
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "build:watch": "unbuild --stub"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",

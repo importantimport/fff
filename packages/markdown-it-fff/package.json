@@ -40,7 +40,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "watch": "tsup --watch"
+    "build:watch": "tsup --watch",
   },
   "devDependencies": {
     "@types/linkify-it": "^3.0.2",
