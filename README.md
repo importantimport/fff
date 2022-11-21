@@ -56,6 +56,27 @@ FFF Flavored Frontmatter publication preset for Indiekit.
 }
 ```
 
+---
+
+### [markdown-it-fff](/packages/markdown-it-fff/)
+
+markdown-it plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
+
+```ts
+import MarkdownIt from 'markdown-it'
+import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
+import { fffPlugin } from 'markdown-it-fff'
+
+const md = MarkdownIt.use(frontmatterPlugin, {
+  grayMatterOptions: {
+    excerpt: true,
+    excerpt_separator: '<!-- more -->',
+  },
+}).use(fffPlugin, {
+  presets: ['vue', 'hugo'],
+})
+```
+
 ## 📄 License
 
 > [glowing_star.svg](docs/public/glowing_star.svg) from the [adobe-fonts/noto-emoji-svg](https://github.com/adobe-fonts/noto-emoji-svg) distributed under the [Apache License, Version 2.0](https://github.com/adobe-fonts/noto-emoji-svg/blob/main/LICENSE).
