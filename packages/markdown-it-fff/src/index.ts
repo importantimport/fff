@@ -31,8 +31,8 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
   md,
   options = { presets: ['hugo', 'vue'] }
 ) => {
-  const render = md.render.bind(md)
-  md.render = (src, env: MarkdownItEnv) => {
+  const render = md.renderer.render.bind(md.renderer)
+  md.renderer.render = (t, o, env: MarkdownItEnv) => {
     let fm = {
       ...env.frontmatter,
       excerpt: env.excerpt,
@@ -41,7 +41,7 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
     ;[
       ...options.presets,
       ...(options.strict ? [presets['strict'](options.strict)] : []),
-    ].forEach((preset: MarkdownItFFFPreset) =>
+    ].forEach((preset: string | MarkdownItFFFPreset) =>
       Object.entries(
         preset instanceof Object ? preset : presets[preset]
       ).forEach(
@@ -54,9 +54,8 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
       )
     )
 
-    return render(src, {
-      ...env,
-      frontmatter: fm,
-    })
+    env.frontmatter = fm
+
+    return render(t, o, env)
   }
 }
