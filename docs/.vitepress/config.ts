@@ -43,6 +43,7 @@ const sidebar = () => [
       },
       { text: 'remark-fff', link: '/packages/remark-fff' },
       { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff' },
+      { text: 'markdown-it-fff', link: '/packages/markdown-it-fff' },
     ],
   },
   {
