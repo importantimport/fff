@@ -24,6 +24,11 @@ export type RemarkFFFPreset = {
   [key in keyof FFFFlavoredFrontmatter]: string | ((fm: Frontmatter) => unknown)
 }
 
+type RemarkFFFPresetEntries = [
+  keyof FFFFlavoredFrontmatter,
+  string | ((fm: Frontmatter) => unknown)
+]
+
 type Transformer<Input extends Node = Node, Output extends Node = Input> = (
   node: Input,
   file: File,
@@ -101,15 +106,17 @@ const remarkFFF: Plugin<[RemarkFFFOptions]> =
           ]
         : []),
       ...(options.strict ? [strict(options.strict)] : []),
-    ].forEach((preset: RemarkFFFPreset) =>
+    ].forEach((preset: string | RemarkFFFPreset) =>
       Object.entries(
         preset instanceof Object ? preset : presets[preset]
       ).forEach(
-        ([output, input]) =>
+        ([output, input]: RemarkFFFPresetEntries) =>
           (fm = {
             ...fm,
             [output]:
-              input instanceof Function ? input(fm) : fm[input] ?? fm[output],
+              input instanceof Function
+                ? input(fm)
+                : fm[input] ?? fm[output],
           })
       )
     )

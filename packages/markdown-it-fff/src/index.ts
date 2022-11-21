@@ -19,6 +19,11 @@ export type MarkdownItFFFPreset = {
   [key in keyof FFFFlavoredFrontmatter]: string | ((fm: Frontmatter) => unknown)
 }
 
+type MarkdownItFFFPresetntries = [
+  keyof FFFFlavoredFrontmatter,
+  string | ((fm: Frontmatter) => unknown)
+]
+
 export type FFFPluginOptions = {
   presets: (string | MarkdownItFFFPreset)[]
   strict?: {
@@ -48,7 +53,7 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
       Object.entries(
         preset instanceof Object ? preset : presets[preset]
       ).forEach(
-        ([output, input]) =>
+        ([output, input]: MarkdownItFFFPresetntries) =>
           (fm = {
             ...fm,
             [output]:
