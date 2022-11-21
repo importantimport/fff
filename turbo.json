@@ -9,6 +9,12 @@
         ".vitepress/dist/**",
         "dist/**"
       ]
+    },
+    "test": {
+      "outputs": []
+    },
+    "test:watch": {
+      "cache": false
     }
   }
 }

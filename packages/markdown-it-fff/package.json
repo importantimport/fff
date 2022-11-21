@@ -41,6 +41,9 @@
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@types/linkify-it": "^3.0.2",
