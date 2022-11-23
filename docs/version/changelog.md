@@ -13,6 +13,10 @@ For non-version-related changes, please refer to the [git commit history](https:
 
 - Add: [`checkin`](/version/0.4.html#checkin) [`rsvp`](/version/0.4.html#rsvp) [`start`](/version/0.4.html#start) [`end`](/version/0.4.html#end)
 
+### Version 0.4.2 (2022-11-23)
+
+- Chore: add `autoDiscovery` and `toJSONFeedItem` utils
+
 ### Version 0.4.1 (2022-11-14)
 
 - Bug fixes, no type change
