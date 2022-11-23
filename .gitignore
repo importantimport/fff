@@ -1,6 +1,7 @@
 # build output
 docs/.vitepress/dist
 packages/**/dist
+packages/**/coverage
 
 # dependencies
 node_modules
