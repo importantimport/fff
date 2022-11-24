@@ -113,6 +113,7 @@ export default class FFFPreset {
         end: properties.end,
         rsvp: properties.rsvp,
         checkin: properties.checkin,
+        syndication: properties.syndication,
         mp_syndicate_to: properties['mp-syndicate-to'],
       } as FFFFlavoredFrontmatter) +
       `${
