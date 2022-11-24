@@ -6,7 +6,7 @@ import type { RemarkFFFPreset } from './index'
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
 export const hugo: RemarkFFFPreset = {
-  image: 'images',
+  images: ({ images }) => (Array.isArray(images) ? images : [images]),
   tags: 'category',
   bookmark_of: 'bookmarkOf',
   like_of: 'likeOf',
@@ -51,7 +51,7 @@ export const hexo: RemarkFFFPreset = {
 export const jekyll: RemarkFFFPreset = {
   summary: 'excerpt',
   created: 'date',
-  image: 'photo',
+  images: ({ photo }) => (Array.isArray(photo) ? photo : [photo]),
   bookmark_of: 'bookmark-of',
   like_of: 'like-of',
   repost_of: 'repost-of',
