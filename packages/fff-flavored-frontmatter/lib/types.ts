@@ -40,15 +40,15 @@ export type FFFBase = {
 
 export type FFFDateTime = {
   /** the created date of the post. */
-  created?: string
+  created?: string | number
   /** the updated date of the post. */
-  updated?: string
+  updated?: string | number
   /** the published date of the post. */
-  published?: string
+  published?: string | number
   /** datetime the event starts. */
-  start?: string
+  start?: string | number
   /** datetime the event ends. */
-  end?: string
+  end?: string | number
 }
 
 export type FFFMedia = {
@@ -88,4 +88,8 @@ export type FFFExtra = {
 }
 
 /** FFF Flavored Frontmatter */
-export type FFFFlavoredFrontmatter = FFFBase & FFFDateTime & FFFMedia & FFFMention & FFFExtra
+export type FFFFlavoredFrontmatter = FFFBase &
+  FFFDateTime &
+  FFFMedia &
+  FFFMention &
+  FFFExtra
