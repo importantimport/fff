@@ -25,7 +25,7 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
   else if (fm.video) return 'video'
   else if (fm.audio) return 'audio'
   else if (fm.title) return 'article'
-  else if (fm.image) return 'photo'
+  else if (fm.images) return 'photo'
   else return 'note'
 }
 
@@ -39,14 +39,11 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): {} => ({
   title: fm.title,
   summary: fm.summary,
-  image:
-    fm.image instanceof Array
-      ? fm.image[0] instanceof Object
-        ? (fm.image[0] as FFFImage).src
-        : fm.image[0]
-      : fm.image instanceof Object
-      ? (fm.image as FFFImage).src
-      : fm.image,
+  image: fm.images
+    ? typeof fm.images[0] === 'string'
+      ? fm.images[0]
+      : fm.images[0].src
+    : undefined,
   date_published: fm.published ?? fm.created,
   date_modified: fm.updated,
   authors: fm.authors,
