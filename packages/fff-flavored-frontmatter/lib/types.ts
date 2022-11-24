@@ -64,8 +64,8 @@ export type FFFExtra = {
   like_of?: string
   /** the URL which the post is considered a "repost" of. */
   repost_of?: string
-  /** URL(s) which the post is considered reply to. */
-  in_reply_to?: string | string[]
+  /** URL which the post is considered reply to. */
+  in_reply_to?: string
   /** URL(s) of syndicated copies of this post. */
   syndication?: string | string[]
   /** the URL of the venue/location h-card which the h-entry is considered a "checkin" of. */
