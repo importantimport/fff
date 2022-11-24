@@ -10,7 +10,7 @@ export type IndiekitPresetFFFOptions = {
    * @defaultValue `yaml`
    */
   format?: 'json' | 'toml' | 'yaml'
-  /** 
+  /**
    * Post types.
    * @defaultValue `urara`
    */
@@ -97,7 +97,9 @@ export default class FFFPreset {
         summary: properties.summary,
         published: properties.published,
         tags: properties.category,
-        image: properties.photo,
+        images: Array.isArray(properties.photo)
+          ? properties.photo
+          : [properties.photo],
         audio: properties.audio,
         video: properties.video,
         bookmark_of: properties['bookmark_of'],
