@@ -39,7 +39,7 @@ export type FFFBase = {
   /** the published date of the post. */
   published?: string
   /** the featured image for article, or image for "photo" / "multi-photo" posts. */
-  image?: string | FFFImage | string[] | FFFImage[]
+  images?: string[] | FFFImage[]
   /** the main audio for "audio" post. */
   audio?: string | FFFAudio
   /** the main video for "video" post. */
