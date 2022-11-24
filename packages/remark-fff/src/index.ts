@@ -84,7 +84,7 @@ type File =
     }
 
 const remarkFFF: Plugin<[RemarkFFFOptions]> =
-  (options = { presets: ['hugo'], target: 'mdsvex' }) =>
+  (options = { presets: ['hugo', 'legacy'], target: 'mdsvex' }) =>
   (_tree, file) => {
     const path = file.filename ?? file.path
     let fm = {

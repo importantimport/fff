@@ -2,6 +2,15 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 import type { RemarkFFFPreset } from './index'
 
 /**
+ * @alpha
+ */
+export const legacy: RemarkFFFPreset = {
+  images: ({ image }) => image && (Array.isArray(image) ? image : [image]),
+  in_reply_to: ({ in_reply_to }) =>
+    in_reply_to && Array.isArray(in_reply_to) ? in_reply_to[0] : in_reply_to,
+}
+
+/**
  * @see {@link https://gohugo.io/content-management/front-matter/#predefined}
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
