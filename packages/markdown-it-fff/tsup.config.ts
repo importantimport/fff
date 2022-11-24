@@ -1,1 +1,1 @@
-export { default } from '../remark-fff/tsup.config'
+export { default } from '../../tsup.config'
