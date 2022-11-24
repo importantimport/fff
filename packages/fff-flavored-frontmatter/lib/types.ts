@@ -2,18 +2,18 @@
 
 /** Object Image */
 export type FFFImage = Partial<HTMLImageElement> & {
-  source?: Partial<HTMLSourceElement>[]
+  sources?: Partial<HTMLSourceElement>[]
   figcaption?: string
 }
 
 /** Object Audio */
 export type FFFAudio = Partial<HTMLAudioElement> & {
-  source?: Partial<HTMLSourceElement>[]
+  sources?: Partial<HTMLSourceElement>[]
 }
 
 /** Object Video */
 export type FFFVideo = Partial<HTMLVideoElement> & {
-  source?: Partial<HTMLSourceElement>[]
+  sources?: Partial<HTMLSourceElement>[]
 }
 
 /** Author */
