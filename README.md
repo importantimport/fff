@@ -67,14 +67,7 @@ import MarkdownIt from 'markdown-it'
 import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
 import { fffPlugin } from 'markdown-it-fff'
 
-const md = MarkdownIt.use(frontmatterPlugin, {
-  grayMatterOptions: {
-    excerpt: true,
-    excerpt_separator: '<!-- more -->',
-  },
-}).use(fffPlugin, {
-  presets: ['vue', 'hugo'],
-})
+const md = MarkdownIt().use(frontmatterPlugin).use(fffPlugin)
 ```
 
 ## 📄 License
