@@ -9,13 +9,15 @@ importers:
       '@vitest/coverage-c8': ^0.25.3
       tsup: ^6.4.0
       turbo: ^1.6.3
+      typescript: ^4.9.3
       vitest: ^0.25.2
     devDependencies:
       '@changesets/changelog-github': 0.4.7
       '@changesets/cli': 2.25.2
       '@vitest/coverage-c8': 0.25.3
-      tsup: 6.4.0
+      tsup: 6.4.0_typescript@4.9.3
       turbo: 1.6.3
+      typescript: 4.9.3
       vitest: 0.25.2
 
   docs:
@@ -4612,7 +4614,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsup/6.4.0:
+  /tsup/6.4.0_typescript@4.9.3:
     resolution: {integrity: sha512-4OlbqIK/SF+cJp0mMqPM2pKULvgj/1S2Gm3I1aFoFGIryUOyIqPZBoqKkqVQT6uFtWJ5AHftIv0riXKfHox1zQ==}
     engines: {node: '>=14'}
     hasBin: true
@@ -4642,6 +4644,7 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.28.0
       tree-kill: 1.2.2
+      typescript: 4.9.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -4745,6 +4748,12 @@ packages:
   /type-fest/0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+    dev: true
+
+  /typescript/4.9.3:
+    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   /uc.micro/1.0.6:
