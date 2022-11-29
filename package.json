@@ -16,7 +16,6 @@
     "@vitest/coverage-c8": "^0.25.3",
     "tsup": "^6.4.0",
     "turbo": "^1.6.3",
-    "unbuild": "^0.8.11",
     "vitest": "^0.25.2"
   }
 }

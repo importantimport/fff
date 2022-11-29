@@ -35,19 +35,9 @@
   "files": [
     "dist"
   ],
-  "unbuild": {
-    "entries": [
-      "src/index"
-    ],
-    "clean": true,
-    "declaration": true,
-    "rollup": {
-      "emitCJS": true
-    }
-  },
   "scripts": {
-    "build": "unbuild",
-    "build:watch": "unbuild --stub"
+    "build": "tsup",
+    "build:watch": "tsup --watch"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",

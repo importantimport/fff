@@ -37,18 +37,8 @@
     "fff.ts",
     "dist"
   ],
-  "unbuild": {
-    "entries": [
-      "./fff"
-    ],
-    "clean": true,
-    "declaration": true,
-    "rollup": {
-      "emitCJS": true
-    }
-  },
   "scripts": {
-    "build": "unbuild",
-    "build:watch": "unbuild --stub"
+    "build": "tsup",
+    "build:watch": "tsup --watch"
   }
 }
