@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 // deno-fmt-ignore-file fuck the semicolons
 
 /** Object Image */
