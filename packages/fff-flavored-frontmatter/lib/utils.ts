@@ -1,4 +1,4 @@
-import type { FFFFlavoredFrontmatter, FFFImage } from './types'
+import type { FFFFlavoredFrontmatter } from './types'
 
 /**
  * Post Type Discovery
