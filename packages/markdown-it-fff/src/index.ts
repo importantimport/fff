@@ -6,7 +6,7 @@ type Frontmatter = FFFFlavoredFrontmatter & {
   [key: string]: unknown
 }
 
-type MarkdownItFFFPresetntries = [
+type MarkdownItFFFPresetEntries = [
   keyof FFFFlavoredFrontmatter,
   string | ((fm: Frontmatter) => unknown)
 ]
@@ -53,7 +53,7 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
       Object.entries(
         preset instanceof Object ? preset : presets[preset]
       ).forEach(
-        ([output, input]: MarkdownItFFFPresetntries) =>
+        ([output, input]: MarkdownItFFFPresetEntries) =>
           (fm = {
             ...fm,
             [output]:
