@@ -5,6 +5,12 @@ import * as presets from './presets'
 import * as autofill from './autofill'
 import { strict } from './strict'
 
+type RemarkFFFPresetValue = string | ((fm: Frontmatter) => unknown)
+
+export type RemarkFFFPreset = {
+  [key in keyof FFFFlavoredFrontmatter]: RemarkFFFPresetValue
+}
+
 export type RemarkFFFOptions = {
   target: 'mdsvex' | 'astro'
   presets: (string | RemarkFFFPreset)[]
@@ -19,15 +25,6 @@ export type RemarkFFFOptions = {
     }
   }
 }
-
-export type RemarkFFFPreset = {
-  [key in keyof FFFFlavoredFrontmatter]: string | ((fm: Frontmatter) => unknown)
-}
-
-type RemarkFFFPresetEntries = [
-  keyof FFFFlavoredFrontmatter,
-  string | ((fm: Frontmatter) => unknown)
-]
 
 type Transformer<Input extends Node = Node, Output extends Node = Input> = (
   node: Input,
@@ -107,16 +104,14 @@ const remarkFFF: Plugin<[RemarkFFFOptions]> =
         : []),
       ...(options.strict ? [strict(options.strict)] : []),
     ].forEach((preset: string | RemarkFFFPreset) =>
-      Object.entries(
+      Object.entries<RemarkFFFPresetValue>(
         preset instanceof Object ? preset : presets[preset]
       ).forEach(
-        ([output, input]: RemarkFFFPresetEntries) =>
+        ([output, input]) =>
           (fm = {
             ...fm,
             [output]:
-              input instanceof Function
-                ? input(fm)
-                : fm[input] ?? fm[output],
+              input instanceof Function ? input(fm) : fm[input] ?? fm[output],
           })
       )
     )
