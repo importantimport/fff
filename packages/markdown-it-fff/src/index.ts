@@ -6,10 +6,7 @@ type Frontmatter = FFFFlavoredFrontmatter & {
   [key: string]: unknown
 }
 
-type MarkdownItFFFPresetEntries = [
-  keyof FFFFlavoredFrontmatter,
-  string | ((fm: Frontmatter) => unknown)
-]
+type MarkdownItFFFPresetValue = string | ((fm: Frontmatter) => unknown)
 
 export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-title` */
@@ -17,11 +14,11 @@ export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-frontmatter` renderExcerpt */
   excerpt?: string
   /** `@mdit-vue/plugin-frontmatter` frontmatter */
-  frontmatter: Frontmatter
+  frontmatter?: Frontmatter
 }
 
 export type MarkdownItFFFPreset = {
-  [key in keyof FFFFlavoredFrontmatter]: string | ((fm: Frontmatter) => unknown)
+  [key in keyof FFFFlavoredFrontmatter]: MarkdownItFFFPresetValue
 }
 
 export type FFFPluginOptions = {
@@ -50,10 +47,10 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
       ...options.presets,
       ...(options.strict ? [presets['strict'](options.strict)] : []),
     ].forEach((preset: string | MarkdownItFFFPreset) =>
-      Object.entries(
+      Object.entries<MarkdownItFFFPresetValue>(
         preset instanceof Object ? preset : presets[preset]
       ).forEach(
-        ([output, input]: MarkdownItFFFPresetEntries) =>
+        ([output, input]) =>
           (fm = {
             ...fm,
             [output]:
