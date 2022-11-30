@@ -6,7 +6,12 @@ type Frontmatter = FFFFlavoredFrontmatter & {
   [key: string]: unknown
 }
 
-type MarkdownItEnv = {
+type MarkdownItFFFPresetntries = [
+  keyof FFFFlavoredFrontmatter,
+  string | ((fm: Frontmatter) => unknown)
+]
+
+export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-title` */
   title?: string
   /** `@mdit-vue/plugin-frontmatter` renderExcerpt */
@@ -18,11 +23,6 @@ type MarkdownItEnv = {
 export type MarkdownItFFFPreset = {
   [key in keyof FFFFlavoredFrontmatter]: string | ((fm: Frontmatter) => unknown)
 }
-
-type MarkdownItFFFPresetntries = [
-  keyof FFFFlavoredFrontmatter,
-  string | ((fm: Frontmatter) => unknown)
-]
 
 export type FFFPluginOptions = {
   presets: (string | MarkdownItFFFPreset)[]
