@@ -10,20 +10,20 @@ hero:
   image: /glowing_star.svg
   tagline: Yet Another Opinionated Frontmatter Variable Specs.
   actions:
-  - theme: brand
-    text: Get Started
-    link: /intro/what-is-fff
-  - theme: alt
-    text: View on GitHub
-    link: https://github.com/importantimport/fff
+    - theme: brand
+      text: Get Started
+      link: /intro/what-is-fff
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/importantimport/fff
 features:
   - icon: 🐍
     title: snake_case
     details: Use snake_case to ensure that it is easy to type and does not require quotes in JS.
   - icon: 🛠
     title: highly scalable
-    details: With flags, it is possible to extend functionality without adding new variables.
-  - icon: 🌿
-    title: compatibility
-    details: Clearly named and mostly equivalent to Microformats & JSON Feed.
+    details: With object media & flags, it is possible to extend functionality without adding new variables.
+  - icon: 🔀
+    title: transform
+    details: Convert your old articles to FFF-compatible with the help of remark or markdown-it plugins, without editing.
 ---
