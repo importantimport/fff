@@ -15,7 +15,12 @@ export const legacy: RemarkFFFPreset = {
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
 export const hugo: RemarkFFFPreset = {
-  images: ({ images }) => (Array.isArray(images) ? images : [images]),
+  image: ({ images }) =>
+    images && (!Array.isArray(images) || images.length === 1)
+      ? images
+      : undefined,
+  images: ({ images }) =>
+    Array.isArray(images) && images.length > 1 ? images : undefined,
   tags: 'category',
   bookmark_of: 'bookmarkOf',
   like_of: 'likeOf',
@@ -60,7 +65,8 @@ export const hexo: RemarkFFFPreset = {
 export const jekyll: RemarkFFFPreset = {
   summary: 'excerpt',
   created: 'date',
-  images: ({ photo }) => (Array.isArray(photo) ? photo : [photo]),
+  image: ({ photo }) => (Array.isArray(photo) ? undefined : photo),
+  images: ({ photo }) => (Array.isArray(photo) ? photo : undefined),
   bookmark_of: 'bookmark-of',
   like_of: 'like-of',
   repost_of: 'repost-of',
