@@ -53,11 +53,13 @@ export type FFFDateTime = {
 }
 
 export type FFFMedia = {
-  /** the featured image for article, or image for "photo" / "multi-photo" posts. */
+  /** the main image for article or photo post. */
+  image?: string | FFFImage
+  /** the image for multi-photo post. */
   images?: string[] | FFFImage[]
-  /** the main audio for "audio" post. */
+  /** the main audio for audio post. */
   audio?: string | FFFAudio
-  /** the main video for "video" post. */
+  /** the main video for video post. */
   video?: string | FFFVideo
 }
 
