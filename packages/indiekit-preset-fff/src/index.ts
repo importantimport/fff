@@ -97,9 +97,8 @@ export default class FFFPreset {
         summary: properties.summary,
         published: properties.published,
         tags: properties.category,
-        images: Array.isArray(properties.photo)
-          ? properties.photo
-          : [properties.photo],
+        image: Array.isArray(properties.photo) ? undefined : properties.photo,
+        images: Array.isArray(properties.photo) ? properties.photo : undefined,
         audio: properties.audio,
         video: properties.video,
         bookmark_of: properties['bookmark_of'],
