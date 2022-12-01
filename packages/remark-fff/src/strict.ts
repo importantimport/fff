@@ -17,8 +17,11 @@ const mediaTransform = (
 export const strict = (
   strict: RemarkFFFOptions['strict']
 ): RemarkFFFPreset => ({
+  image: ({ image }) => mediaTransform(strict.media, image),
   images: ({ images }) =>
-    images.map((image: string | FFFImage) => mediaTransform(strict.media, image)),
+    images.map((image: string | FFFImage) =>
+      mediaTransform(strict.media, image)
+    ),
   audio: ({ audio }) => mediaTransform(strict.media, audio),
   video: ({ video }) => mediaTransform(strict.media, video),
 })
