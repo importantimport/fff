@@ -9,6 +9,17 @@ outline: deep
 For non-version-related changes, please refer to the [git commit history](https://github.com/importantimport/fff/commits/main).
 :::
 
+## [Version 0.5](/version/0.5.html) (2023-01-01)
+
+- Add: [`images`](/version/0.5.html#images)
+- Rename:
+  - (Object Media) [`source => sources`](/version/0.5.html#additional)
+- Improve:
+  - Refinement of classification
+  - Improved [DateTime](/version/0.5.html#datetime) type
+  - [`image`](/version/0.5.html#image) no longer accepts arrays (multi-photo[^multi-photo])
+  - [`in_reply_to`](/version/0.5.html#in_reply_to) no longer accepts arrays (multiple-reply[^multiple-reply])
+
 ## [Version 0.4](/version/0.4.html) (2022-11-11)
 
 - Add: [`checkin`](/version/0.4.html#checkin) [`rsvp`](/version/0.4.html#rsvp) [`start`](/version/0.4.html#start) [`end`](/version/0.4.html#end)

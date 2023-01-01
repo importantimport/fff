@@ -1,5 +1,11 @@
 # indiekit-preset-fff
 
+## 0.5.0
+
+### Minor Changes
+
+- Version 0.5
+
 ## 0.4.2
 
 ### Patch Changes
