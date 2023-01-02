@@ -1,5 +1,5 @@
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
-import type { Plugin, Transformer } from 'unified'
+import type { Transformer } from 'unified'
 import * as presets from './presets'
 import * as autofill from './autofill'
 import { strict } from './strict'
@@ -49,8 +49,8 @@ type Post =
       }
     }
 
-const remarkFFF: Plugin<[RemarkFFFOptions]> =
-  (options = { presets: ['hugo', 'legacy'], target: 'mdsvex' }): Transformer =>
+const remarkFFF =
+  (options: RemarkFFFOptions = { presets: ['hugo', 'legacy'], target: 'mdsvex' }): Transformer =>
   (_tree, file) => {
     let post: Post = file as unknown as Post
     let fm = {
