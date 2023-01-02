@@ -60,6 +60,8 @@ FFF Flavored Frontmatter publication preset for Indiekit.
 
 ### [markdown-it-fff](/packages/markdown-it-fff/)
 
+[![npm](https://img.shields.io/npm/v/markdown-it-fff?color=yellow)](https://npmjs.com/package/markdown-it-fff) [![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/markdown-it-fff) ![minified size](https://img.shields.io/bundlephobia/min/markdown-it-fff?color=yellow) ![downloads](https://img.shields.io/npm/dt/markdown-it-fff?color=yellow)
+
 markdown-it plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
 
 ```ts
