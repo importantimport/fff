@@ -15,7 +15,7 @@ describe('markdown-it-fff', () => {
     .use(fffPlugin, {
       presets: ['hexo', 'vue'],
     })
-  it(`basic`, () => {
+  it('basic', () => {
     const src = readFileSync('test/fixture/basic.md').toString()
     const env: MarkdownItEnv = {}
     md.render(src, env)
