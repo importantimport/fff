@@ -39,10 +39,16 @@
   ],
   "scripts": {
     "build": "tsup",
-    "build:watch": "tsup --watch"
+    "build:watch": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "fff-flavored-frontmatter": "workspace:*",
-    "unified": "^10.1.2"
+    "remark": "^14.0.2",
+    "remark-frontmatter": "^4.0.1",
+    "unified": "^10.1.2",
+    "vfile": "^5.3.6"
   }
 }
