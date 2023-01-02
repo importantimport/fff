@@ -47,4 +47,29 @@ describe('remark-fff', () => {
     expect(fm.summary).toEqual('lorem ipsum')
     expect(fm.tags).toEqual(['fooo', 'baar', 'baaz', 'foo', 'bar', 'baz'])
   })
+  it('strict object => string', () => {
+    const { processSync } = remark()
+      .use(remarkFrontmatter)
+      .use(remarkFFF, {
+        target: 'mdsvex',
+        presets: [],
+        strict: {
+          media: {
+            type: 'string',
+          },
+        },
+      })
+    const file = new VFile({
+      data: {
+        fm: {
+          image: {
+            src: 'https://fff.js.org/glowing_star.svg',
+            alt: 'Glowing Star',
+          },
+        },
+      },
+    })
+    const { fm } = processSync(file).data as { fm: FFFFlavoredFrontmatter }
+    expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
+  })
 })
