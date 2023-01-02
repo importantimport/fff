@@ -10,7 +10,7 @@ const mediaTransform = (
       ? { src: media }
       : media
     : options.type === 'string'
-    ? media.src
+    ? media?.src
     : media
 
 /** @alpha */
@@ -19,7 +19,7 @@ export const strict = (
 ): RemarkFFFPreset => ({
   image: ({ image }) => mediaTransform(strict.media, image),
   images: ({ images }) =>
-    images.map((image: string | FFFImage) =>
+    images?.map((image: string | FFFImage) =>
       mediaTransform(strict.media, image)
     ),
   audio: ({ audio }) => mediaTransform(strict.media, audio),
