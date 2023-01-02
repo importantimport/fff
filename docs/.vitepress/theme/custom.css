@@ -38,3 +38,8 @@
 .dark .vp-doc [class*='language-']:before {
   color: rgba(235, 235, 235, 0.38);
 }
+
+::selection {
+  background: var(--vp-c-yellow);
+  color: var(--vp-c-black);
+}
