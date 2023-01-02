@@ -5,7 +5,7 @@ import { remark } from 'remark'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkFFF from '../src'
 
-describe('markdown-it-fff', () => {
+describe('remark-fff', () => {
   it('mdsvex-hugo', () => {
     const { processSync } = remark().use(remarkFrontmatter).use(remarkFFF)
     const file = new VFile()
