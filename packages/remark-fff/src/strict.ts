@@ -20,7 +20,7 @@ export const strict = (
   image: ({ image, images }) =>
     mediaTransform(
       strict.media,
-      strict.media.array ? image ?? images?.[0] : image
+      strict.media.array ? image : image ?? images?.[0]
     ),
   images: ({ image, images }) =>
     [...(images ?? []), ...(strict.media.array ? [image] : [])].map(
