@@ -52,6 +52,7 @@ type Post =
 const remarkFFF =
   (options: RemarkFFFOptions = { presets: ['hugo', 'legacy'], target: 'mdsvex' }): Transformer =>
   (_tree, file) => {
+    // make TS happy
     let post: Post = file as unknown as Post
     let fm = {
       ...(options.target === 'mdsvex'
