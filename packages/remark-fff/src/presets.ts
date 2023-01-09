@@ -15,12 +15,13 @@ export const legacy: RemarkFFFPreset = {
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
 export const hugo: RemarkFFFPreset = {
-  image: ({ images }) =>
-    images && (!Array.isArray(images) || images.length === 1)
+  image: ({ image, images }) =>
+    image
+      ? image
+      : images && (!Array.isArray(images) || images.length === 1)
       ? images
       : undefined,
-  images: ({ images }) =>
-    Array.isArray(images) && images.length > 1 ? images : undefined,
+  images: ({ images }) => (Array.isArray(images) ? images : undefined),
   tags: 'category',
   bookmark_of: 'bookmarkOf',
   like_of: 'likeOf',
