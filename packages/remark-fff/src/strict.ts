@@ -1,5 +1,5 @@
 import type { FFFAudio, FFFImage, FFFVideo } from 'fff-flavored-frontmatter'
-import type { RemarkFFFPreset, RemarkFFFOptions } from './index'
+import type { FFFPreset, RemarkFFFOptions } from './lib/types'
 
 const mediaTransform = (
   options: RemarkFFFOptions['strict']['media'],
@@ -16,7 +16,7 @@ const mediaTransform = (
 /** @alpha */
 export const strict = (
   strict: RemarkFFFOptions['strict']
-): RemarkFFFPreset => ({
+): FFFPreset => ({
   image: ({ image, images }) =>
     mediaTransform(
       strict.media,

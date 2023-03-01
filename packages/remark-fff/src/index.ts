@@ -1,90 +1,45 @@
-import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
+import type { RemarkFFFOptions, Post } from './lib/types'
 import type { Transformer } from 'unified'
 import * as presets from './presets'
 import * as autofill from './autofill'
 import { strict } from './strict'
+import { transform } from './lib/transform'
 
-type RemarkFFFPresetValue = string | ((fm: Frontmatter) => unknown)
-
-export type RemarkFFFPreset = {
-  [key in keyof FFFFlavoredFrontmatter]: RemarkFFFPresetValue
-}
-
-export type RemarkFFFOptions = {
-  target: 'mdsvex' | 'astro'
-  presets: (string | RemarkFFFPreset)[]
-  autofill?: {
-    provider: 'fs' | 'git'
-    path?: string | ((path: string) => string)
-  }
-  strict?: {
-    media?: {
-      type?: 'string' | 'object'
-      array?: boolean
-    }
-  }
-}
-
-type Frontmatter = FFFFlavoredFrontmatter & {
-  [key: string]: unknown
-}
-
-type Post =
-  | /** MDsveX */ {
-      filename: string
-      path: never
-      data: {
-        fm: Frontmatter
-        astro: never
-      }
-    }
-  | /** Astro */ {
-      filename: never
-      path: string
-      data: {
-        fm: never
-        astro: {
-          frontmatter: Frontmatter
-        }
-      }
-    }
 
 export const remarkFFF =
-  (options: RemarkFFFOptions = { presets: ['hugo', 'legacy'], target: 'mdsvex' }): Transformer =>
+  (
+    options: RemarkFFFOptions = {
+      presets: ['hugo', 'legacy'],
+      target: 'mdsvex',
+    }
+  ): Transformer =>
   (_tree, file) => {
     // make TS happy
     let post: Post = file as unknown as Post
-    let fm = {
-      ...(options.target === 'mdsvex'
-        ? post.data.fm
-        : post.data.astro.frontmatter),
-    }
     const path = post.filename ?? post.path
-    ;[
-      ...options.presets,
-      ...(options.autofill?.provider
-        ? [
-            autofill[options.autofill.provider](
-              options.autofill.path
-                ? options.autofill.path instanceof Function
-                  ? options.autofill.path(path)
-                  : autofill.path[options.autofill.path](path)
-                : post.filename
-            ),
-          ]
-        : []),
-      ...(options.strict ? [strict(options.strict)] : []),
-    ].forEach((preset: string | RemarkFFFPreset) =>
-      Object.entries<RemarkFFFPresetValue>(
-        preset instanceof Object ? preset : presets[preset]
-      ).forEach(
-        ([output, input]) =>
-          (fm = {
-            ...fm,
-            [output]:
-              input instanceof Function ? input(fm) : fm[input] ?? fm[output],
-          })
-      )
+    const fm = transform(
+      {
+        ...(options.target === 'mdsvex'
+          ? post.data.fm
+          : post.data.astro.frontmatter),
+      },
+      [
+        ...options.presets.map((preset) =>
+          preset instanceof Object ? preset : presets[preset]
+        ),
+        ...(options.autofill?.provider
+          ? [
+              autofill[options.autofill.provider](
+                options.autofill.path
+                  ? options.autofill.path instanceof Function
+                    ? options.autofill.path(path)
+                    : autofill.path[options.autofill.path](path)
+                  : post.filename
+              ),
+            ]
+          : []),
+        ...(options.strict ? [strict(options.strict)] : []),
+      ]
     )
     if (options.target === 'mdsvex') file.data.fm = fm
     else if (options.target === 'astro')

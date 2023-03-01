@@ -1,4 +1,4 @@
-import type { RemarkFFFPreset } from './index'
+import type { FFFPreset } from './lib/types'
 import { execFileSync } from 'node:child_process'
 import { statSync } from 'node:fs'
 import { EOL } from 'node:os'
@@ -8,7 +8,7 @@ export const path = {
 } as const
 
 /** @alpha */
-export const fs = (path: string): RemarkFFFPreset => {
+export const fs = (path: string): FFFPreset => {
   const { ctime, mtime } = statSync(path)
   return {
     created: ({ created }) => created ?? ctime,
@@ -21,7 +21,7 @@ export const fs = (path: string): RemarkFFFPreset => {
  * @author Jordan Webb <jordan@jordemort.dev>
  * @see {@link https://github.com/jordemort/jordemort.github.io/blob/main/src/plugins/repodates.mjs}
  */
-export const git = (path: string): RemarkFFFPreset => ({
+export const git = (path: string): FFFPreset => ({
   created: ({ created }) =>
     created ??
     execFileSync(
