@@ -20,6 +20,10 @@ For non-version-related changes, please refer to the [git commit history](https:
   - [`image`](/version/0.5.html#image) no longer accepts arrays (multi-photo[^multi-photo])
   - [`in_reply_to`](/version/0.5.html#in_reply_to) no longer accepts arrays (multiple-reply[^multiple-reply])
 
+### Version 0.5.1 (2023-03-01)
+
+- Bug fixes, no type change
+
 ## [Version 0.4](/version/0.4.html) (2022-11-11)
 
 - Add: [`checkin`](/version/0.4.html#checkin) [`rsvp`](/version/0.4.html#rsvp) [`start`](/version/0.4.html#start) [`end`](/version/0.4.html#end)
