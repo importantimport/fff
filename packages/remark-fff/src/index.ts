@@ -49,7 +49,7 @@ type Post =
       }
     }
 
-const remarkFFF =
+export const remarkFFF =
   (options: RemarkFFFOptions = { presets: ['hugo', 'legacy'], target: 'mdsvex' }): Transformer =>
   (_tree, file) => {
     // make TS happy
