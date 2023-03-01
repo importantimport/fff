@@ -49,4 +49,5 @@ export const remarkFFF =
       }
   }
 
+export { transform as transformFm }
 export default remarkFFF
