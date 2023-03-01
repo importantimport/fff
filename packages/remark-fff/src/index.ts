@@ -5,7 +5,6 @@ import * as autofill from './autofill'
 import { strict } from './strict'
 import { transform } from './lib/transform'
 
-
 export const remarkFFF =
   (
     options: RemarkFFFOptions = {
@@ -49,5 +48,8 @@ export const remarkFFF =
       }
   }
 
+export * from './autofill'
+export * from './presets'
+export * from './strict'
 export { transform as transformFm }
 export default remarkFFF
