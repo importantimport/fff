@@ -1,15 +1,9 @@
-import {
-  outro,
-  confirm,
-  isCancel,
-  cancel,
-  text,
-  note,
-} from '@clack/prompts'
+import { outro, confirm, isCancel, cancel, text, note } from '@clack/prompts'
 import color from 'picocolors'
 import fs from 'node:fs/promises'
 import { exec } from 'node:child_process'
 import { promisify } from 'node:util'
+import { parse } from 'node:path'
 import { stringify } from 'yaml'
 import { version } from '../../package.json'
 
@@ -43,16 +37,24 @@ export const netlifyCMS = async () => {
     })
     .catch(() => {})
 
-  await fs.writeFile(
-    path,
-    stringify({
-      backend: {
-        name: 'git-gateway',
-        branch:
-          (await promisify(exec)('git branch --show-current')).stdout.trim() ?? 'main',
-      },
-    })
-  )
+  await fs
+    .mkdir(parse(path).dir, { recursive: true })
+    .then(
+      async () =>
+        await fs.writeFile(
+          path,
+          stringify({
+            backend: {
+              name: 'git-gateway',
+              branch:
+                (
+                  await promisify(exec)('git branch --show-current')
+                ).stdout.trim() ?? 'main',
+            },
+          })
+        )
+    )
+    .catch(console.error)
 
   note(`FFF Flavored Frontmatter\nVersion ${version}`)
   outro("You're all set! ")
