@@ -9,7 +9,7 @@ import { version } from '../../package.json'
 
 export const netlifyCMS = async () => {
   const path = await text({
-    message: 'WWhere should we create your Netlify CMS config?',
+    message: 'Where should we create your Netlify CMS config?',
     placeholder: './public/admin/config.yml',
     validate: (value) => {
       if (!value) return 'Please enter a path.'
