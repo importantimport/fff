@@ -7,7 +7,7 @@ import {
 } from '@clack/prompts'
 import color from 'picocolors'
 
-import { netlifyCMS } from './lib/netlify-cms'
+import { netlifyCMS } from './netlify-cms'
 
 const main = async () => {
   console.clear()

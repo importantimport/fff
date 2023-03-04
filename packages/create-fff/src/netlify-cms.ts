@@ -5,7 +5,7 @@ import { exec } from 'node:child_process'
 import { promisify } from 'node:util'
 import { parse } from 'node:path'
 import { stringify } from 'yaml'
-import { version } from '../../package.json'
+import { version } from '../package.json'
 
 export const netlifyCMS = async () => {
   const path = await text({
@@ -51,6 +51,9 @@ export const netlifyCMS = async () => {
                   await promisify(exec)('git branch --show-current')
                 ).stdout.trim() ?? 'main',
             },
+            media_folder: '',
+            public_folder: '',
+            collections: [],
           })
         )
     )
