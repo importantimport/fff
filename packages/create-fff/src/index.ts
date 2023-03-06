@@ -37,7 +37,7 @@ const main = async () => {
 
   switch (type) {
     case 'netlify-cms':
-      await netlifyCMS()
+      await netlifyCMS().catch(console.error)
       process.exit(0)
     default:
       outro(type as string)
