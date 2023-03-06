@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
-    "yaml": "^2.1.3"
+    "yaml": "^2.2.1"
   },
   "devDependencies": {
     "fff-flavored-frontmatter": "workspace:*"
