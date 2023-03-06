@@ -70,8 +70,8 @@ export default withPwa(
     lastUpdated: true,
     markdown: {
       theme: {
-        light: 'material-lighter',
-        dark: 'material-darker',
+        light: 'material-theme-lighter',
+        dark: 'material-theme-darker',
       },
       config: (md) => md.use(footnote),
     },
