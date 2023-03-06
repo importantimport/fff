@@ -1,4 +1,4 @@
-import { version } from '../package.json' assert { type: 'json' }
+import { version } from '../package.json'
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
 import footnote from 'markdown-it-footnote'
