@@ -1,11 +1,10 @@
 import { outro, confirm, isCancel, cancel, text, note } from '@clack/prompts'
 import color from 'picocolors'
 import fs from 'node:fs/promises'
-import { exec } from 'node:child_process'
-import { promisify } from 'node:util'
 import { parse } from 'node:path'
 import { stringify } from 'yaml'
 import { version } from '../package.json'
+import { config } from './lib/netlify-cms/config'
 
 export const netlifyCMS = async () => {
   const path = await text({
@@ -37,24 +36,16 @@ export const netlifyCMS = async () => {
     })
     .catch(() => {})
 
+  const { options } = await import('./lib/netlify-cms/options')
+
   await fs
     .mkdir(parse(path).dir, { recursive: true })
     .then(
       async () =>
         await fs.writeFile(
           path,
-          stringify({
-            backend: {
-              name: 'git-gateway',
-              branch:
-                (
-                  await promisify(exec)('git branch --show-current')
-                ).stdout.trim() ?? 'main',
-            },
-            media_folder: '',
-            public_folder: '',
-            collections: [],
-          })
+          /** @see {@link https://github.com/decaporg/decap-cms/issues/1342} */
+          stringify(await config(options), { aliasDuplicateObjects: false })
         )
     )
     .catch(console.error)
