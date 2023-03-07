@@ -16,10 +16,10 @@ const common: Collection<{ type: string }> = ({ type }) => ({
 })
 
 export const article: Collection = (options) => ({
-  ...common({ ...options, type: 'article' }),
   name: 'article',
   label: 'Articles',
   label_singular: 'Article',
+  ...common({ ...options, type: 'article' }),
   fields: [
     ...fields['common'],
     fields['type']('article'),
@@ -31,10 +31,10 @@ export const article: Collection = (options) => ({
 })
 
 export const note: Collection = (options) => ({
-  ...common({ ...options, type: 'note' }),
   name: 'note',
   label: 'Notes',
   label_singular: 'Note',
+  ...common({ ...options, type: 'note' }),
   fields: [
     ...fields['common'],
     fields['type']('note'),
@@ -44,10 +44,10 @@ export const note: Collection = (options) => ({
 })
 
 export const photo: Collection = (options) => ({
-  ...common({ ...options, type: 'photo' }),
   name: 'photo',
   label: 'Photos',
   label_singular: 'Photo',
+  ...common({ ...options, type: 'photo' }),
   fields: [
     ...fields['common'],
     fields['type']('photo'),
