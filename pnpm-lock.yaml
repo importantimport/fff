@@ -43,10 +43,12 @@ importers:
   packages/create-fff:
     specifiers:
       '@clack/prompts': ^0.6.2
+      minimist: ^1.2.8
       picocolors: ^1.0.0
       yaml: ^2.2.1
     dependencies:
       '@clack/prompts': 0.6.2
+      minimist: 1.2.8
       picocolors: 1.0.0
       yaml: 2.2.1
 
@@ -4482,6 +4484,10 @@ packages:
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
     dev: true
+
+  /minimist/1.2.8:
+    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+    dev: false
 
   /mixme/0.5.5:
     resolution: {integrity: sha512-/6IupbRx32s7jjEwHcycXikJwFD5UujbVNuJFkeKLYje+92OvtuPniF6JhnFm5JCTDUhS+kYK3W/4BWYQYXz7w==}
