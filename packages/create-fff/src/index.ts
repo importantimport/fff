@@ -6,6 +6,7 @@ import {
   cancel,
 } from '@clack/prompts'
 import color from 'picocolors'
+import minimist from 'minimist'
 
 import { netlifyCMS } from './netlify-cms'
 
@@ -14,7 +15,9 @@ const main = async () => {
   
   intro(color.black(color.bgCyan(' create-fff ')))
 
-  const type = await select({
+  const argv = minimist(process.argv.slice(2))
+
+  const type = argv._[0] ?? await select({
     message: 'Choose what you need to create:',
     options: [
       {
