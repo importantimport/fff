@@ -53,16 +53,6 @@ use(fffPlugin, {
 })
 ```
 
-#### options.target
-
-default: `mdsvex`
-
-Packages that use this plugin currently support MDsveX and Astro.
-
-```ts
-use(fffPlugin, { target: 'astro' })
-```
-
 #### options.strict
 
 default: `undefined`
