@@ -1,8 +1,9 @@
+import type { MarkdownItEnv } from '../src/lib/types'
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import MarkdownIt from 'markdown-it'
 import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
-import { fffPlugin, type MarkdownItEnv } from '../src/index'
+import { fffPlugin } from '../src/index'
 
 describe('markdown-it-fff', () => {
   const md = MarkdownIt()

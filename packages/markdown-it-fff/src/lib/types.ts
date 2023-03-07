@@ -18,3 +18,5 @@ export type FFFPluginOptions = {
     }
   }
 }
+
+export { FFFPreset }

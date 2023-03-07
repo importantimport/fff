@@ -1,4 +1,4 @@
-import type { FFFPreset } from './index'
+import type { FFFPreset } from './lib/types'
 
 /** Remark FFF Presets */
 export * from '../../remark-fff/src/presets'
