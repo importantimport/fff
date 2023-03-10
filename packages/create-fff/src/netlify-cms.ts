@@ -1,5 +1,5 @@
 import { outro, confirm, isCancel, cancel, text, note } from '@clack/prompts'
-import { yellow } from 'picocolors'
+import color from 'picocolors'
 import { access, constants, mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
 import { stringify } from 'yaml'
@@ -24,7 +24,7 @@ export const netlifyCMS = async () => {
   await access(path, constants.F_OK)
     .then(async () => {
       const check = await confirm({
-        message: yellow(
+        message: color.yellow(
           `${path} already has files. Do you want to continue?`
         ),
       })
