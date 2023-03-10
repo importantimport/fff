@@ -2,13 +2,13 @@ import * as fields from './fields'
 
 type Collection<T = {}> = (options: Options & T) => Object
 
-const common: Collection<{ type: string }> = ({ type }) => ({
+const common: Collection<{ type: string }> = (options) => ({
   create: true,
   extension: 'md',
   format: 'yaml-frontmatter',
-  // TODO: folder
-  // TODO: path
-  // TODO: slug
+  folder: options.folder,
+  path: options.path.replace('{{type}}', options.type),
+  slug: options.slug.replace('{{type}}', options.type),
   // TODO: media_folder
   // TODO: public_folder
   // TODO: filter by type
@@ -52,6 +52,6 @@ export const photo: Collection = (options) => ({
     fields['type']('photo'),
     fields['summary'],
     fields['image']({ featured: false, object_media: options.object_media }),
-    fields['content']
+    fields['content'],
   ],
 })
