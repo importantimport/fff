@@ -6,8 +6,8 @@ import { stringify } from 'yaml'
 import { version } from '../package.json'
 import { config } from './lib/netlify-cms/config'
 
-export const netlifyCMS = async () => {
-  const path = await text({
+export const netlifyCMS = async (argv: Argv) => {
+  const path = argv['config-path'] ?? await text({
     message: 'Where should we create your Netlify CMS config?',
     placeholder: './public/admin/config.yml',
     validate: (value) => {

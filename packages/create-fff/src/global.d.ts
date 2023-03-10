@@ -1,7 +1,13 @@
 import type { ParsedArgs } from 'minimist'
 
 declare global {
-  type Argv = ParsedArgs & {}
+  type Argv = ParsedArgs & {
+    // common
+    preset?: string
+    
+    // netlify-cms
+    'config-path'?: string
+  }
 
   type Options = {
     collections: string[]
