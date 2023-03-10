@@ -34,6 +34,24 @@ const sidebar = () => [
     ],
   },
   {
+    text: 'Concepts',
+    collapsible: true,
+    items: [
+      {
+        text: 'Object Media',
+        link: '/concepts/object-media',
+      },
+      {
+        text: 'Flags',
+        link: '/concepts/flags',
+      },
+      {
+        text: 'Flavor Transform',
+        link: '/concepts/flavor-transform'
+      }
+    ],
+  },
+  {
     text: 'Packages',
     collapsible: true,
     items: [
