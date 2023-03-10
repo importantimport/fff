@@ -1,6 +1,6 @@
 import { group, cancel, multiselect, confirm, text } from '@clack/prompts'
 
-export const options: Options = await group(
+export const options: Partial<Options> = await group(
   {
     collections: () =>
       multiselect({
@@ -51,12 +51,6 @@ export const options: Options = await group(
         initialValue: '{{type}}/{{slug}}',
         validate: (value) => !value && 'Please enter a path.',
       }),
-    // filter: () =>
-    //   confirm({
-    //     message:
-    //       'Do you want to enable post type filtering?',
-    //       // '\nWhen not using the {{type}} folder,\nit will correctly categorize posts;\nhowever, it will cause posts that do not have a type value set to not be displayed.\nhttps://fff.js.org'
-    //   }),
   },
   {
     onCancel: () => {

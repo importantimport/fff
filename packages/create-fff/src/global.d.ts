@@ -11,6 +11,6 @@ declare global {
     folder: string
     path: string
     slug: string
-    // filter: boolean
+    filter: boolean
   }
 }

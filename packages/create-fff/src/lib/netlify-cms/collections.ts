@@ -12,6 +12,10 @@ const common: Collection<{ type: string }> = (options) => ({
   // TODO: media_folder
   // TODO: public_folder
   // TODO: filter by type
+  filter: options.filter ? {
+    field: 'type',
+    value: options.type
+  } : undefined
 })
 
 export const article: Collection = (options) => ({

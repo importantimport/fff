@@ -36,7 +36,23 @@ export const netlifyCMS = async () => {
     })
     .catch(() => {})
 
-  const { options } = await import('./lib/netlify-cms/options')
+  let { options } = await import('./lib/netlify-cms/options')
+
+  if (options.path.includes('{{type}}')) {
+    options.filter = false
+  } else {
+    const filter = await confirm({
+      message: 'Do you want to enable post type filtering?',
+      // '\nWhen not using the {{type}} folder,\nit will correctly categorize posts;\nhowever, it will cause posts that do not have a type value set to not be displayed.\nhttps://fff.js.org'
+    })
+    if (isCancel(filter)) {
+      cancel('Operation cancelled')
+      return process.exit(0)
+    }
+    options.filter = filter
+  }
+
+  // console.log(JSON.stringify(await config(options as Options), null, 2))
 
   await fs
     .mkdir(parse(path).dir, { recursive: true })
@@ -45,7 +61,7 @@ export const netlifyCMS = async () => {
         await fs.writeFile(
           path,
           /** @see {@link https://github.com/decaporg/decap-cms/issues/1342} */
-          stringify(await config(options), { aliasDuplicateObjects: false })
+          stringify(await config(options as Options), { aliasDuplicateObjects: false })
         )
     )
     .catch(console.error)
