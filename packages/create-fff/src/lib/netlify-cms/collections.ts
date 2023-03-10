@@ -1,4 +1,3 @@
-import type { Options } from './options'
 import * as fields from './fields'
 
 type Collection<T = {}> = (options: Options & T) => Object

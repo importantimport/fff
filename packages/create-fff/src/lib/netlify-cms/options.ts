@@ -1,11 +1,5 @@
 import { group, cancel, multiselect, confirm } from '@clack/prompts'
 
-export type Options = {
-  collections: string[]
-  object_media: boolean
-  // filter: boolean
-}
-
 export const options: Options = await group(
   {
     collections: () =>

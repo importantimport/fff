@@ -1,4 +1,3 @@
-import type { Options } from './options'
 import * as collections from './collections'
 import { promisify } from 'node:util'
 import { exec } from 'node:child_process'
@@ -12,7 +11,7 @@ export const config = async (options: Options) => ({
   },
   media_folder: '',
   public_folder: '',
-  collections: options.collections.map(
-    (collection) => collections[collection](options)
+  collections: options.collections.map((collection) =>
+    collections[collection](options)
   ),
 })

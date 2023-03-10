@@ -15,7 +15,7 @@ const main = async () => {
   
   intro(color.black(color.bgCyan(' create-fff ')))
 
-  const argv = minimist(process.argv.slice(2))
+  const argv: Argv = minimist(process.argv.slice(2))
 
   const type = argv._[0] ?? await select({
     message: 'Choose what you need to create:',
