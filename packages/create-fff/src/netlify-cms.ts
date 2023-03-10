@@ -1,6 +1,6 @@
 import { outro, confirm, isCancel, cancel, text, note } from '@clack/prompts'
-import color from 'picocolors'
-import fs from 'node:fs/promises'
+import { yellow } from 'picocolors'
+import { access, constants, mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
 import { stringify } from 'yaml'
 import { version } from '../package.json'
@@ -21,11 +21,10 @@ export const netlifyCMS = async () => {
     return process.exit(0)
   }
 
-  await fs
-    .access(path, fs.constants.F_OK)
+  await access(path, constants.F_OK)
     .then(async () => {
       const check = await confirm({
-        message: color.yellow(
+        message: yellow(
           `${path} already has files. Do you want to continue?`
         ),
       })
@@ -54,11 +53,10 @@ export const netlifyCMS = async () => {
 
   // console.log(JSON.stringify(await config(options as Options), null, 2))
 
-  await fs
-    .mkdir(parse(path).dir, { recursive: true })
+  await mkdir(parse(path).dir, { recursive: true })
     .then(
       async () =>
-        await fs.writeFile(
+        await writeFile(
           path,
           /** @see {@link https://github.com/decaporg/decap-cms/issues/1342} */
           stringify(await config(options as Options), { aliasDuplicateObjects: false })
