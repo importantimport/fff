@@ -6,6 +6,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Colr+Emoji+Glyf&display=swap');
 
 :root {
+  --vp-c-yellow: #ffc517;
+  --vp-c-yellow-light: #fcd253;
+  --vp-c-yellow-lighter: #fcfc7c;
+  --vp-c-yellow-dark: #e0ad15;
+  --vp-c-yellow-darker: #ad850e;
+  --vp-c-yellow-dimm-1: rgba(255, 197, 23, .5);
+  --vp-c-yellow-dimm-2: rgba(255, 197, 23, .25);
+  --vp-c-yellow-dimm-3: rgba(255, 197, 23, .05);
   --vp-home-hero-name-color: var(--vp-c-yellow);
   --vp-c-brand: var(--vp-c-yellow);
   --vp-c-brand-light: var(--vp-c-yellow-light);
