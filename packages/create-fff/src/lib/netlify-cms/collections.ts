@@ -11,7 +11,6 @@ const common: Collection<{ type: string }> = (options) => ({
   slug: options.slug.replace('{{type}}', options.type),
   // TODO: media_folder
   // TODO: public_folder
-  // TODO: filter by type
   filter: options.filter ? {
     field: 'type',
     value: options.type
