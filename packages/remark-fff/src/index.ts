@@ -20,7 +20,11 @@ export const remarkFFF =
       {
         ...(options.target === 'mdsvex'
           ? post.data.fm
-          : post.data.astro.frontmatter),
+          : options.target === 'astro'
+          ? post.data.astro.frontmatter
+          : options.target === 'nuxt'
+          ? post.data
+          : post.data),
       },
       [
         ...options.presets.map((preset) =>
@@ -46,6 +50,8 @@ export const remarkFFF =
         ...(file.data.astro as Object),
         frontmatter: fm,
       }
+    else if (options.target === 'nuxt') file.data = fm
+    else file.data = fm
   }
 
 export * from './autofill'

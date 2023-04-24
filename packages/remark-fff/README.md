@@ -20,7 +20,7 @@ pnpm add remark-fff # pnpm
 
 ## Usage
 
-Use in MDsveX or Astro:
+Use in MDsveX or Astro or Nuxt:
 
 ```ts
 import remarkFFF from 'remark-fff'
@@ -68,7 +68,7 @@ remarkFFF({
 
 default: `mdsvex`
 
-Packages that use this plugin currently support MDsveX and Astro.
+Packages that use this plugin currently support MDsveX, Astro and Nuxt.
 
 ```ts
 remarkFFF({ target: 'astro' })

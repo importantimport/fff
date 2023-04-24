@@ -11,7 +11,7 @@ export type FFFPreset = {
 }
 
 export type RemarkFFFOptions = {
-  target: 'mdsvex' | 'astro'
+  target: 'mdsvex' | 'astro' | 'nuxt' | (string & {})
   presets: (string | FFFPreset)[]
   autofill?: {
     provider: 'fs' | 'git'
