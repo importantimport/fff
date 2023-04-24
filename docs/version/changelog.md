@@ -22,9 +22,13 @@ For non-version-related changes, please refer to the [git commit history](https:
 
 ### Version 0.5.1 (2023-03-01)
 
-- Bug fixes, no type change
+- No type change
 
 ### Version 0.5.2 (2023-04-24)
+
+- No type change
+
+### Version 0.5.3 (2023-04-24)
 
 - No type change
 
