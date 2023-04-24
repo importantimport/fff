@@ -17,13 +17,13 @@
   "homepage": "https://fff.js.org",
   "bugs": "https://github.com/importantimport/fff/issues",
   "type": "module",
-  "module": "./dist/index.mjs",
-  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./package.json": "./package.json"
