@@ -1,5 +1,11 @@
 # remark-fff
 
+## 0.5.2
+
+### Patch Changes
+
+- Support Nuxt
+
 ## 0.5.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # markdown-it-fff
 
+## 0.5.2
+
+### Patch Changes
+
+- Version 0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
