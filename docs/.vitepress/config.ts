@@ -60,8 +60,9 @@ const sidebar = () => [
         link: '/packages/fff-flavored-frontmatter',
       },
       { text: 'remark-fff', link: '/packages/remark-fff' },
-      { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff' },
       { text: 'markdown-it-fff', link: '/packages/markdown-it-fff' },
+      { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff' },
+      { text: 'create-fff', link: '/packages/create-fff'}
     ],
   },
   {
