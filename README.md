@@ -92,6 +92,10 @@ FFF Flavored Frontmatter publication preset for Indiekit.
 ![minified size](https://img.shields.io/bundlephobia/min/create-fff?color=yellow)
 ![downloads](https://img.shields.io/npm/dt/create-fff?color=yellow)
 
+```bash
+pnpm create fff netlify-cms
+```
+
 ## 📄 License
 
 > [glowing_star.svg](docs/public/glowing_star.svg) from the [adobe-fonts/noto-emoji-svg](https://github.com/adobe-fonts/noto-emoji-svg) distributed under the [Apache License, Version 2.0](https://github.com/adobe-fonts/noto-emoji-svg/blob/main/LICENSE).
