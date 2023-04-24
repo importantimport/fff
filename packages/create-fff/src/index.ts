@@ -7,7 +7,6 @@ import {
 } from '@clack/prompts'
 import color from 'picocolors'
 import minimist from 'minimist'
-
 import { netlifyCMS } from './netlify-cms'
 
 const main = async () => {

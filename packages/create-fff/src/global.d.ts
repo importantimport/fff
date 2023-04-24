@@ -18,5 +18,12 @@ declare global {
     path: string
     slug: string
     filter: boolean
+    // collection_media_folder: string
+    // collection_public_folder: string
+  }
+
+  type Preset = {
+    argv?: Partial<Argv>
+    options?: Partial<Options>
   }
 }

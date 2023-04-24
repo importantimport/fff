@@ -5,16 +5,25 @@ import { parse } from 'node:path'
 import { stringify } from 'yaml'
 import { version } from '../package.json'
 import { config } from './lib/netlify-cms/config'
+import { fillOptions } from './lib/netlify-cms/options'
+import * as presets from './lib/netlify-cms/presets'
 
 export const netlifyCMS = async (argv: Argv) => {
-  const path = argv['config-path'] ?? await text({
-    message: 'Where should we create your Netlify CMS config?',
-    placeholder: './public/admin/config.yml',
-    validate: (value) => {
-      if (!value) return 'Please enter a path.'
-      if (value[0] !== '.') return 'Please enter a relative path.'
-    },
-  })
+  argv = {
+    ...argv,
+    ...presets[argv.preset]?.argv,
+  }
+
+  const path =
+    argv['config-path'] ??
+    (await text({
+      message: 'Where should we create your Netlify CMS config?',
+      placeholder: './public/admin/config.yml',
+      validate: (value) => {
+        if (!value) return 'Please enter a path.'
+        if (value[0] !== '.') return 'Please enter a relative path.'
+      },
+    }))
 
   if (isCancel(path)) {
     cancel('Operation cancelled')
@@ -35,7 +44,7 @@ export const netlifyCMS = async (argv: Argv) => {
     })
     .catch(() => {})
 
-  let { options } = await import('./lib/netlify-cms/options')
+  const options = await fillOptions(presets[argv.preset]?.options)
 
   if (options.path.includes('{{type}}')) {
     options.filter = false
@@ -51,15 +60,15 @@ export const netlifyCMS = async (argv: Argv) => {
     options.filter = filter
   }
 
-  // console.log(JSON.stringify(await config(options as Options), null, 2))
-
   await mkdir(parse(path).dir, { recursive: true })
     .then(
       async () =>
         await writeFile(
           path,
           /** @see {@link https://github.com/decaporg/decap-cms/issues/1342} */
-          stringify(await config(options as Options), { aliasDuplicateObjects: false })
+          stringify(await config(options as Options), {
+            aliasDuplicateObjects: false,
+          })
         )
     )
     .catch(console.error)
