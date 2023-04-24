@@ -4,7 +4,7 @@ title: 'What is FFF?'
 
 # What is FFF Flavored Frontmatter?
 
-Yet Another Opinionated Frontmatter Variable Specs.
+The Flexible & Functional Frontmatter Solution.
 
 ## Motivation
 

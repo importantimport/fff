@@ -4,7 +4,7 @@
 </a>
 </div>
 <h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
-<p align="center">Yet Another Opinionated Frontmatter Variable Specs.</p>
+<p align="center">The Flexible & Functional Frontmatter Solution.</p>
 
 ## 📝 Documentation
 

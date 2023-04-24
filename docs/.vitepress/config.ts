@@ -84,7 +84,7 @@ export default withPwa(
     lang: 'en-US',
     title: 'FFF Flavored Frontmatter',
     titleTemplate: 'FFF',
-    description: 'Yet Another Opinionated Frontmatter Variable Specs.',
+    description: 'The Flexible & Functional Frontmatter Solution.',
     appearance: 'dark',
     lastUpdated: true,
     markdown: {
@@ -153,7 +153,7 @@ export default withPwa(
         id: '/',
         name: 'FFF Flavored Frontmatter',
         short_name: 'FFF',
-        description: 'Yet Another Opinionated Frontmatter Variable Specs.',
+        description: 'The Flexible & Functional Frontmatter Solution.',
         theme_color: '#fdd835',
         icons: [
           {

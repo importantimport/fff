@@ -4,7 +4,7 @@
   "private": true,
   "author": "藍+85CD",
   "license": "WTFPL",
-  "description": "Yet Another Opinionated Frontmatter Variable Specs.",
+  "description": "The Flexible & Functional Frontmatter Solution.",
   "repository": {
     "type": "git",
     "url": "https://github.com/importantimport/fff.git",
