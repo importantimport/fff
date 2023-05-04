@@ -1,14 +1,20 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/public/fff-dark.png">
+  <img src="./docs/public/fff-light.png">
+</picture>
+<div align="center">The Flexible & Functional Frontmatter Solution.</div>
+
+---
+
 <div align="center">
-<a href="https://github.com/importantimport/fff">
-<img src="docs/public/glowing_star.svg" alt="fff" width="192px" />
-</a>
+
+**[<kbd> <br> Introduction <br> </kbd>](https://fff.js.org/intro/what-is-fff.html)** 
+**[<kbd> <br> Concepts <br> </kbd>](https://fff.js.org/concepts/object-media.html)** 
+**[<kbd> <br> Version <br> </kbd>](https://fff.js.org/version/changelog.html)**
+
 </div>
-<h1 align="center">FFF<br />Flavored<br />Frontmatter</h1>
-<p align="center">The Flexible & Functional Frontmatter Solution.</p>
 
-## 📝 Documentation
-
-The documentation is located in the [`docs`](docs) folder and can be viewed from [fff.js.org](https://fff.js.org).
+---
 
 ## 📦️ Packages
 
