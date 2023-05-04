@@ -1,4 +1,4 @@
-# markdown-it-fff
+# Markdown It **FFF**
 
 🌟 markdown-it plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
 

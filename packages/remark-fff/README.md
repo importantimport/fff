@@ -1,4 +1,4 @@
-# Remark FFF
+# Remark **FFF**
 
 🌟 Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
 

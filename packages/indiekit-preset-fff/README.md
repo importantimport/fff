@@ -1,4 +1,4 @@
-# Indiekit Preset FFF
+# Indiekit Preset **FFF**
 
 🌟 FFF Flavored Frontmatter publication preset for Indiekit.
 
