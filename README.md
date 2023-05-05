@@ -1,8 +1,10 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/public/fff-dark.png">
-  <img src="./docs/public/fff-light.png">
-</picture>
-<div align="center">The Flexible & Functional Frontmatter Solution.</div>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./docs/public/fff-dark.png">
+    <img src="./docs/public/fff-light.png">
+  </picture>
+  <h6>The Flexible & Functional Frontmatter Solution.</h6>
+</div>
 
 ---
 
