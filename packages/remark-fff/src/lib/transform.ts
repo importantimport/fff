@@ -1,4 +1,3 @@
-import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 import type { Frontmatter, FFFPreset, FFFPresetValue } from './types'
 
 export const transform = (
