@@ -113,19 +113,26 @@ const md = MarkdownIt()
 
 Go to the README for [`remark-fff`](/packages/remark-fff) or [`markdown-it-fff`](/packages/markdown-it-fff)!
 
-## TransformFm
+## Transform Function
 
-For environments where the above two plugins do not work directly (e.g. Qwik City), you can also use the `transformFm` function exported by `remark-fff`.
+For environments where the above two plugins do not work directly (e.g. Qwik City), you can also use the `transform` function exported by `fff-flavored-frontmatter`.
 
 Note that it only accepts FFFPreset (not string), so you must import the preset:
 
 ```ts
 import { useDocumentHead } from '@builder.io/qwik-city'
-import { transformFm, hugo } from 'remark-fff'
+import { transform, strict } from 'fff-flavored-frontmatter'
+import { hugo } from 'remark-fff'
 
 export const RouterHead = component$(() => {
   const head = useDocumentHead()
-  const frontmatter = transformFm(head.frontmatter, [
+  const frontmatter = transform(head.frontmatter, [
+    strict({
+      media: {
+        type: 'object',
+        array: false
+      }
+    }),
     hugo,
     {
       created: 'date',
