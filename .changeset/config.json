@@ -3,7 +3,7 @@
   "changelog": ["@changesets/changelog-github", {"repo": "importantimport/fff"}],
   "commit": false,
   "fixed": [],
-  "linked": [["*"]],
+  "linked": [],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
