@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['src/index.ts'],
-  dts: { resolve: true },
+  dts: false,
   clean: true,
   format: ['esm'],
   outExtension: ({ format }) => ({
