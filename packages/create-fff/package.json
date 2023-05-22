@@ -37,6 +37,8 @@
     "build:watch": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {

@@ -15,7 +15,10 @@
     },
     "test:watch": {
       "cache": false
-    }
+    },
+    "coverage": {},
+    "lint": {},
+    "lint:fix": {}
   },
   "globalDependencies": [
     ".env",
