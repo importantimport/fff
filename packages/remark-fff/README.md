@@ -91,7 +91,7 @@ remarkFFF({
 })
 ```
 
-### Transform
+<!-- ### Transform
 
 remark-fff provides a `transformFm` function that can be used on platforms that are not currently compatible (e.g. Qwik City).
 
@@ -112,4 +112,4 @@ export const RouterHead = component$(() => {
     },
   ])
 })
-```
+``` -->

@@ -1,14 +1,13 @@
-import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
+import type {
+  FFFFlavoredFrontmatter,
+  FFFPreset,
+  StrictPresetOptions
+} from 'fff-flavored-frontmatter'
 
-export type Frontmatter = FFFFlavoredFrontmatter & {
-  [key: string]: unknown
-}
-
-export type FFFPresetValue = string | ((fm: Frontmatter) => unknown)
-
-export type FFFPreset = {
-  [key in keyof FFFFlavoredFrontmatter]: FFFPresetValue
-}
+export type {
+  FFFPreset,
+  FFFPresetValue
+} from 'fff-flavored-frontmatter'
 
 export type RemarkFFFOptions = {
   target: 'mdsvex' | 'astro' | 'nuxt' | (string & {})
@@ -17,12 +16,7 @@ export type RemarkFFFOptions = {
     provider: 'fs' | 'git'
     path?: string | ((path: string) => string)
   }
-  strict?: {
-    media?: {
-      type?: 'string' | 'object'
-      array?: boolean
-    }
-  }
+  strict?: StrictPresetOptions
 }
 
 export type Post =
@@ -30,7 +24,7 @@ export type Post =
       filename: string
       path: never
       data: {
-        fm: Frontmatter
+        fm: FFFFlavoredFrontmatter & { [key: string]: unknown}
         astro: never
       }
     }
@@ -40,7 +34,7 @@ export type Post =
       data: {
         fm: never
         astro: {
-          frontmatter: Frontmatter
+          frontmatter: FFFFlavoredFrontmatter & { [key: string]: unknown}
         }
       }
     }

@@ -45,10 +45,12 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "fff-flavored-frontmatter": "workspace:*",
     "remark": "^14.0.2",
     "remark-frontmatter": "^4.0.1",
     "unified": "^10.1.2",
     "vfile": "^5.3.7"
+  },
+  "dependencies": {
+    "fff-flavored-frontmatter": "workspace:*"
   }
 }

@@ -2,8 +2,7 @@ import type { RemarkFFFOptions, Post } from './lib/types'
 import type { Transformer } from 'unified'
 import * as presets from './presets'
 import * as autofill from './autofill'
-import { strict } from './strict'
-import { transform } from './lib/transform'
+import { transform, strict } from 'fff-flavored-frontmatter'
 
 export const remarkFFF =
   (
@@ -56,6 +55,5 @@ export const remarkFFF =
 
 export * from './autofill'
 export * from './presets'
-export * from './strict'
-export { transform as transformFm }
+export { transform as transformFm, strict } from 'fff-flavored-frontmatter'
 export default remarkFFF

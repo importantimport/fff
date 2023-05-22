@@ -1,4 +1,8 @@
-import type { Frontmatter, FFFPreset } from '../../../remark-fff/src/lib/types'
+import type {
+  FFFFlavoredFrontmatter,
+  FFFPreset,
+  StrictPresetOptions
+} from 'fff-flavored-frontmatter'
 
 export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-title` */
@@ -6,17 +10,12 @@ export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-frontmatter` renderExcerpt */
   excerpt?: string
   /** `@mdit-vue/plugin-frontmatter` frontmatter */
-  frontmatter?: Frontmatter
+  frontmatter?: FFFFlavoredFrontmatter & { [key: string]: unknown }
 }
 
 export type FFFPluginOptions = {
   presets: (string | FFFPreset)[]
-  strict?: {
-    media?: {
-      type?: 'string' | 'object'
-      array?: boolean
-    }
-  }
+  strict?: StrictPresetOptions
 }
 
 export { FFFPreset }

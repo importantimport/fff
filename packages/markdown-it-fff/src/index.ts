@@ -1,7 +1,7 @@
 import type { FFFPluginOptions, MarkdownItEnv } from './lib/types'
 import type MarkdownIt from 'markdown-it'
 import * as presets from './presets'
-import { transform } from '../../remark-fff/src/lib/transform'
+import { transform, strict } from 'fff-flavored-frontmatter'
 
 export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
   md,
@@ -19,7 +19,7 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
         ...options.presets.map((preset) =>
           preset instanceof Object ? preset : presets[preset]
         ),
-        ...(options.strict ? [presets['strict'](options.strict)] : []),
+        ...(options.strict ? [strict(options.strict)] : []),
       ]
     )
     return render(t, o, env)
