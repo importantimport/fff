@@ -1,13 +1,16 @@
-name: Release
+name: Changesets
 
 on:
   push:
-    tags:
-      - 'v*'
+    paths:
+      - .changeset/**
   workflow_dispatch:
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
-  publish:
+  version:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
@@ -29,15 +32,19 @@ jobs:
           version: latest
           run_install: false
 
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
       - name: Get pnpm store directory
         id: pnpm-cache
+        shell: bash
         run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
@@ -45,11 +52,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm -r -F "./packages/**" build
-
-      - name: Publish
-        run: pnpm -r -F "./packages/**" publish --no-git-checks --access public
+      - name: Create and Publish Versions
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset version
+          commit: 'chore: 🔖 update versions'
+          title: 'chore: 🔖 update versions'
+          publish: pnpm release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
