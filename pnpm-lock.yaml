@@ -81,13 +81,12 @@ importers:
       '@iarna/toml':
         specifier: ^2.2.5
         version: 2.2.5
-      yaml:
-        specifier: ^2.2.2
-        version: 2.2.2
-    devDependencies:
       fff-flavored-frontmatter:
         specifier: workspace:*
         version: link:../fff-flavored-frontmatter
+      yaml:
+        specifier: ^2.2.2
+        version: 2.2.2
 
   packages/markdown-it-fff:
     dependencies:

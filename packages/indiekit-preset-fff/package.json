@@ -1,8 +1,17 @@
 {
   "name": "indiekit-preset-fff",
+  "type": "module",
   "version": "0.5.3",
+  "description": "FFF Flavored Frontmatter publication preset for Indiekit.",
   "author": "藍+85CD",
   "license": "WTFPL",
+  "homepage": "https://fff.js.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "packages/indiekit-preset-fff"
+  },
+  "bugs": "https://github.com/importantimport/fff/issues",
   "keywords": [
     "fff",
     "fff-flavored-frontmatter",
@@ -12,27 +21,18 @@
     "indieweb",
     "typescript"
   ],
-  "description": "FFF Flavored Frontmatter publication preset for Indiekit.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/importantimport/fff.git",
-    "directory": "packages/indiekit-preset-fff"
-  },
-  "homepage": "https://fff.js.org",
-  "bugs": "https://github.com/importantimport/fff/issues",
-  "type": "module",
-  "module": "./dist/index.mjs",
-  "main": "./dist/index.mjs",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist"
-  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
@@ -41,9 +41,7 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
+    "fff-flavored-frontmatter": "workspace:*",
     "yaml": "^2.2.2"
-  },
-  "devDependencies": {
-    "fff-flavored-frontmatter": "workspace:*"
   }
 }

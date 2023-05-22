@@ -1,9 +1,9 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['src/index.ts'],
-  dts: false,
   clean: true,
+  dts: true,
+  entry: ['src/index.ts'],
   format: ['esm'],
   outExtension: ({ format }) => ({
     js: format === 'esm' ? '.mjs' : `.${format}`,
