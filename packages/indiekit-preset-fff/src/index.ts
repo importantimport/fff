@@ -1,8 +1,9 @@
+import TOML, { type JsonMap } from '@iarna/toml'
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter/fff'
+import YAML from 'yaml'
+
 import { version } from '../package.json'
 import { postTypes } from './post-types'
-import TOML from '@iarna/toml'
-import YAML from 'yaml'
 
 export type IndiekitPresetFFFOptions = {
   /**
@@ -32,16 +33,13 @@ export default class FFFPreset {
 
   get info() {
     return {
-      name: 'FFF Flavored Frontmatter ' + version,
+      name: `FFF Flavored Frontmatter ${version}`,
     }
   }
 
   get prompts() {
     return [
       {
-        type: 'select',
-        name: 'format',
-        message: 'Which front matter format are you using?',
         choices: [
           {
             title: 'JSON',
@@ -57,6 +55,9 @@ export default class FFFPreset {
           },
         ],
         initial: 2,
+        message: 'Which front matter format are you using?',
+        name: 'format',
+        type: 'select',
       },
     ]
   }
@@ -66,14 +67,17 @@ export default class FFFPreset {
    * @param properties - Post data variables
    * @returns Front matter in chosen format
    */
-  private frontMatter(properties: any) {
+  private frontMatter(properties: unknown) {
     switch (this.options.format) {
-      case 'json':
-        return `${JSON.stringify(properties, null, 2)}\n`
-      case 'toml':
-        return `+++\n${TOML.stringify(properties)}+++\n`
-      default:
+      case 'json': {
+        return `${JSON.stringify(properties, undefined, 2)}\n`
+      }
+      case 'toml': {
+        return `+++\n${TOML.stringify(properties as JsonMap)}+++\n`
+      }
+      default: {
         return `---\n${YAML.stringify(properties, { lineWidth: 0 })}---\n`
+      }
     }
   }
 
@@ -90,43 +94,43 @@ export default class FFFPreset {
    * @param properties - Post data variables
    * @returns Rendered template
    */
-  public postTemplate(properties: any) {
+  public postTemplate(properties: FFFFlavoredFrontmatter & { [key: string]: unknown }) {
     return (
-      this.frontMatter({
-        title: properties.name,
-        summary: properties.summary,
-        published: properties.published,
-        tags: properties.category,
-        image: Array.isArray(properties.photo) ? undefined : properties.photo,
-        images: Array.isArray(properties.photo) ? properties.photo : undefined,
+      `${this.frontMatter({
         audio: properties.audio,
-        video: properties.video,
-        bookmark_of: properties['bookmark_of'],
-        like_of: properties['like-of'],
-        repost_of: properties['repost-of'],
-        in_reply_to: properties['in-reply-to'],
-        location: properties.location,
+        bookmark_of: properties.bookmark_of,
+        checkin: properties.checkin,
+        end: properties.end,
         flags: [
           ...(properties.draft ? ['draft'] : []),
           ...(properties.visibility ? [properties.visibility] : []),
         ],
-        start: properties.start,
-        end: properties.end,
-        rsvp: properties.rsvp,
-        checkin: properties.checkin,
-        syndication: properties.syndication,
+        image: Array.isArray(properties.photo) ? undefined : properties.photo,
+        images: Array.isArray(properties.photo) ? properties.photo : undefined,
+        in_reply_to: properties['in-reply-to'],
+        like_of: properties['like-of'],
+        location: properties.location,
         mp_syndicate_to: properties['mp-syndicate-to'],
-      } as FFFFlavoredFrontmatter) +
-      `${
-        properties.content.text ??
-        properties.content.html ??
-        properties.content ??
-        ''
+        published: properties.published,
+        repost_of: properties['repost-of'],
+        rsvp: properties.rsvp,
+        start: properties.start,
+        summary: properties.summary,
+        syndication: properties.syndication,
+        tags: properties.category,
+        title: properties.name,
+        video: properties.video,
+      } as FFFFlavoredFrontmatter)
+      }${
+        (properties.content as { text?: string }).text
+        ?? (properties.content as { html?: string }).html
+        ?? properties.content
+        ?? ''
       }\n`
     )
   }
 
-  public init(Indiekit: any) {
+  public init(Indiekit: { addPreset: (t: unknown) => void }) {
     Indiekit.addPreset(this)
   }
 }

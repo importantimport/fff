@@ -8,17 +8,17 @@ export type FFFPreset = {
 
 export const transform = (
   fm: FFFFlavoredFrontmatter & { [key: string]: unknown },
-  presets: FFFPreset[]
+  presets: FFFPreset[],
 ): FFFFlavoredFrontmatter & { [key: string]: unknown } => {
-  presets.forEach((preset) =>
-    Object.entries<FFFPresetValue>(preset).forEach(
-      ([output, input]) =>
-        (fm = {
-          ...fm,
-          [output]:
-            input instanceof Function ? input(fm) : fm[input] ?? fm[output],
-        })
-    )
-  )
+  for (const preset of presets) {
+    for (const [output, input] of Object.entries<FFFPresetValue>(preset)) {
+      (fm = {
+        ...fm,
+        [output]:
+            typeof input === 'function' ? input(fm) : fm[input] ?? fm[output],
+      })
+    }
+  }
+
   return fm
 }

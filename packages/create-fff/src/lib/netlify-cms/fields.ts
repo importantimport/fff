@@ -1,8 +1,8 @@
 export const type = (type: string) => ({
+  default: type,
   label: 'Post Type',
   name: 'type',
   widget: 'hidden',
-  default: type,
 })
 
 export const common = [
@@ -62,28 +62,28 @@ export const image = ({
   name: 'image',
   ...(object_media
     ? {
-        widget: 'list',
-        max: 1,
-        fields: [
-          {
-            label: 'Source',
-            name: 'src',
-            widget: 'image',
-            allow_multiple: false,
-          },
-          {
-            label: 'Alternate Text',
-            name: 'alt',
-            widget: 'string',
-          },
-          {
-            label: 'Figure Caption',
-            name: 'figcaption',
-            widget: 'string',
-          },
-        ],
-      }
-    : { widget: 'image', allow_multiple: false }),
+      fields: [
+        {
+          allow_multiple: false,
+          label: 'Source',
+          name: 'src',
+          widget: 'image',
+        },
+        {
+          label: 'Alternate Text',
+          name: 'alt',
+          widget: 'string',
+        },
+        {
+          label: 'Figure Caption',
+          name: 'figcaption',
+          widget: 'string',
+        },
+      ],
+      max: 1,
+      widget: 'list',
+    }
+    : { allow_multiple: false, widget: 'image' }),
 })
 
 export const content = {

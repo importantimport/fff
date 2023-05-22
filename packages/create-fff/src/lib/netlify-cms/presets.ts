@@ -3,11 +3,11 @@ export const urara: Preset = {
     'config-path': './urara/admin/config.yml',
   },
   options: {
-    media_folder: 'urara/uploads',
-    public_folder: '/uploads',
-    folder: 'urara',
-    path: '{{slug}}/+page',
-    slug: '{{slug}}',
     filter: true,
+    folder: 'urara',
+    media_folder: 'urara/uploads',
+    path: '{{slug}}/+page',
+    public_folder: '/uploads',
+    slug: '{{slug}}',
   },
 }

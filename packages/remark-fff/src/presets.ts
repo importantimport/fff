@@ -1,4 +1,5 @@
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
+
 import type { FFFPreset } from './lib/types'
 
 /**
@@ -7,7 +8,7 @@ import type { FFFPreset } from './lib/types'
 export const legacy: FFFPreset = {
   images: ({ image }) => image && (Array.isArray(image) ? image : [image]),
   in_reply_to: ({ in_reply_to }) =>
-    in_reply_to && Array.isArray(in_reply_to) ? in_reply_to[0] : in_reply_to,
+    (in_reply_to && Array.isArray(in_reply_to)) ? in_reply_to[0] : in_reply_to,
 }
 
 /**
@@ -15,18 +16,7 @@ export const legacy: FFFPreset = {
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
 export const hugo: FFFPreset = {
-  image: ({ image, images }) =>
-    image
-      ? image
-      : images && (!Array.isArray(images) || images.length === 1)
-      ? images
-      : undefined,
-  images: ({ images }) => (Array.isArray(images) ? images : undefined),
-  tags: 'category',
   bookmark_of: 'bookmarkOf',
-  like_of: 'likeOf',
-  repost_of: 'repostOf',
-  in_reply_to: 'inReplyTo',
   flags: ({
     flags,
     draft,
@@ -36,13 +26,20 @@ export const hugo: FFFPreset = {
     draft?: boolean
     visibility?: 'public' | 'unlisted' | 'private'
   }) =>
-    Array.from(
-      new Set([
-        ...(flags ?? []),
-        ...(draft ? ['draft'] : []),
-        ...(visibility ? [visibility] : []),
-      ])
-    ),
+    [...new Set([
+      ...(flags ?? []),
+      ...(draft ? ['draft'] : []),
+      ...(visibility ? [visibility] : []),
+    ])],
+  image: ({ image, images }) =>
+    image || ((images && (!Array.isArray(images) || images.length === 1))
+      ? images
+      : undefined),
+  images: ({ images }) => (Array.isArray(images) ? images : undefined),
+  in_reply_to: 'inReplyTo',
+  like_of: 'likeOf',
+  repost_of: 'repostOf',
+  tags: 'category',
 }
 
 /** @see {@link https://hexo.io/docs/front-matter.html} */
@@ -55,7 +52,7 @@ export const hexo: FFFPreset = {
   }: {
     tags?: FFFFlavoredFrontmatter['tags']
     categories?: (string | string[])[]
-  }) => [...(tags ?? []), ...Array.from(new Set((categories ?? []).flat()))],
+  }) => [...(tags ?? []), ...new Set((categories ?? []).flat())],
 }
 
 /**
@@ -64,26 +61,8 @@ export const hexo: FFFPreset = {
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-jekyll/index.js}
  */
 export const jekyll: FFFPreset = {
-  summary: 'excerpt',
-  created: 'date',
-  image: ({ photo }) => (Array.isArray(photo) ? undefined : photo),
-  images: ({ photo }) => (Array.isArray(photo) ? photo : undefined),
   bookmark_of: 'bookmark-of',
-  like_of: 'like-of',
-  repost_of: 'repost-of',
-  in_reply_to: 'in-reply-to',
-  tags: ({
-    tags,
-    category,
-    categories,
-  }: {
-    tags?: FFFFlavoredFrontmatter['tags']
-    category?: string[]
-    categories?: string[]
-  }) =>
-    Array.from(
-      new Set([...(tags ?? []), ...(category ?? []), ...(categories ?? [])])
-    ),
+  created: 'date',
   flags: ({
     flags,
     draft,
@@ -93,18 +72,31 @@ export const jekyll: FFFPreset = {
     draft?: boolean
     visibility?: 'public' | 'unlisted' | 'private'
   }) =>
-    Array.from(
-      new Set([
-        ...(flags ?? []),
-        ...(draft ? ['draft'] : []),
-        ...(visibility ? [visibility] : []),
-      ])
-    ),
+    [...new Set([
+      ...(flags ?? []),
+      ...(draft ? ['draft'] : []),
+      ...(visibility ? [visibility] : []),
+    ])],
+  image: ({ photo }) => (Array.isArray(photo) ? undefined : photo),
+  images: ({ photo }) => (Array.isArray(photo) ? photo : undefined),
+  in_reply_to: 'in-reply-to',
+  like_of: 'like-of',
+  repost_of: 'repost-of',
+  summary: 'excerpt',
+  tags: ({
+    tags,
+    category,
+    categories,
+  }: {
+    tags?: FFFFlavoredFrontmatter['tags']
+    category?: string[]
+    categories?: string[]
+  }) =>
+    [...new Set([...(tags ?? []), ...(category ?? []), ...(categories ?? [])])],
 }
 
 /** @see {@link https://www.getzola.org/documentation/content/page/#front-matter} */
 export const zola: FFFPreset = {
-  summary: 'description',
   created: 'date',
   flags: ({
     flags,
@@ -112,7 +104,8 @@ export const zola: FFFPreset = {
   }: {
     flags?: FFFFlavoredFrontmatter['flags']
     draft?: boolean
-  }) => Array.from(new Set([...flags, ...(draft ? ['draft'] : [])])),
+  }) => [...new Set([...flags, ...(draft ? ['draft'] : [])])],
+  summary: 'description',
 }
 
 /**

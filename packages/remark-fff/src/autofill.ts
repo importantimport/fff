@@ -1,7 +1,8 @@
-import type { FFFPreset } from './lib/types'
 import { execFileSync } from 'node:child_process'
 import { statSync } from 'node:fs'
 import { EOL } from 'node:os'
+
+import type { FFFPreset } from './lib/types'
 
 export const path = {
   urara: (path: string) => path.replace('/src/routes/', '/urara/'),
@@ -18,23 +19,24 @@ export const fs = (path: string): FFFPreset => {
 
 /**
  * @alpha
- * @author Jordan Webb <jordan@jordemort.dev>
+ * @remarks
+ * author: Jordan Webb
  * @see {@link https://github.com/jordemort/jordemort.github.io/blob/main/src/plugins/repodates.mjs}
  */
 export const git = (path: string): FFFPreset => ({
   created: ({ created }) =>
-    created ??
-    execFileSync(
+    created
+    ?? execFileSync(
       'git',
       ['log', '--diff-filter=A', '--follow', '--format=%ai', '--', path],
-      { encoding: 'utf8' }
+      { encoding: 'utf8' },
     )
       .trim()
       .split(EOL)
       .pop(),
   updated: ({ updated }) =>
-    updated ??
-    execFileSync('git', ['log', '-1', '--pretty=format:%ai', '--', path], {
+    updated
+    ?? execFileSync('git', ['log', '-1', '--pretty=format:%ai', '--', path], {
       encoding: 'utf8',
     }).trim(),
 })

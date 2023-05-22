@@ -1,9 +1,10 @@
 import type {
   FFFFlavoredFrontmatter,
   FFFPreset,
-  StrictPresetOptions
+  StrictPresetOptions,
 } from 'fff-flavored-frontmatter'
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
 export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-title` */
   title?: string
@@ -18,4 +19,4 @@ export type FFFPluginOptions = {
   strict?: StrictPresetOptions
 }
 
-export { FFFPreset }
+export { type FFFPreset } from 'fff-flavored-frontmatter'

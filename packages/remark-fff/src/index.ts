@@ -1,59 +1,73 @@
-import type { RemarkFFFOptions, Post } from './lib/types'
+import { strict, transform } from 'fff-flavored-frontmatter'
 import type { Transformer } from 'unified'
-import * as presets from './presets'
-import * as autofill from './autofill'
-import { transform, strict } from 'fff-flavored-frontmatter'
 
-export const remarkFFF =
-  (
+import * as autofill from './autofill'
+import type { Post, RemarkFFFOptions } from './lib/types'
+import * as presets from './presets'
+
+export const remarkFFF
+  = (
+    // eslint-disable-next-line unicorn/no-object-as-default-parameter
     options: RemarkFFFOptions = {
       presets: ['hugo', 'legacy'],
       target: 'mdsvex',
-    }
+    },
   ): Transformer =>
-  (_tree, file) => {
+    (_tree, file) => {
     // make TS happy
-    let post: Post = file as unknown as Post
-    const path = post.filename ?? post.path
-    const fm = transform(
-      {
-        ...(options.target === 'mdsvex'
-          ? post.data.fm
-          : options.target === 'astro'
-          ? post.data.astro.frontmatter
-          : options.target === 'nuxt'
-          ? post.data
-          : post.data),
-      },
-      [
-        ...options.presets.map((preset) =>
-          preset instanceof Object ? preset : presets[preset]
-        ),
-        ...(options.autofill?.provider
-          ? [
+      const post: Post = file as unknown as Post
+      const path = post.filename ?? post.path
+      const fm = transform(
+        {
+          /* eslint-disable unicorn/no-nested-ternary */
+          ...(options.target === 'mdsvex'
+            ? post.data.fm
+            : (options.target === 'astro'
+              ? post.data.astro.frontmatter
+              : (options.target === 'nuxt'
+                ? post.data
+                : post.data))),
+          /* eslint-enable unicorn/no-nested-ternary */
+        },
+        [
+          ...options.presets.map(preset =>
+            typeof preset === 'object' ? preset : presets[preset],
+          ),
+          ...(options.autofill?.provider
+            ? [
               autofill[options.autofill.provider](
                 options.autofill.path
-                  ? options.autofill.path instanceof Function
+                  ? (typeof options.autofill.path === 'function'
                     ? options.autofill.path(path)
-                    : autofill.path[options.autofill.path](path)
-                  : post.filename
+                    : autofill.path[options.autofill.path](path))
+                  : post.filename,
               ),
             ]
-          : []),
-        ...(options.strict ? [strict(options.strict)] : []),
-      ]
-    )
-    if (options.target === 'mdsvex') file.data.fm = fm
-    else if (options.target === 'astro')
-      file.data.astro = {
-        ...(file.data.astro as Object),
-        frontmatter: fm,
+            : []),
+          ...(options.strict ? [strict(options.strict)] : []),
+        ],
+      )
+      switch (options.target) {
+        case 'mdsvex': {
+          file.data.fm = fm
+          break
+        }
+        case 'astro': {
+          file.data.astro = {
+            ...file.data.astro as object,
+            frontmatter: fm,
+          }
+          break
+        }
+        case 'nuxt': {
+          file.data = fm
+          break
+        }
+        default: { file.data = fm }
       }
-    else if (options.target === 'nuxt') file.data = fm
-    else file.data = fm
-  }
+    }
 
 export * from './autofill'
 export * from './presets'
-export { transform as transformFm, strict } from 'fff-flavored-frontmatter'
+export { strict, transform as transformFm } from 'fff-flavored-frontmatter'
 export default remarkFFF

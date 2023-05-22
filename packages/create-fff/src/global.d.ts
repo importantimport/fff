@@ -4,7 +4,7 @@ declare global {
   type Argv = ParsedArgs & {
     // common
     preset?: string
-    
+
     // netlify-cms
     'config-path'?: string
   }

@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 import {
+  cancel,
   intro,
+  isCancel,
   outro,
   select,
-  isCancel,
-  cancel,
 } from '@clack/prompts'
-import color from 'picocolors'
 import minimist from 'minimist'
+import color from 'picocolors'
+
 import { netlifyCMS } from './netlify-cms'
 
 const main = async () => {
+  // eslint-disable-next-line no-console
   console.clear()
-  
+
   intro(color.black(color.bgCyan(' create-fff ')))
 
   const argv: Argv = minimist(process.argv.slice(2))
@@ -21,14 +23,14 @@ const main = async () => {
     message: 'Choose what you need to create:',
     options: [
       {
-        value: 'netlify-cms',
-        label: 'Netlify CMS Config (WIP)',
         hint: 'config.yml',
+        label: 'Netlify CMS Config (WIP)',
+        value: 'netlify-cms',
       },
       {
-        value: 'contentlayer',
-        label: 'Contentlayer Schema (TODO)',
         hint: 'contentlayer.config.ts',
+        label: 'Contentlayer Schema (TODO)',
+        value: 'contentlayer',
       },
     ],
   })
@@ -38,15 +40,20 @@ const main = async () => {
     return process.exit(0)
   }
 
+  /* eslint-disable no-fallthrough */
   switch (type) {
     case 'netlify-cms':
-    case 'decap-cms':
+    case 'decap-cms': {
       await netlifyCMS(argv).catch(console.error)
       process.exit(0)
-    default:
+    }
+    default: {
       outro(type as string)
       process.exit(0)
+    }
   }
+  /* eslint-enable no-fallthrough */
 }
 
+// eslint-disable-next-line unicorn/prefer-top-level-await
 main().catch(console.error)

@@ -1,8 +1,11 @@
-import { outro, confirm, isCancel, cancel, text, note } from '@clack/prompts'
-import color from 'picocolors'
+#!/usr/bin/env node
 import { access, constants, mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
+
+import { cancel, confirm, isCancel, note, outro, text } from '@clack/prompts'
+import color from 'picocolors'
 import { stringify } from 'yaml'
+
 import { version } from '../package.json'
 import { config } from './lib/netlify-cms/config'
 import { fillOptions } from './lib/netlify-cms/options'
@@ -14,14 +17,16 @@ export const netlifyCMS = async (argv: Argv) => {
     ...presets[argv.preset]?.argv,
   }
 
-  const path =
-    argv['config-path'] ??
-    (await text({
+  const path
+    = argv['config-path']
+    ?? (await text({
       message: 'Where should we create your Netlify CMS config?',
       placeholder: './public/admin/config.yml',
       validate: (value) => {
-        if (!value) return 'Please enter a path.'
-        if (value[0] !== '.') return 'Please enter a relative path.'
+        if (!value)
+          return 'Please enter a path.'
+        if (value[0] !== '.')
+          return 'Please enter a relative path.'
       },
     }))
 
@@ -34,7 +39,7 @@ export const netlifyCMS = async (argv: Argv) => {
     .then(async () => {
       const check = await confirm({
         message: color.yellow(
-          `${path} already has files. Do you want to continue?`
+          `${path} already has files. Do you want to continue?`,
         ),
       })
       if (isCancel(check) || check === false) {
@@ -42,13 +47,14 @@ export const netlifyCMS = async (argv: Argv) => {
         return process.exit(0)
       }
     })
-    .catch(() => {})
+    .catch(console.error)
 
   const options = await fillOptions(presets[argv.preset]?.options)
 
   if (options.path.includes('{{type}}')) {
     options.filter = false
-  } else {
+  }
+  else {
     const filter = await confirm({
       message: 'Do you want to enable post type filtering?',
       // '\nWhen not using the {{type}} folder,\nit will correctly categorize posts;\nhowever, it will cause posts that do not have a type value set to not be displayed.\nhttps://fff.js.org'
@@ -68,11 +74,11 @@ export const netlifyCMS = async (argv: Argv) => {
           /** @see {@link https://github.com/decaporg/decap-cms/issues/1342} */
           stringify(await config(options as Options), {
             aliasDuplicateObjects: false,
-          })
-        )
+          }),
+        ),
     )
     .catch(console.error)
 
   note(`FFF Flavored Frontmatter\nVersion ${version}`)
-  outro("You're all set! ")
+  outro('You\'re all set! ')
 }
