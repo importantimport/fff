@@ -40,9 +40,9 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@clack/prompts": "^0.6.2",
+    "@clack/prompts": "^0.6.3",
     "minimist": "^1.2.8",
     "picocolors": "^1.0.0",
-    "yaml": "^2.2.1"
+    "yaml": "^2.2.2"
   }
 }
