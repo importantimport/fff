@@ -1,7 +1,10 @@
 import type { FFFAudio, FFFImage, FFFVideo } from '../../types'
 import type { FFFPreset } from '../transform'
 
-/** Stict Preset Options */
+/**
+ * Stict Preset Options
+ * @public
+ */
 export type StrictPresetOptions = {
   media?: {
     type?: 'string' | 'object'
