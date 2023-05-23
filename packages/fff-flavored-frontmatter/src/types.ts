@@ -49,6 +49,8 @@ export type FFFBase = {
   summary?: string
   /** tags array, any plain text values you want. */
   tags?: string[]
+  /** categories array, any plain text values you want. */
+  categories?: string[]
   /** flags array, any plain text values you want. */
   flags?: string[]
 }

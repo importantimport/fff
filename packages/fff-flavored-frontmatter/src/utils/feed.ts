@@ -72,7 +72,10 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
     image: fm.image,
     language: fm.lang?.[0] ?? fm.lang,
     summary: fm.summary,
-    tags: fm.tags,
+    tags: [
+      ...(fm.tags ?? []),
+      ...(fm.categories ?? []),
+    ],
     title: fm.title,
     // TODO: https://www.jsonfeed.org/version/1.1/#attachments-a-name-attachments-a
     // TODO: https://www.jsonfeed.org/podcasting/

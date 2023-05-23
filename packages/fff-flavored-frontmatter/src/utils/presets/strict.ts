@@ -24,6 +24,7 @@ const strictMediaTransform = (
       ? media?.src
       : media)
 
+// TODO: lang (string | array), categories => tags
 /**
  * Strict - FFF Transform Preset
  * @beta
