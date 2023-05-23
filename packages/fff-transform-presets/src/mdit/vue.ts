@@ -11,7 +11,7 @@ export const mditVue: FFFTransformPreset = {
 
 /**
  * `@mdit-vue/plugin-frontmatter` - FFF Transform Preset (Reverse)
- * @beta
+ * @alpha
  * @see {@link https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-frontmatter}
  */
 export const mditVueReverse: FFFTransformPresetReverse = {
