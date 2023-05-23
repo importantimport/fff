@@ -6,7 +6,7 @@ import type { FFFTransformPreset } from './lib/types'
 
 /**
  * Predefined path preset
- * @beta
+ * @public
  */
 export const path = {
   urara: (path: string) => path.replace('/src/routes/', '/urara/'),
