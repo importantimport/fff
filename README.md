@@ -38,8 +38,8 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 ### [fff-transform-presets](/packages/fff-transform-presets/)
 
 [![npm](https://img.shields.io/npm/v/fff-transform-presets?color=yellow)](https://npmjs.com/package/fff-transform-presets)
-![minified size](https://img.shields.io/bundlephobia/min/remark-fff?color=yellow)
-![downloads](https://img.shields.io/npm/dt/remark-fff?color=yellow)
+![minified size](https://img.shields.io/bundlephobia/min/fff-transform-presets?color=yellow)
+![downloads](https://img.shields.io/npm/dt/fff-transform-presets?color=yellow)
 
 Predefined transform presets for FFF Flavored Frontmatter.
 
