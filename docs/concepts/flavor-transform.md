@@ -120,7 +120,7 @@ Just like [FFF Transform Preset](#fff-transform-preset), but it uses any string 
 ```ts
 import type { FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
 
-const basic: FFFTransformPresetReverse = {
+const basicReverse: FFFTransformPresetReverse = {
   date: 'created',
   draft: ({ flags }) => flags?.includes('draft'),
 }
