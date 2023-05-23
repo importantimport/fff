@@ -17,7 +17,7 @@ export type FFFTransformPreset = {
 
 /**
  * Flavor Transform Preset (Reverse)
- * @beta
+ * @public
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#reverse}
  */
 export type FFFTransformPresetReverse = {
