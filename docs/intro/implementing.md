@@ -12,20 +12,6 @@ In general, you only need to consider compatibility with the latest version.
 
 You can extend the functionality of FFF as much as you want, but can't intentionally create incompatibilities.
 
-For example, it is possible to make authors support `id`, but not rename tags to categories, and so on.
-
-```yaml
-authors:
-  - johndoe # compatible
-  - name: Jane Doe
-    id: janedoe # compatible
-    url: https://fff.js.org/~janedoe
-categories: # incompatible
-  - Foo
-  - Bar
-
-```
-
 ## Badges
 
 If your project is already FFF compatible,
