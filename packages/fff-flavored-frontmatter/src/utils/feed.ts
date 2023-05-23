@@ -70,7 +70,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
     date_modified: fm.updated,
     date_published: fm.published ?? fm.created,
     image: fm.image,
-    language: fm.lang[0] ?? fm.lang,
+    language: fm.lang?.[0] ?? fm.lang,
     summary: fm.summary,
     tags: fm.tags,
     title: fm.title,

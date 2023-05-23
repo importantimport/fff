@@ -14,13 +14,13 @@ export type StrictPresetOptions = {
 
 const strictMediaTransform = (
   options: StrictPresetOptions['media'],
-  media: string | (FFFImage | FFFAudio | FFFVideo),
+  media?: string | (FFFImage | FFFAudio | FFFVideo),
 ) =>
   typeof media === 'string'
-    ? (options.type === 'object'
+    ? (options?.type === 'object'
       ? { src: media }
       : media)
-    : (options.type === 'string'
+    : (options?.type === 'string'
       ? media?.src
       : media)
 
@@ -34,16 +34,16 @@ export const strict = (strict: {
     array?: boolean
   }
 }): FFFTransformPreset => ({
-  alt: ({ alt, image, images }) => alt ?? strict.media.type === 'string' ? ((image || images?.[0]) as FFFImage)?.alt : undefined,
+  alt: ({ alt, image, images }) => alt ?? strict.media?.type === 'string' ? ((image || images?.[0]) as FFFImage)?.alt : undefined,
   audio: ({ audio }) => strictMediaTransform(strict.media, audio),
   image: ({ image, images }) =>
     strictMediaTransform(
       strict.media,
-      strict.media.array ? image : image ?? images?.[0],
+      strict.media?.array ? image : image ?? images?.[0],
     ),
   images: ({ image, images }) =>
-    [...(images ?? []), ...(strict.media.array ? [image] : [])].map(
-      (image: string | FFFImage) => strictMediaTransform(strict.media, image),
+    [...(images ?? []), ...(strict.media?.array ? [image] : [])].map(
+      (image?: string | FFFImage) => strictMediaTransform(strict.media, image),
     ),
   video: ({ video }) => strictMediaTransform(strict.media, video),
 })
