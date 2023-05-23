@@ -4,6 +4,10 @@ import { EOL } from 'node:os'
 
 import type { FFFTransformPreset } from './lib/types'
 
+/**
+ * Predefined path preset
+ * @beta
+ */
 export const path = {
   urara: (path: string) => path.replace('/src/routes/', '/urara/'),
 } as const

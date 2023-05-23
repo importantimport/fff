@@ -121,6 +121,7 @@ export const zola: FFFTransformPreset = {
 
 /**
  * Nuxt Content - FFF Transform Preset
+ * @beta
  * @see {@link https://content.nuxtjs.org/guide/writing/markdown/#front-matter}
  * since nuxt content is similar to zola, it is straightforward to use
  */
