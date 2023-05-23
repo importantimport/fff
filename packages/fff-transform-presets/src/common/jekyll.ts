@@ -11,9 +11,15 @@ export const jekyll: FFFTransformPreset = {
     categories,
   }: {
     category?: string
-    categories?: string[]
+    categories?: string | string[]
   }) =>
-    [...new Set([category, ...(categories ?? [])])]
+    [...new Set([
+      category,
+      ...(categories
+        ? (typeof categories === 'string'
+          ? categories.split(' ')
+          : categories)
+        : [])])]
       .filter(tag => tag !== undefined),
   created: 'date',
   tags: ({ tags }: {
