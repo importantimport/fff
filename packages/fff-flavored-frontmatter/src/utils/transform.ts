@@ -6,9 +6,17 @@ export type FFFPreset = {
   [key in keyof FFFFlavoredFrontmatter]: FFFPresetValue
 }
 
+/**
+ * Flavor Transform Preset (Reverse)
+ * @beta
+ */
+export type FFFPresetReverse = {
+  [key: string]: FFFPresetValue
+}
+
 export const transform = (
   fm: FFFFlavoredFrontmatter & { [key: string]: unknown },
-  presets: FFFPreset[],
+  presets: (FFFPreset | FFFPresetReverse)[],
 ): FFFFlavoredFrontmatter & { [key: string]: unknown } => {
   for (const preset of presets) {
     for (const [output, input] of Object.entries<FFFPresetValue>(preset)) {
@@ -19,6 +27,5 @@ export const transform = (
       })
     }
   }
-
   return fm
 }
