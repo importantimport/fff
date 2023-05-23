@@ -115,7 +115,7 @@ export const zola: FFFTransformPreset = {
   }: {
     flags?: FFFFlavoredFrontmatter['flags']
     draft?: boolean
-  }) => [...new Set([...flags, ...(draft ? ['draft'] : [])])],
+  }) => [...new Set([...(flags ?? []), ...(draft ? ['draft'] : [])])],
   summary: 'description',
 }
 

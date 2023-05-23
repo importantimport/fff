@@ -22,11 +22,11 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
     env.frontmatter = transform(
       {
         ...env.frontmatter,
-        excerpt: env.frontmatter.excerpt ?? env.excerpt,
-        title: env.frontmatter.title ?? env.title,
+        excerpt: env.frontmatter?.excerpt ?? env.excerpt,
+        title: env.frontmatter?.title ?? env.title,
       },
       [
-        ...options.presets.map(preset =>
+        ...options.presets.map((preset: FFFPluginOptions['presets'][0]) =>
           typeof preset === 'object' ? preset : presets[preset],
         ),
         ...(options.strict ? [strict(options.strict)] : []),

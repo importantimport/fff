@@ -11,12 +11,12 @@ export type IndiekitPresetFFFOptions = {
    * Front matter format to use.
    * @defaultValue `yaml`
    */
-  format?: 'json' | 'toml' | 'yaml'
+  format: 'json' | 'toml' | 'yaml'
   /**
    * Post types.
    * @defaultValue `urara`
    */
-  types?: 'urara'
+  types: 'urara'
 }
 
 /**
@@ -108,7 +108,7 @@ export default class IndiekitPresetFFF {
         end: properties.end,
         flags: [
           ...(properties.draft ? ['draft'] : []),
-          ...(properties.visibility ? [properties.visibility] : []),
+          ...(properties.visibility ? [properties.visibility as string] : []),
         ],
         image: Array.isArray(properties.photo) ? undefined : properties.photo,
         images: Array.isArray(properties.photo) ? properties.photo : undefined,
