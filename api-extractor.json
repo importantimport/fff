@@ -3,12 +3,7 @@
   "apiReport": {
     "enabled": false
   },
-  "bundledPackages": [
-    "fff-flavored-frontmatter",
-    "indiekit-preset-fff",
-    "markdown-it-fff",
-    "remark-fff"
-  ],
+  "bundledPackages": [],
   "compiler": {},
   "docModel": {
     "apiJsonFilePath": "<projectFolder>/dist/api-extractor/<unscopedPackageName>.api.json",
@@ -38,6 +33,5 @@
       }
     }
   },
-  "tsdocMetadata": {
-  }
+  "tsdocMetadata": {}
 }
