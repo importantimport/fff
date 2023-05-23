@@ -34,7 +34,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
@@ -53,6 +55,7 @@
     "@types/linkify-it": "^3.0.2",
     "@types/markdown-it": "^12.2.3",
     "@types/mdurl": "^1.0.2",
+    "fff-transform-presets": "workspace:*",
     "markdown-it": "^13.0.1"
   }
 }

@@ -43,22 +43,22 @@ Configuration (optional).
 
 #### options.presets
 
-default: `['hugo']`
+default: `[]`
 
 Specifies a preset for how remark-fff will be converted.
 
-When it is a string, the corresponding object is retrieved from [presets.ts](src/presets.ts).
-
-You can also create your own presets!
+You can create your own presets, or import some from `fff-transform-presets`.
 
 ```ts
+import { hugo } from 'fff-transform-presets'
+
 remarkFFF({
   presets: [
-    'hugo', // presets['hugo']
+    hugo
     {
       created: 'date',
-      summary: 'excerpt',
       flags: ({ draft }) => (draft ? ['draft'] : []),
+      summary: 'excerpt',
     },
   ],
 })
@@ -90,26 +90,3 @@ remarkFFF({
   },
 })
 ```
-
-<!-- ### Transform
-
-remark-fff provides a `transformFm` function that can be used on platforms that are not currently compatible (e.g. Qwik City).
-
-Note that it only accepts `FFFPreset` (not string), so you must import the preset:
-
-```ts
-import { useDocumentHead } from '@builder.io/qwik-city'
-import { transformFm, hugo } from 'remark-fff'
-
-export const RouterHead = component$(() => {
-  const head = useDocumentHead()
-  const frontmatter = transformFm(head.frontmatter, [
-    hugo,
-    {
-      created: 'date',
-      summary: 'excerpt',
-      flags: ({ draft }) => (draft ? ['draft'] : []),
-    },
-  ])
-})
-``` -->

@@ -6,12 +6,6 @@ import type {
 } from 'fff-flavored-frontmatter'
 
 import { path } from '../autofill'
-import * as presets from '../presets'
-
-export type {
-  FFFTransformPreset,
-  FFFTransformPresetValue,
-} from 'fff-flavored-frontmatter'
 
 /**
  * Remark FFF Plugin Options.
@@ -20,7 +14,7 @@ export type {
 export type RemarkFFFOptions = {
   // eslint-disable-next-line @typescript-eslint/ban-types
   target: 'mdsvex' | 'astro' | 'nuxt' | (string & {})
-  presets: (keyof typeof presets | FFFTransformPreset | FFFTransformPresetReverse)[]
+  presets: (FFFTransformPreset | FFFTransformPresetReverse)[]
   autofill?: {
     provider: 'fs' | 'git'
     path?: keyof typeof path | ((path: string) => string)
@@ -37,7 +31,7 @@ export type _Post =
       filename: string
       path: never
       data: {
-        fm: FFFFlavoredFrontmatter & { [key: string]: unknown}
+        fm: FFFFlavoredFrontmatter & { [key: string]: unknown }
         astro: never
       }
     }
@@ -47,7 +41,7 @@ export type _Post =
       data: {
         fm: never
         astro: {
-          frontmatter: FFFFlavoredFrontmatter & { [key: string]: unknown}
+          frontmatter: FFFFlavoredFrontmatter & { [key: string]: unknown }
         }
       }
     }

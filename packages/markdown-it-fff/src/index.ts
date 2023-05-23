@@ -1,9 +1,8 @@
+/* eslint-disable unicorn/prevent-abbreviations */
 import { strict, transform } from 'fff-flavored-frontmatter'
 import type MarkdownIt from 'markdown-it'
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
 import type { FFFPluginOptions, MarkdownItEnv } from './lib/types'
-import * as presets from './presets'
 
 /**
  * markdown-it plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.
@@ -14,10 +13,9 @@ import * as presets from './presets'
 export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
   md,
   // eslint-disable-next-line unicorn/no-object-as-default-parameter
-  options = { presets: ['hugo', 'vue'] },
+  options = { presets: [] },
 ) => {
   const render = md.renderer.render.bind(md.renderer)
-  // eslint-disable-next-line unicorn/prevent-abbreviations
   md.renderer.render = (t, o, env: MarkdownItEnv) => {
     env.frontmatter = transform(
       {
@@ -26,9 +24,7 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
         title: env.frontmatter?.title ?? env.title,
       },
       [
-        ...options.presets.map((preset: FFFPluginOptions['presets'][0]) =>
-          typeof preset === 'object' ? preset : presets[preset],
-        ),
+        ...options.presets,
         ...(options.strict ? [strict(options.strict)] : []),
       ],
     )
@@ -37,5 +33,5 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
 }
 
 export type { FFFPluginOptions } from './lib/types'
-export * from './presets'
 export default fffPlugin
+/* eslint-enable unicorn/prevent-abbreviations */

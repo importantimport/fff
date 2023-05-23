@@ -5,8 +5,6 @@ import type {
   StrictPresetOptions,
 } from 'fff-flavored-frontmatter'
 
-import * as presets from '../presets'
-
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-title` */
@@ -22,7 +20,7 @@ export type MarkdownItEnv = {
  * @public
  */
 export type FFFPluginOptions = {
-  presets: (keyof typeof presets | FFFTransformPreset | FFFTransformPresetReverse)[]
+  presets: (FFFTransformPreset | FFFTransformPresetReverse)[]
   strict?: StrictPresetOptions
 }
 

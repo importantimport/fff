@@ -3,7 +3,6 @@ import type { Transformer } from 'unified'
 
 import * as autofill from './autofill'
 import type { _Post, RemarkFFFOptions } from './lib/types'
-import * as presets from './presets'
 
 /**
  * Remark plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.
@@ -15,7 +14,7 @@ export const remarkFFF
   = (
     // eslint-disable-next-line unicorn/no-object-as-default-parameter
     options: RemarkFFFOptions = {
-      presets: ['hugo', 'legacy'],
+      presets: [],
       target: 'mdsvex',
     },
   ): Transformer =>
@@ -36,9 +35,7 @@ export const remarkFFF
           /* eslint-enable unicorn/no-nested-ternary */
         },
         [
-          ...options.presets.map(preset =>
-            typeof preset === 'object' ? preset : presets[preset],
-          ),
+          ...options.presets,
           ...(options.autofill?.provider
             ? [
               autofill[options.autofill.provider](
@@ -75,6 +72,4 @@ export const remarkFFF
 
 export * from './autofill'
 export * from './lib/types'
-export * from './presets'
-export { strict, transform as transformFm } from 'fff-flavored-frontmatter'
 export default remarkFFF

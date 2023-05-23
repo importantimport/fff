@@ -22,7 +22,11 @@ const md = MarkdownIt().use(frontmatterPlugin, {
     excerpt: true,
   },
 }).use(fffPlugin, {
-  presets: ['vue', 'hugo'],
+  presets: [{
+    created: 'date',
+    flags: ({ draft }) => (draft ? ['draft'] : []),
+    summary: 'excerpt',
+  }],
 })
 ```
 
@@ -32,22 +36,23 @@ Configuration (optional).
 
 #### options.presets
 
-default: `['hugo', 'vue']`
+default: `[]`
 
 Specifies a preset for how remark-fff will be converted.
 
-When it is a string, the corresponding object is retrieved from [presets.ts](src/presets.ts).
-
-You can also create your own presets!
+You can create your own presets, or import some from `fff-transform-presets`.
 
 ```ts
+import { hugo, mditVue } from 'fff-transform-presets'
+
 use(fffPlugin, {
   presets: [
-    'hugo', // presets['hugo']
+    hugo,
+    mditVue,
     {
       created: 'date',
-      summary: 'excerpt',
       flags: ({ draft }) => (draft ? ['draft'] : []),
+      summary: 'excerpt',
     },
   ],
 })

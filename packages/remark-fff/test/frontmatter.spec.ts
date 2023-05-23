@@ -1,8 +1,11 @@
 import type { FFFFlavoredFrontmatter, FFFImage } from 'fff-flavored-frontmatter'
-import { describe, expect, it } from 'vitest'
-import { VFile } from 'vfile'
+import { hexo } from 'fff-transform-presets'
 import { remark } from 'remark'
+// eslint-disable-next-line import/default
 import remarkFrontmatter from 'remark-frontmatter'
+import { VFile } from 'vfile'
+import { describe, expect, it } from 'vitest'
+
 import remarkFFF from '../src'
 
 describe('remark-fff', () => {
@@ -11,8 +14,8 @@ describe('remark-fff', () => {
     const file = new VFile({
       data: {
         fm: {
-          images: 'https://fff.js.org/glowing_star.svg',
           draft: true,
+          images: 'https://fff.js.org/glowing_star.svg',
           visibility: 'unlisted',
         },
       },
@@ -25,16 +28,16 @@ describe('remark-fff', () => {
     const { processSync } = remark()
       .use(remarkFrontmatter)
       .use(remarkFFF, {
+        presets: [hexo],
         target: 'astro',
-        presets: ['hexo'],
       })
     const file = new VFile({
       data: {
         astro: {
           frontmatter: {
+            categories: ['foo', 'bar', 'baz'],
             date: '2023-01-01',
             excerpt: 'lorem ipsum',
-            categories: ['foo', 'bar', 'baz'],
             tags: ['fooo', 'baar', 'baaz'],
           },
         },
@@ -54,22 +57,22 @@ describe('remark-fff strict mode', () => {
     const { processSync } = remark()
       .use(remarkFrontmatter)
       .use(remarkFFF, {
-        target: 'mdsvex',
         presets: [],
         strict: {
           media: {
-            type: 'string',
             array: false,
+            type: 'string',
           },
         },
+        target: 'mdsvex',
       })
     const file = new VFile({
       data: {
         fm: {
           images: [
             {
-              src: 'https://fff.js.org/glowing_star.svg',
               alt: 'Glowing Star',
+              src: 'https://fff.js.org/glowing_star.svg',
             },
           ],
         },
@@ -82,14 +85,14 @@ describe('remark-fff strict mode', () => {
     const { processSync } = remark()
       .use(remarkFrontmatter)
       .use(remarkFFF, {
-        target: 'mdsvex',
         presets: [],
         strict: {
           media: {
-            type: 'object',
             array: true,
+            type: 'object',
           },
         },
+        target: 'mdsvex',
       })
     const file = new VFile({
       data: {
@@ -99,22 +102,22 @@ describe('remark-fff strict mode', () => {
       },
     })
     const { fm } = processSync(file).data as { fm: FFFFlavoredFrontmatter }
-    expect((fm.images[0] as FFFImage).src).toEqual(
-      'https://fff.js.org/glowing_star.svg'
+    expect((fm.images?.[0] as FFFImage).src).toEqual(
+      'https://fff.js.org/glowing_star.svg',
     )
   })
   it('string => string, no-array', () => {
     const { processSync } = remark()
       .use(remarkFrontmatter)
       .use(remarkFFF, {
-        target: 'mdsvex',
         presets: [],
         strict: {
           media: {
-            type: 'string',
             array: false,
+            type: 'string',
           },
         },
+        target: 'mdsvex',
       })
     const file = new VFile({
       data: {
