@@ -136,3 +136,5 @@ export default class IndiekitPresetFFF {
     Indiekit.addPreset(this)
   }
 }
+
+export type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter/fff'
