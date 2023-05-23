@@ -15,6 +15,10 @@ export type MarkdownItEnv = {
   frontmatter?: FFFFlavoredFrontmatter & { [key: string]: unknown }
 }
 
+/**
+ * Markdown It FFF Plugin Options.
+ * @public
+ */
 export type FFFPluginOptions = {
   presets: (string | FFFTransformPreset | FFFTransformPresetReverse)[]
   strict?: StrictPresetOptions
