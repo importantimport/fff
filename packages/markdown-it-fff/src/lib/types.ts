@@ -1,6 +1,7 @@
 import type {
   FFFFlavoredFrontmatter,
   FFFTransformPreset,
+  FFFTransformPresetReverse,
   StrictPresetOptions,
 } from 'fff-flavored-frontmatter'
 
@@ -15,7 +16,7 @@ export type MarkdownItEnv = {
 }
 
 export type FFFPluginOptions = {
-  presets: (string | FFFTransformPreset)[]
+  presets: (string | FFFTransformPreset | FFFTransformPresetReverse)[]
   strict?: StrictPresetOptions
 }
 
