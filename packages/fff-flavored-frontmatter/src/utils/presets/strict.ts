@@ -1,5 +1,5 @@
 import type { FFFAudio, FFFImage, FFFVideo } from '../../types'
-import type { FFFPreset } from '../transform'
+import type { FFFTransformPreset } from '../transform'
 
 /**
  * Stict Preset Options
@@ -33,7 +33,7 @@ export const strict = (strict: {
     type?: 'string' | 'object'
     array?: boolean
   }
-}): FFFPreset => ({
+}): FFFTransformPreset => ({
   alt: ({ alt, image, images }) => alt ?? strict.media.type === 'string' ? ((image || images?.[0]) as FFFImage)?.alt : undefined,
   audio: ({ audio }) => strictMediaTransform(strict.media, audio),
   image: ({ image, images }) =>

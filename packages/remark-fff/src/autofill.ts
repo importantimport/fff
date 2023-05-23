@@ -2,14 +2,14 @@ import { execFileSync } from 'node:child_process'
 import { statSync } from 'node:fs'
 import { EOL } from 'node:os'
 
-import type { FFFPreset } from './lib/types'
+import type { FFFTransformPreset } from './lib/types'
 
 export const path = {
   urara: (path: string) => path.replace('/src/routes/', '/urara/'),
 } as const
 
 /** @alpha */
-export const fs = (path: string): FFFPreset => {
+export const fs = (path: string): FFFTransformPreset => {
   const { ctime, mtime } = statSync(path)
   return {
     created: ({ created }) => created ?? ctime,
@@ -23,7 +23,7 @@ export const fs = (path: string): FFFPreset => {
  * author: Jordan Webb
  * @see {@link https://github.com/jordemort/jordemort.github.io/blob/main/src/plugins/repodates.mjs}
  */
-export const git = (path: string): FFFPreset => ({
+export const git = (path: string): FFFTransformPreset => ({
   created: ({ created }) =>
     created
     ?? execFileSync(

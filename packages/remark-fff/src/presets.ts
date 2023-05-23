@@ -1,11 +1,11 @@
 import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 
-import type { FFFPreset } from './lib/types'
+import type { FFFTransformPreset } from './lib/types'
 
 /**
  * @alpha
  */
-export const legacy: FFFPreset = {
+export const legacy: FFFTransformPreset = {
   images: ({ image }) => image && (Array.isArray(image) ? image : [image]),
   in_reply_to: ({ in_reply_to }) =>
     (in_reply_to && Array.isArray(in_reply_to)) ? in_reply_to[0] : in_reply_to,
@@ -15,7 +15,7 @@ export const legacy: FFFPreset = {
  * @see {@link https://gohugo.io/content-management/front-matter/#predefined}
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
-export const hugo: FFFPreset = {
+export const hugo: FFFTransformPreset = {
   bookmark_of: 'bookmarkOf',
   flags: ({
     flags,
@@ -43,7 +43,7 @@ export const hugo: FFFPreset = {
 }
 
 /** @see {@link https://hexo.io/docs/front-matter.html} */
-export const hexo: FFFPreset = {
+export const hexo: FFFTransformPreset = {
   created: 'date',
   summary: 'excerpt',
   tags: ({
@@ -60,7 +60,7 @@ export const hexo: FFFPreset = {
  * @see {@link https://jekyllrb.com/docs/front-matter/}
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-jekyll/index.js}
  */
-export const jekyll: FFFPreset = {
+export const jekyll: FFFTransformPreset = {
   bookmark_of: 'bookmark-of',
   created: 'date',
   flags: ({
@@ -96,7 +96,7 @@ export const jekyll: FFFPreset = {
 }
 
 /** @see {@link https://www.getzola.org/documentation/content/page/#front-matter} */
-export const zola: FFFPreset = {
+export const zola: FFFTransformPreset = {
   created: 'date',
   flags: ({
     flags,
@@ -112,4 +112,4 @@ export const zola: FFFPreset = {
  * @see {@link https://content.nuxtjs.org/guide/writing/markdown/#front-matter}
  * since nuxt content is similar to zola, it is straightforward to use
  */
-export const nuxt: FFFPreset = zola
+export const nuxt: FFFTransformPreset = zola
