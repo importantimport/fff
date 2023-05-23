@@ -1,6 +1,7 @@
 import type { FFFAudio, FFFImage, FFFVideo } from '../../types'
 import type { FFFPreset } from '../transform'
 
+/** Stict Preset Options */
 export type StrictPresetOptions = {
   media?: {
     type?: 'string' | 'object'
@@ -20,7 +21,10 @@ const strictMediaTransform = (
       ? media?.src
       : media)
 
-/** @alpha */
+/**
+ * Strict - FFF Flavor Transform Preset
+ * @beta
+ */
 export const strict = (strict: {
   media?: {
     type?: 'string' | 'object'

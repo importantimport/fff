@@ -2,10 +2,11 @@ import type { FFFFlavoredFrontmatter } from '../types'
 
 /**
  * Post Type Discovery
- * @see {@link https://ptd.spec.indieweb.org/}
- * @see {@link https://indieweb.org/posts#Types_of_Posts}
+ * @beta
  * @param fm - FFF Flavored Frontmatter
  * @returns lower case post type string
+ * @see {@link https://ptd.spec.indieweb.org/}
+ * @see {@link https://indieweb.org/posts#Types_of_Posts}
  */
 export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
   // TODO: Event, Checkin, Reply with RSVP
@@ -38,10 +39,10 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
 
 /**
  * From FFF to JSON Feed Item (Version 1.1)
- * @alpha
- * @see {@link https://jsonfeed.org/version/1.1}
+ * @beta
  * @param fm - FFF Flavored Frontmatter
- * @returns JSON Feed Item Object (without content / id / url)
+ * @returns - JSON Feed Item Object (without content / id / url)
+ * @see {@link https://jsonfeed.org/version/1.1}
  */
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => ({
   /**

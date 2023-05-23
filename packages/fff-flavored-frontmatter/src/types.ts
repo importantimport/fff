@@ -1,22 +1,34 @@
 /// <reference lib="dom" />
 
-/** Object Image */
+/**
+ * Object Image
+ * @public
+ */
 export type FFFImage = Partial<HTMLImageElement> & {
   sources?: Partial<HTMLSourceElement>[]
   figcaption?: string
 }
 
-/** Object Audio */
+/**
+ * Object Audio
+ * @public
+ */
 export type FFFAudio = Partial<HTMLAudioElement> & {
   sources?: Partial<HTMLSourceElement>[]
 }
 
-/** Object Video */
+/**
+ * Object Video
+ * @public
+ */
 export type FFFVideo = Partial<HTMLVideoElement> & {
   sources?: Partial<HTMLSourceElement>[]
 }
 
-/** Author */
+/**
+ * Author
+ * @public
+ */
 export type FFFAuthor = {
   /** the author's name. */
   name?: string
@@ -26,7 +38,10 @@ export type FFFAuthor = {
   avatar?: string
 }
 
-/** Base Variables */
+/**
+ * Base Variables
+ * @public
+ */
 export type FFFBase = {
   /** the title of article, non-article posts may omit titles. */
   title?: string
@@ -38,6 +53,10 @@ export type FFFBase = {
   flags?: string[]
 }
 
+/**
+ * DateTime Vaeriables
+ * @public
+ */
 export type FFFDateTime = {
   /** the created date of the post. */
   created?: string | number
@@ -51,6 +70,10 @@ export type FFFDateTime = {
   end?: string | number
 }
 
+/**
+ * Media Variables
+ * @public
+ */
 export type FFFMedia = {
   /** the main image for article or photo post. */
   image?: string | FFFImage
@@ -62,6 +85,10 @@ export type FFFMedia = {
   video?: string | FFFVideo
 }
 
+/**
+ * Mention Variables
+ * @public
+ */
 export type FFFMention = {
   /** indicates this post is a bookmark of another URL. */
   bookmark_of?: string
@@ -73,7 +100,10 @@ export type FFFMention = {
   in_reply_to?: string
 }
 
-/** Extra Variables */
+/**
+ * Extra Variables
+ * @public
+ */
 export type FFFExtra = {
   /** specifies one or more post authors. */
   authors?: FFFAuthor[]
@@ -89,7 +119,10 @@ export type FFFExtra = {
   rsvp?: 'yes' | 'no' | 'maybe' | 'interested'
 }
 
-/** FFF Flavored Frontmatter */
+/**
+ * FFF Flavored Frontmatter
+ * @public
+ */
 export type FFFFlavoredFrontmatter = FFFBase &
   FFFDateTime &
   FFFMedia &
