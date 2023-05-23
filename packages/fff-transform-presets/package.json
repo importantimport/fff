@@ -1,0 +1,46 @@
+{
+  "name": "fff-transform-presets",
+  "type": "module",
+  "version": "0.5.3",
+  "private": true,
+  "description": "Predefined transform presets for FFF Flavored Frontmatter.",
+  "author": "藍+85CD",
+  "license": "WTFPL",
+  "homepage": "https://fff.js.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "packages/fff-transform-presets"
+  },
+  "bugs": "https://github.com/importantimport/fff/issues",
+  "keywords": [
+    "fff",
+    "fff-flavored-frontmatter",
+    "typescript"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "dependencies": {
+    "fff-flavored-frontmatter": "workspace:*"
+  }
+}
