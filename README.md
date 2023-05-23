@@ -23,7 +23,6 @@
 ### [fff-flavored-frontmatter](/packages/fff-flavored-frontmatter/)
 
 [![npm](https://img.shields.io/npm/v/fff-flavored-frontmatter?color=yellow)](https://npmjs.com/package/fff-flavored-frontmatter)
-[![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/fff-flavored-frontmatter)
 ![minified size](https://img.shields.io/bundlephobia/min/fff-flavored-frontmatter?color=yellow)
 ![downloads](https://img.shields.io/npm/dt/fff-flavored-frontmatter?color=yellow)
 [![deno.land](https://img.shields.io/badge/available%20on-deno.land/x-black.svg?logo=deno)](https://deno.land/x/fff)
@@ -36,10 +35,26 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 
 ---
 
+### [fff-transform-presets](/packages/fff-transform-presets/)
+
+[![npm](https://img.shields.io/npm/v/fff-transform-presets?color=yellow)](https://npmjs.com/package/fff-transform-presets)
+![minified size](https://img.shields.io/bundlephobia/min/remark-fff?color=yellow)
+![downloads](https://img.shields.io/npm/dt/remark-fff?color=yellow)
+
+Predefined transform presets for FFF Flavored Frontmatter.
+
+```ts
+import { transform } from 'remark-fff'
+import { hexo } from 'fff-transform-presets'
+
+fm = transform(fm, [hexo])
+```
+
+---
+
 ### [remark-fff](/packages/remark-fff/)
 
 [![npm](https://img.shields.io/npm/v/remark-fff?color=yellow)](https://npmjs.com/package/remark-fff)
-[![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/remark-fff)
 ![minified size](https://img.shields.io/bundlephobia/min/remark-fff?color=yellow)
 ![downloads](https://img.shields.io/npm/dt/remark-fff?color=yellow)
 
@@ -47,9 +62,10 @@ Remark plugin for auto-conversion other frontmatter variable formats to FFF Flav
 
 ```ts
 import remarkFFF from 'remark-fff'
+import { hexo } from 'fff-transform-presets'
 
 export default defineConfig({
-  remarkPlugins: [[remarkFFF, { presets: ['hugo'], target: 'astro' }]],
+  remarkPlugins: [[remarkFFF, { presets: [hexo], target: 'astro' }]],
 })
 ```
 
@@ -58,7 +74,6 @@ export default defineConfig({
 ### [markdown-it-fff](/packages/markdown-it-fff/)
 
 [![npm](https://img.shields.io/npm/v/markdown-it-fff?color=yellow)](https://npmjs.com/package/markdown-it-fff)
-[![jsdocs.io](https://img.shields.io/badge/jsdocs.io-reference-yellow)](https://www.jsdocs.io/package/markdown-it-fff)
 ![minified size](https://img.shields.io/bundlephobia/min/markdown-it-fff?color=yellow)
 ![downloads](https://img.shields.io/npm/dt/markdown-it-fff?color=yellow)
 
