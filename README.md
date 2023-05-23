@@ -44,7 +44,7 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 Predefined transform presets for FFF Flavored Frontmatter.
 
 ```ts
-import { transform } from 'remark-fff'
+import { transform } from 'fff-flavored-frontmatter'
 import { hexo } from 'fff-transform-presets'
 
 fm = transform(fm, [hexo])
