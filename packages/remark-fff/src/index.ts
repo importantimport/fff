@@ -5,6 +5,12 @@ import * as autofill from './autofill'
 import type { Post, RemarkFFFOptions } from './lib/types'
 import * as presets from './presets'
 
+/**
+ * Remark plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.
+ * @param options - Target, FFF Flavor Transform Presets, Autofill and Strict Options
+ * @returns FFF Flavored Frontmatter
+ * @public
+ */
 export const remarkFFF
   = (
     // eslint-disable-next-line unicorn/no-object-as-default-parameter

@@ -120,7 +120,7 @@ export type FFFExtra = {
 }
 
 /**
- * FFF Flavored Frontmatter
+ * Type definition of the {@link https://fff.js.org | FFF Flavored Frontmatter}.
  * @public
  */
 export type FFFFlavoredFrontmatter = FFFBase &

@@ -5,6 +5,12 @@ import type MarkdownIt from 'markdown-it'
 import type { FFFPluginOptions, MarkdownItEnv } from './lib/types'
 import * as presets from './presets'
 
+/**
+ * markdown-it plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.
+ * @param md - MarkdownIt
+ * @param options - FFF Flavor Transform Presets & Strict Options
+ * @public
+ */
 export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
   md,
   // eslint-disable-next-line unicorn/no-object-as-default-parameter
