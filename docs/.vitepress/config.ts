@@ -59,6 +59,10 @@ const sidebar = () => [
         link: '/packages/fff-flavored-frontmatter',
         text: 'fff-flavored-frontmatter',
       },
+      {
+        link: '/packages/fff-transform-presets',
+        text: 'fff-transform-presets',
+      },
       { link: '/packages/remark-fff', text: 'remark-fff' },
       { link: '/packages/markdown-it-fff', text: 'markdown-it-fff' },
       { link: '/packages/indiekit-preset-fff', text: 'indiekit-preset-fff' },
@@ -72,6 +76,10 @@ const sidebar = () => [
       {
         link: '/references/fff-flavored-frontmatter',
         text: 'fff-flavored-frontmatter',
+      },
+      {
+        link: '/references/fff-transform-presets',
+        text: 'fff-transform-presets',
       },
       { link: '/references/remark-fff', text: 'remark-fff' },
       { link: '/references/markdown-it-fff', text: 'markdown-it-fff' },

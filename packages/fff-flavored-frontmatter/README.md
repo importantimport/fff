@@ -7,9 +7,9 @@
 > pls confirm the version you need before installing, or always keep the latest version.
 
 ```bash
-pnpm add -D fff-flavored-frontmatter # pnpm
-# yarn add -D fff-flavored-frontmatter # yarn
-# npm i -D fff-flavored-frontmatter # npm
+pnpm add fff-flavored-frontmatter # pnpm
+# yarn add fff-flavored-frontmatter # yarn
+# npm i fff-flavored-frontmatter # npm
 ```
 
 ## Usage
