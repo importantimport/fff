@@ -43,7 +43,7 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
  * @param fm - FFF Flavored Frontmatter
  * @returns JSON Feed Item Object (without content / id / url)
  */
-export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): {} => ({
+export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => ({
   /**
    * JSON Feed IndieWeb Extension
    * @see {@link https://indieweb.org/JSON_Feed#IndieWeb_Extension}
