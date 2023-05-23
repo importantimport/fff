@@ -2,7 +2,7 @@ import { strict, transform } from 'fff-flavored-frontmatter'
 import type { Transformer } from 'unified'
 
 import * as autofill from './autofill'
-import type { Post, RemarkFFFOptions } from './lib/types'
+import type { _Post, RemarkFFFOptions } from './lib/types'
 import * as presets from './presets'
 
 /**
@@ -21,7 +21,7 @@ export const remarkFFF
   ): Transformer =>
     (_tree, file) => {
     // make TS happy
-      const post: Post = file as unknown as Post
+      const post: _Post = file as unknown as _Post
       const path = post.filename ?? post.path
       const fm = transform(
         {
@@ -74,6 +74,7 @@ export const remarkFFF
     }
 
 export * from './autofill'
+export * from './lib/types'
 export * from './presets'
 export { strict, transform as transformFm } from 'fff-flavored-frontmatter'
 export default remarkFFF

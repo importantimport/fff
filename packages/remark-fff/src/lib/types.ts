@@ -10,6 +10,10 @@ export type {
   FFFTransformPresetValue,
 } from 'fff-flavored-frontmatter'
 
+/**
+ * Remark FFF Plugin Options.
+ * @public
+ */
 export type RemarkFFFOptions = {
   // eslint-disable-next-line @typescript-eslint/ban-types
   target: 'mdsvex' | 'astro' | 'nuxt' | (string & {})
@@ -21,7 +25,11 @@ export type RemarkFFFOptions = {
   strict?: StrictPresetOptions
 }
 
-export type Post =
+/**
+ * Internal Post Data Type.
+ * @internal
+ */
+export type _Post =
   | /** MDsveX */ {
       filename: string
       path: never
