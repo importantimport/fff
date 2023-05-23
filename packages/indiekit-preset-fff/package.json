@@ -32,7 +32,9 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
@@ -43,6 +45,6 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "fff-flavored-frontmatter": "workspace:*",
-    "yaml": "^2.2.2"
+    "yaml": "^2.3.0"
   }
 }
