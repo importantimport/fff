@@ -1,202 +1,218 @@
-import { version } from '../package.json'
-import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
 import footnote from 'markdown-it-footnote'
+import { defineConfig } from 'vitepress'
+
+import { version } from '../package.json'
 
 const nav = () => [
   {
-    text: version,
     items: [
       {
-        text: 'Changelog',
         link: '/version/changelog',
+        text: 'Changelog',
       },
       {
-        text: 'Contributing',
         link: '/intro/contributing',
+        text: 'Contributing',
       },
     ],
+    text: version,
   },
 ]
 
 const sidebar = () => [
   {
-    text: 'Introduction',
     collapsible: true,
     items: [
-      { text: 'What is FFF?', link: '/intro/what-is-fff' },
-      { text: 'Implementing', link: '/intro/implementing' },
+      { link: '/intro/what-is-fff', text: 'What is FFF?' },
+      { link: '/intro/implementing', text: 'Implementing' },
       {
-        text: 'Contributing',
         link: '/intro/contributing',
+        text: 'Contributing',
       },
-      { text: 'Showcase', link: '/intro/showcase' },
+      { link: '/intro/showcase', text: 'Showcase' },
     ],
+    text: 'Introduction',
   },
   {
-    text: 'Concepts',
     collapsible: true,
     items: [
       {
-        text: 'Object Media',
         link: '/concepts/object-media',
+        text: 'Object Media',
       },
       {
-        text: 'Flags',
         link: '/concepts/flags',
+        text: 'Flags',
       },
       {
+        link: '/concepts/flavor-transform',
         text: 'Flavor Transform',
-        link: '/concepts/flavor-transform'
-      }
+      },
     ],
+    text: 'Concepts',
   },
   {
-    text: 'Packages',
     collapsible: true,
     items: [
       {
-        text: 'fff-flavored-frontmatter',
         link: '/packages/fff-flavored-frontmatter',
+        text: 'fff-flavored-frontmatter',
       },
-      { text: 'remark-fff', link: '/packages/remark-fff' },
-      { text: 'markdown-it-fff', link: '/packages/markdown-it-fff' },
-      { text: 'indiekit-preset-fff', link: '/packages/indiekit-preset-fff' },
-      { text: 'create-fff', link: '/packages/create-fff'}
+      { link: '/packages/remark-fff', text: 'remark-fff' },
+      { link: '/packages/markdown-it-fff', text: 'markdown-it-fff' },
+      { link: '/packages/indiekit-preset-fff', text: 'indiekit-preset-fff' },
+      { link: '/packages/create-fff', text: 'create-fff' },
     ],
+    text: 'Packages',
   },
   {
-    text: 'Version',
     collapsible: true,
     items: [
-      { text: 'Changelog', link: '/version/changelog' },
-      { text: '0.6 (draft)', link: '/version/0.6'},
-      { text: '0.5', link: '/version/0.5' },
-      { text: '0.4', link: '/version/0.4' },
-      { text: '0.3', link: '/version/0.3' },
-      { text: '0.2', link: '/version/0.2' },
-      { text: '0.1', link: '/version/0.1' },
+      {
+        link: '/references/fff-flavored-frontmatter',
+        text: 'fff-flavored-frontmatter',
+      },
+      { link: '/references/remark-fff', text: 'remark-fff' },
+      { link: '/references/markdown-it-fff', text: 'markdown-it-fff' },
+      { link: '/references/indiekit-preset-fff', text: 'indiekit-preset-fff' },
+      // { link: '/references/create-fff', text: 'create-fff' },
     ],
+    link: '/references/index',
+    text: 'References',
+  },
+  {
+    collapsible: true,
+    items: [
+      { link: '/version/changelog', text: 'Changelog' },
+      { link: '/version/0.6', text: '0.6 (draft)' },
+      { link: '/version/0.5', text: '0.5' },
+      { link: '/version/0.4', text: '0.4' },
+      { link: '/version/0.3', text: '0.3' },
+      { link: '/version/0.2', text: '0.2' },
+      { link: '/version/0.1', text: '0.1' },
+    ],
+    text: 'Version',
   },
 ]
 
 export default withPwa(
   defineConfig({
-    lang: 'en-US',
-    title: 'FFF Flavored Frontmatter',
-    titleTemplate: 'FFF',
-    description: 'The Flexible & Functional Frontmatter Solution.',
     appearance: 'dark',
-    lastUpdated: true,
-    markdown: {
-      theme: {
-        light: 'material-theme-lighter',
-        dark: 'material-theme-darker',
-      },
-      config: (md) => md.use(footnote),
-    },
+    description: 'The Flexible & Functional Frontmatter Solution.',
     head: [
       [
         'link',
-        { rel: 'icon', href: '/glowing_star.svg', type: 'image/svg+xml' },
+        { href: '/glowing_star.svg', rel: 'icon', type: 'image/svg+xml' },
       ],
       [
         'link',
         {
-          rel: 'manifest',
           href: '/manifest.webmanifest',
+          rel: 'manifest',
           type: 'application/manifest+json',
         },
       ],
       [
         'meta',
         {
-          property: 'og:image',
           content:
             'https://og-image.vercel.app/**FFF**%20Flavored%20Frontmatter.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&images=https%3A%2F%2Ffff.js.org%2Fglowing_star.svg&widths=256&widths=384&heights=256&heights=384',
+          property: 'og:image',
         },
       ],
       [
         'meta',
         {
-          property: 'twitter:image',
           content:
             'https://og-image.vercel.app/**FFF**%20Flavored%20Frontmatter.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-white.svg&images=https%3A%2F%2Ffff.js.org%2Fglowing_star.svg&widths=256&widths=384&heights=256&heights=384',
+          property: 'twitter:image',
         },
       ],
-      ['meta', { property: 'twitter:card', content: 'summary' }],
+      ['meta', { content: 'summary', property: 'twitter:card' }],
       [
         'script',
         {
-          src: 'https://plausible.kwaa.dev/js/plausible.js',
-          defer: '',
           'data-domain': 'fff.js.org',
+          'defer': '',
+          'src': 'https://plausible.kwaa.dev/js/plausible.js',
         },
       ],
     ],
+    lang: 'en-US',
+    lastUpdated: true,
+    markdown: {
+      config: md => md.use(footnote),
+      theme: {
+        dark: 'material-theme-darker',
+        light: 'material-theme-lighter',
+      },
+    },
+    pwa: {
+      includeManifestIcons: false,
+      manifest: {
+        description: 'The Flexible & Functional Frontmatter Solution.',
+        icons: [
+          {
+            purpose: 'any',
+            sizes: 'any',
+            src: 'glowing_star.svg',
+            type: 'image/svg+xml',
+          },
+        ],
+        id: '/',
+        name: 'FFF Flavored Frontmatter',
+        short_name: 'FFF',
+        theme_color: '#fdd835',
+      },
+      registerType: 'autoUpdate',
+      workbox: {
+        runtimeCaching: [
+          {
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 10,
+              },
+            },
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          },
+          {
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gstatic-fonts-cache',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 10,
+              },
+            },
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          },
+        ],
+      },
+    },
     themeConfig: {
-      nav: nav(),
-      sidebar: sidebar(),
-      siteTitle: 'FFF',
-      logo: '/glowing_star.svg',
-      socialLinks: [
-        { icon: 'github', link: 'https://github.com/importantimport/fff' },
-      ],
       editLink: {
         pattern: 'https://github.com/importantimport/fff/edit/main/:path',
         text: 'Suggest changes to this page',
       },
+      logo: '/glowing_star.svg',
+      nav: nav(),
+      sidebar: sidebar(),
+      siteTitle: 'FFF',
+      socialLinks: [
+        { icon: 'github', link: 'https://github.com/importantimport/fff' },
+      ],
     },
-    pwa: {
-      registerType: 'autoUpdate',
-      includeManifestIcons: false,
-      manifest: {
-        id: '/',
-        name: 'FFF Flavored Frontmatter',
-        short_name: 'FFF',
-        description: 'The Flexible & Functional Frontmatter Solution.',
-        theme_color: '#fdd835',
-        icons: [
-          {
-            src: 'glowing_star.svg',
-            sizes: 'any',
-            type: 'image/svg+xml',
-            purpose: 'any',
-          },
-        ],
-      },
-      workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'gstatic-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-        ],
-      },
-    },
-  })
+    title: 'FFF Flavored Frontmatter',
+    titleTemplate: 'FFF',
+  }),
 )

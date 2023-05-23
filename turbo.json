@@ -1,28 +1,32 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    ".env",
+    "tsconfig.json",
+    "tsup.config.ts"
+  ],
   "pipeline": {
+    "api-extractor": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "outputs": [
         ".vitepress/dist/**",
         "dist/**"
       ]
     },
+    "coverage": {
+      "outputs": ["coverage/**"]
+    },
+    "lint": {},
+    "lint:fix": {},
     "test": {
       "outputs": []
     },
     "test:watch": {
       "cache": false
-    },
-    "coverage": {},
-    "lint": {},
-    "lint:fix": {}
-  },
-  "globalDependencies": [
-    ".env",
-    "tsconfig.json",
-    "tsup.config.ts"
-  ]
+    }
+  }
 }

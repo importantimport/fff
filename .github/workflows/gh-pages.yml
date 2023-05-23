@@ -13,3 +13,4 @@ jobs:
     with:
       publish_dir: docs/.vitepress/dist
       cname: fff.js.org
+      build_command: pnpm docs:build

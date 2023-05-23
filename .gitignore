@@ -1,8 +1,8 @@
 # build output
+coverage
+dist
 docs/.vitepress/cache
-docs/.vitepress/dist
-packages/**/dist
-packages/**/coverage
+docs/references
 
 # dependencies
 node_modules

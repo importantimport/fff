@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "apiReport": {
+    "enabled": false
+  },
+  "bundledPackages": [
+    "fff-flavored-frontmatter",
+    "indiekit-preset-fff",
+    "markdown-it-fff",
+    "remark-fff"
+  ],
+  "compiler": {},
+  "docModel": {
+    "apiJsonFilePath": "<projectFolder>/dist/api-extractor/<unscopedPackageName>.api.json",
+    "enabled": true
+  },
+  "dtsRollup": {
+    "enabled": false
+  },
+  "mainEntryPointFilePath": "<projectFolder>/packages/<unscopedPackageName>/dist/index.d.ts",
+  "messages": {
+    "compilerMessageReporting": {
+      "default": {
+        "logLevel": "warning"
+      }
+    },
+    "extractorMessageReporting": {
+      "ae-wrong-input-file-type": {
+        "logLevel": "warning"
+      },
+      "default": {
+        "logLevel": "warning"
+      }
+    },
+    "tsdocMessageReporting": {
+      "default": {
+        "logLevel": "warning"
+      }
+    }
+  },
+  "tsdocMetadata": {
+  }
+}

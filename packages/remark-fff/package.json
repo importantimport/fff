@@ -1,8 +1,17 @@
 {
   "name": "remark-fff",
+  "type": "module",
   "version": "0.5.3",
+  "description": "Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
+  "homepage": "https://fff.js.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "packages/remark-fff"
+  },
+  "bugs": "https://github.com/importantimport/fff/issues",
   "keywords": [
     "fff",
     "fff-flavored-frontmatter",
@@ -14,29 +23,18 @@
     "remark-plugin",
     "typescript"
   ],
-  "description": "Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/importantimport/fff.git",
-    "directory": "packages/remark-fff"
-  },
-  "homepage": "https://fff.js.org",
-  "bugs": "https://github.com/importantimport/fff/issues",
-  "type": "module",
-  "module": "./dist/index.mjs",
-  "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist"
-  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
@@ -44,15 +42,16 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "dependencies": {
+    "fff-flavored-frontmatter": "workspace:*"
   },
   "devDependencies": {
     "remark": "^14.0.3",
     "remark-frontmatter": "^4.0.1",
     "unified": "^10.1.2",
     "vfile": "^5.3.7"
-  },
-  "dependencies": {
-    "fff-flavored-frontmatter": "workspace:*"
   }
 }

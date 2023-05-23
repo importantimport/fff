@@ -1,8 +1,17 @@
 {
   "name": "fff-flavored-frontmatter",
+  "type": "module",
   "version": "0.5.3",
+  "description": "Type definition of the FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
+  "homepage": "https://fff.js.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/importantimport/fff.git",
+    "directory": "packages/fff-flavored-frontmatter"
+  },
+  "bugs": "https://github.com/importantimport/fff/issues",
   "keywords": [
     "fff",
     "fff-flavored-frontmatter",
@@ -12,27 +21,18 @@
     "front-matter",
     "typescript"
   ],
-  "description": "Type definition of the FFF Flavored Frontmatter.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/importantimport/fff.git",
-    "directory": "packages/fff-flavored-frontmatter"
-  },
-  "homepage": "https://fff.js.org",
-  "bugs": "https://github.com/importantimport/fff/issues",
-  "type": "module",
   "source": "./fff.ts",
-  "module": "./dist/fff.mjs",
-  "main": "./dist/fff.cjs",
-  "types": "./dist/fff.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/fff.mjs",
+      "types": "./dist/fff.d.ts",
       "require": "./dist/fff.cjs",
-      "types": "./dist/fff.d.ts"
+      "import": "./dist/fff.mjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "./dist/fff.cjs",
+  "module": "./dist/fff.mjs",
+  "types": "./dist/fff.d.ts",
   "files": [
     "fff.ts",
     "dist"
@@ -41,6 +41,7 @@
     "build": "tsup",
     "build:watch": "tsup --watch",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "api-extractor": "api-extractor run --local --verbose"
   }
 }

@@ -2,15 +2,15 @@
   "name": "fff-docs",
   "version": "0.5.3",
   "private": true,
+  "description": "The Flexible & Functional Frontmatter Solution.",
   "author": "藍+85CD",
   "license": "WTFPL",
-  "description": "The Flexible & Functional Frontmatter Solution.",
+  "homepage": "https://fff.js.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/importantimport/fff.git",
     "directory": "docs"
   },
-  "homepage": "https://fff.js.org",
   "bugs": "https://github.com/importantimport/fff/issues",
   "scripts": {
     "dev": "vitepress dev",
