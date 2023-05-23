@@ -4,7 +4,7 @@ import type { FFFFlavoredFrontmatter } from '../types'
  * Post Type Discovery
  * @see {@link https://ptd.spec.indieweb.org/}
  * @see {@link https://indieweb.org/posts#Types_of_Posts}
- * @param fm FFF Flavored Frontmatter
+ * @param fm - FFF Flavored Frontmatter
  * @returns lower case post type string
  */
 export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
@@ -40,7 +40,7 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
  * From FFF to JSON Feed Item (Version 1.1)
  * @alpha
  * @see {@link https://jsonfeed.org/version/1.1}
- * @param fm FFF Flavored Frontmatter
+ * @param fm - FFF Flavored Frontmatter
  * @returns JSON Feed Item Object (without content / id / url)
  */
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): {} => ({
@@ -49,12 +49,12 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): {} => ({
    * @see {@link https://indieweb.org/JSON_Feed#IndieWeb_Extension}
    */
   _indieweb: {
-    'type': typeDiscovery(fm),
-    'syndication': fm.syndication,
     'bookmark-of': fm.bookmark_of,
     'in-reply-to': fm.in_reply_to,
     'like-of': fm.like_of,
     'repost-of': fm.repost_of,
+    'syndication': fm.syndication,
+    'type': typeDiscovery(fm),
   },
   authors: fm.authors,
   date_modified: fm.updated,
