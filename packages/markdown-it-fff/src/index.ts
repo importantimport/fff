@@ -36,4 +36,5 @@ export const fffPlugin: MarkdownIt.PluginWithOptions<FFFPluginOptions> = (
   }
 }
 
+export * from './presets'
 export default fffPlugin
