@@ -5,6 +5,7 @@ import YAML from 'yaml'
 import { version } from '../package.json'
 import { postTypes } from './post-types'
 
+/** @public */
 export type IndiekitPresetFFFOptions = {
   /**
    * Front matter format to use.
@@ -18,6 +19,7 @@ export type IndiekitPresetFFFOptions = {
   types?: 'urara'
 }
 
+/** @public */
 export default class IndiekitPresetFFF {
   id: string
   meta: ImportMeta
