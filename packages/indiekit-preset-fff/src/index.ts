@@ -5,10 +5,7 @@ import YAML from 'yaml'
 import { version } from '../package.json'
 import { postTypes } from './post-types'
 
-/**
- * {@link https://fff.js.org | FFF Flavored Frontmatter} publication preset for Indiekit.
- * @public
- */
+/** Indiekit Preset FFF Options. */
 export type IndiekitPresetFFFOptions = {
   /**
    * Front matter format to use.
@@ -22,7 +19,10 @@ export type IndiekitPresetFFFOptions = {
   types?: 'urara'
 }
 
-/** @public */
+/**
+ * {@link https://fff.js.org | FFF Flavored Frontmatter} publication preset for Indiekit.
+ * @public
+ */
 export default class IndiekitPresetFFF {
   id: string
   meta: ImportMeta
