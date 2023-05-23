@@ -21,7 +21,6 @@
     "front-matter",
     "typescript"
   ],
-  "source": "./fff.ts",
   "exports": {
     ".": {
       "types": "./dist/fff.d.ts",
@@ -33,10 +32,7 @@
   "main": "./dist/fff.cjs",
   "module": "./dist/fff.mjs",
   "types": "./dist/fff.d.ts",
-  "files": [
-    "fff.ts",
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
