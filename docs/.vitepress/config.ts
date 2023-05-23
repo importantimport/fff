@@ -206,6 +206,7 @@ export default withPwa(
       },
       logo: '/glowing_star.svg',
       nav: nav(),
+      search: { provider: 'local' },
       sidebar: sidebar(),
       siteTitle: 'FFF',
       socialLinks: [
