@@ -83,6 +83,8 @@ export type FFFMedia = {
   audio?: string | FFFAudio
   /** the main video for video post. */
   video?: string | FFFVideo
+  /** image alternate text. */
+  alt?: string
 }
 
 /**

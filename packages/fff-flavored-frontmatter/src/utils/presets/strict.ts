@@ -34,6 +34,7 @@ export const strict = (strict: {
     array?: boolean
   }
 }): FFFPreset => ({
+  alt: ({ alt, image, images }) => alt ?? strict.media.type === 'string' ? ((image || images?.[0]) as FFFImage)?.alt : undefined,
   audio: ({ audio }) => strictMediaTransform(strict.media, audio),
   image: ({ image, images }) =>
     strictMediaTransform(

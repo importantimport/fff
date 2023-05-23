@@ -1,4 +1,6 @@
 import type { FFFFlavoredFrontmatter } from '../types'
+import { strict } from './presets'
+import { transform } from './transform'
 
 /**
  * Post Type Discovery
@@ -44,34 +46,38 @@ export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
  * @returns - JSON Feed Item Object (without content / id / url)
  * @see {@link https://jsonfeed.org/version/1.1}
  */
-export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => ({
-  /**
-   * JSON Feed IndieWeb Extension
-   * @see {@link https://indieweb.org/JSON_Feed#IndieWeb_Extension}
-   */
-  _indieweb: {
-    'bookmark-of': fm.bookmark_of,
-    'in-reply-to': fm.in_reply_to,
-    'like-of': fm.like_of,
-    'repost-of': fm.repost_of,
-    'syndication': fm.syndication,
-    'type': typeDiscovery(fm),
-  },
-  authors: fm.authors,
-  date_modified: fm.updated,
-  date_published: fm.published ?? fm.created,
-  image: fm.images
-    ? (typeof fm.images[0] === 'string'
-      ? fm.images[0]
-      : fm.images[0].src)
-    : undefined,
-  language: fm.lang,
-  summary: fm.summary,
-  tags: fm.tags,
-  title: fm.title,
-  // TODO: https://www.jsonfeed.org/version/1.1/#attachments-a-name-attachments-a
-  // TODO: https://www.jsonfeed.org/podcasting/
-})
+export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
+  fm = transform(fm, [strict({
+    media: {
+      array: false,
+      type: 'string',
+    },
+  })])
+  return {
+    /**
+     * JSON Feed IndieWeb Extension
+     * @see {@link https://indieweb.org/JSON_Feed#IndieWeb_Extension}
+     */
+    _indieweb: {
+      'bookmark-of': fm.bookmark_of,
+      'in-reply-to': fm.in_reply_to,
+      'like-of': fm.like_of,
+      'repost-of': fm.repost_of,
+      'syndication': fm.syndication,
+      'type': typeDiscovery(fm),
+    },
+    authors: fm.authors,
+    date_modified: fm.updated,
+    date_published: fm.published ?? fm.created,
+    image: fm.image,
+    language: fm.lang[0] ?? fm.lang,
+    summary: fm.summary,
+    tags: fm.tags,
+    title: fm.title,
+    // TODO: https://www.jsonfeed.org/version/1.1/#attachments-a-name-attachments-a
+    // TODO: https://www.jsonfeed.org/podcasting/
+  }
+}
 
 // /**
 //  * From FFF to JF2 Feed Child (Editor's Draft 09 February 2019)
