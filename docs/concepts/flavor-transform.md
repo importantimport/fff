@@ -90,29 +90,6 @@ flags:
 
 Note: When using the arrow function you need to ensure that it returns the original value or null.
 
-### Predefined
-
-When you use a string as a preset in the plugin parameters, it automatically reads the corresponding value in the predefined preset (if it exists).
-
-```ts
-import MarkdownIt from 'markdown-it'
-import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
-import { fffPlugin } from 'markdown-it-fff'
-
-const md = MarkdownIt()
-  .use(frontmatterPlugin, {
-    grayMatterOptions: {
-      excerpt: true,
-    },
-  })
-  .use(fffPlugin, {
-    presets: [
-      'vue', // https://github.com/importantimport/fff/blob/93f27f8de28c02974aa7d471f20f085443051be5/packages/markdown-it-fff/src/presets.ts#L10-L12
-      'hugo', // https://github.com/importantimport/fff/blob/93f27f8de28c02974aa7d471f20f085443051be5/packages/remark-fff/src/presets.ts#L17-L46
-    ],
-  })
-```
-
 ### [Reverse](/references/fff-flavored-frontmatter.ffftransformpresetreverse.html)
 
 Just like [FFF Transform Preset](#fff-transform-preset), but it uses any string as a key to export the FFF Flavored Frontmatter to other incompatible environments.
@@ -140,6 +117,14 @@ flags:
   - draft
 ```
 
+### Predefined
+
+There are some predefined presets in the [`fff-transform-presets`](/packages/fff-transform-presets) package that can be used directly.
+
+```ts
+import { hexo, hugo } from 'fff-transform-presets'
+```
+
 ## Using the plugin
 
 Go to the README for [`remark-fff`](/packages/remark-fff) or [`markdown-it-fff`](/packages/markdown-it-fff)!
@@ -148,27 +133,33 @@ Go to the README for [`remark-fff`](/packages/remark-fff) or [`markdown-it-fff`]
 
 For environments where the above two plugins do not work directly (e.g. Qwik City), you can also use the `transform` function exported by `fff-flavored-frontmatter`.
 
-Note that it only accepts [FFF Transform Preset](#fff-transform-preset) (not string), so you must import or create preset:
+```ts
+import { transform } from 'fff-flavored-frontmatter'
+import { hexo } from 'fff-transform-presets'
+
+let fm = { ... }
+fm = transform(fm, [hexo])
+```
 
 ```ts
-import { useDocumentHead } from '@builder.io/qwik-city'
+import { useDocumentHead } from '@builder.io/qwik-city
 import { transform, strict } from 'fff-flavored-frontmatter'
-import { hugo } from 'remark-fff'
+import { hugo } from 'fff-transform-presets'
 
 export const RouterHead = component$(() => {
   const head = useDocumentHead()
   const frontmatter = transform(head.frontmatter, [
     strict({
       media: {
+        array: false,
         type: 'object',
-        array: false
       }
     }),
     hugo,
     {
       created: 'date',
-      summary: 'excerpt',
       flags: ({ draft }) => (draft ? ['draft'] : []),
+      summary: 'excerpt',
     },
   ])
 })
