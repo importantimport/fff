@@ -12,6 +12,8 @@ export const legacy: FFFTransformPreset = {
 }
 
 /**
+ * Hugo - FFF Transform Preset
+ * @beta
  * @see {@link https://gohugo.io/content-management/front-matter/#predefined}
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-hugo/index.js}
  */
@@ -42,7 +44,11 @@ export const hugo: FFFTransformPreset = {
   tags: 'category',
 }
 
-/** @see {@link https://hexo.io/docs/front-matter.html} */
+/**
+ * Hexo - FFF Transform Preset
+ * @beta
+ * @see {@link https://hexo.io/docs/front-matter.html}
+ */
 export const hexo: FFFTransformPreset = {
   created: 'date',
   summary: 'excerpt',
@@ -56,7 +62,8 @@ export const hexo: FFFTransformPreset = {
 }
 
 /**
- * @alpha
+ * Jekyll - FFF Transform Preset
+ * @beta
  * @see {@link https://jekyllrb.com/docs/front-matter/}
  * @see {@link https://github.com/getindiekit/indiekit/blob/main/packages/preset-jekyll/index.js}
  */
@@ -95,7 +102,11 @@ export const jekyll: FFFTransformPreset = {
     [...new Set([...(tags ?? []), ...(category ?? []), ...(categories ?? [])])],
 }
 
-/** @see {@link https://www.getzola.org/documentation/content/page/#front-matter} */
+/**
+ * Zola - FFF Transform Preset
+ * @beta
+ * @see {@link https://www.getzola.org/documentation/content/page/#front-matter}
+ */
 export const zola: FFFTransformPreset = {
   created: 'date',
   flags: ({
@@ -109,6 +120,7 @@ export const zola: FFFTransformPreset = {
 }
 
 /**
+ * Nuxt Content - FFF Transform Preset
  * @see {@link https://content.nuxtjs.org/guide/writing/markdown/#front-matter}
  * since nuxt content is similar to zola, it is straightforward to use
  */

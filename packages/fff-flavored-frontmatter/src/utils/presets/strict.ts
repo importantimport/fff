@@ -25,7 +25,7 @@ const strictMediaTransform = (
       : media)
 
 /**
- * Strict - FFF Flavor Transform Preset
+ * Strict - FFF Transform Preset
  * @beta
  */
 export const strict = (strict: {

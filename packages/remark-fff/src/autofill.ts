@@ -8,7 +8,10 @@ export const path = {
   urara: (path: string) => path.replace('/src/routes/', '/urara/'),
 } as const
 
-/** @alpha */
+/**
+ * Auto-fill datetime from node:fs
+ * @beta
+ */
 export const fs = (path: string): FFFTransformPreset => {
   const { ctime, mtime } = statSync(path)
   return {
@@ -18,9 +21,9 @@ export const fs = (path: string): FFFTransformPreset => {
 }
 
 /**
- * @alpha
- * @remarks
- * author: Jordan Webb
+ * Auto-fill datetime from git
+ * @beta
+ * @remarks author: Jordan Webb
  * @see {@link https://github.com/jordemort/jordemort.github.io/blob/main/src/plugins/repodates.mjs}
  */
 export const git = (path: string): FFFTransformPreset => ({
