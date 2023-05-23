@@ -18,7 +18,7 @@ export type IndiekitPresetFFFOptions = {
   types?: 'urara'
 }
 
-export default class FFFPreset {
+export default class IndiekitPresetFFF {
   id: string
   meta: ImportMeta
   name: string
