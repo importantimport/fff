@@ -7,18 +7,20 @@ outline: 'deep'
 
 Modifying the post frontmatter every time you migrate your blog framework/theme is a hassle.
 
-But with `remark-fff` and `markdown-it-fff`, you can freely convert your frontmatter without modifying the original posts!
+But with FFF Flavored Frontmatter, you can freely convert your frontmatter without modifying the original posts!
 
-## FFFPreset
+## [FFF Transform Preset](/references/fff-flavored-frontmatter.ffftransformpreset.html)
 
-The above two plugins accept objects named `FFFPreset`.
+This is an `FFFTransformPreset` object that specifies how the Frontmatter should be transformed.
 
 ### Basic
 
 a basic preset looks like this:
 
 ```ts
-const basic = {
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
+
+const basic: FFFTransformPreset = {
   created: 'date',
   flags: ({ draft }) => (draft ? ['draft'] : []),
 }
@@ -46,7 +48,9 @@ The key represents the name of the output variable and is replaced directly if t
 When value is an arrow function, it passes the entire frontmatter:
 
 ```ts
-const flags = {
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
+
+const flags: FFFTransformPreset = {
   flags: ({
     flags,
     draft,
@@ -109,6 +113,33 @@ const md = MarkdownIt()
   })
 ```
 
+### [Reverse](/references/fff-flavored-frontmatter.ffftransformpresetreverse.html)
+
+Just like [FFF Transform Preset](#fff-transform-preset), but it uses any string as a key to export the FFF Flavored Frontmatter to other incompatible environments.
+
+```ts
+import type { FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+
+const basic: FFFTransformPresetReverse = {
+  date: 'created',
+  draft: ({ flags }) => flags?.includes('draft'),
+}
+```
+
+```yaml
+# input
+created: 2023-06-04
+flags:
+  - draft
+
+# output
+created: 2023-06-04
+date: 2023-06-04
+draft: true
+flags:
+  - draft
+```
+
 ## Using the plugin
 
 Go to the README for [`remark-fff`](/packages/remark-fff) or [`markdown-it-fff`](/packages/markdown-it-fff)!
@@ -117,7 +148,7 @@ Go to the README for [`remark-fff`](/packages/remark-fff) or [`markdown-it-fff`]
 
 For environments where the above two plugins do not work directly (e.g. Qwik City), you can also use the `transform` function exported by `fff-flavored-frontmatter`.
 
-Note that it only accepts FFFPreset (not string), so you must import the preset:
+Note that it only accepts [FFF Transform Preset](#fff-transform-preset) (not string), so you must import or create preset:
 
 ```ts
 import { useDocumentHead } from '@builder.io/qwik-city'

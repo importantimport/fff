@@ -9,7 +9,7 @@ export type FFFTransformPresetValue = string | ((fm: FFFFlavoredFrontmatter & { 
 /**
  * Flavor Transform Preset
  * @public
- * @see {@link https://fff.js.org/concepts/flavor-transform.html#ffftransformpreset}
+ * @see {@link https://fff.js.org/concepts/flavor-transform.html#fff-transform-preset}
  */
 export type FFFTransformPreset = {
   [key in keyof FFFFlavoredFrontmatter]: FFFTransformPresetValue
@@ -18,7 +18,7 @@ export type FFFTransformPreset = {
 /**
  * Flavor Transform Preset (Reverse)
  * @beta
- * @see {@link https://fff.js.org/concepts/flavor-transform.html#ffftransformpresetreverse}
+ * @see {@link https://fff.js.org/concepts/flavor-transform.html#reverse}
  */
 export type FFFTransformPresetReverse = {
   [key: string]: FFFTransformPresetValue
