@@ -25,12 +25,12 @@ export type FFFTransformPresetReverse = {
 }
 
 /**
- * Flavor Transform
+ * Flavor Transform Function
  * @public
  * @param fm - Input Frontmatter
  * @param presets - FFFTransformPreset Array
  * @returns - FFF Flavored Frontmatter
- * @see {@link https://fff.js.org/concepts/flavor-transform.html}
+ * @see {@link https://fff.js.org/concepts/flavor-transform.html#transform-function}
  */
 export const transform = (
   fm: FFFFlavoredFrontmatter & { [key: string]: unknown },
