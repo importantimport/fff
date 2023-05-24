@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs'
 
 import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
-import { hugo, mditVue } from 'fff-transform-presets'
+import { hexo, mditVue } from 'fff-transform-presets'
 import MarkdownIt from 'markdown-it'
 import { describe, expect, it } from 'vitest'
 
@@ -18,7 +18,7 @@ describe('markdown-it-fff', () => {
       },
     })
     .use(fffPlugin, {
-      presets: [hugo, mditVue],
+      presets: [hexo, mditVue],
     })
   it('basic', () => {
     const src = readFileSync('test/fixture/basic.md').toString()
