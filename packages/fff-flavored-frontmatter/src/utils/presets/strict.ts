@@ -6,6 +6,8 @@ import type { FFFTransformPreset } from '../transform'
  * @public
  */
 export type StrictPresetOptions = {
+  categories?: boolean
+  lang?: 'string' | 'array'
   media?: {
     type?: 'string' | 'object'
     array?: boolean
@@ -24,17 +26,11 @@ const strictMediaTransform = (
       ? media?.src
       : media)
 
-// TODO: lang (string | array), categories => tags
 /**
  * Strict - FFF Transform Preset
  * @beta
  */
-export const strict = (strict: {
-  media?: {
-    type?: 'string' | 'object'
-    array?: boolean
-  }
-}): FFFTransformPreset => ({
+export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
   alt: ({ alt, image, images }) => alt ?? strict.media?.type === 'string' ? ((image || images?.[0]) as FFFImage)?.alt : undefined,
   audio: ({ audio }) => strictMediaTransform(strict.media, audio),
   image: ({ image, images }) =>
@@ -46,5 +42,13 @@ export const strict = (strict: {
     [...(images ?? []), ...(strict.media?.array ? [image] : [])].map(
       (image?: string | FFFImage) => strictMediaTransform(strict.media, image),
     ),
+  lang: ({ lang }) => strict.lang === 'array'
+    ? (typeof lang === 'string'
+      ? [lang]
+      : lang)
+    : (typeof lang === 'object'
+      ? lang[0]
+      : lang),
+  tags: ({ tags, categories }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
   video: ({ video }) => strictMediaTransform(strict.media, video),
 })

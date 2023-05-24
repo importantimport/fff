@@ -112,7 +112,7 @@ export type FFFExtra = {
   /** specifies one or more post authors. */
   authors?: FFFAuthor[]
   /** the primary language for the post. */
-  lang?: string
+  lang?: string | string[]
   /** location the post was posted from. */
   location?: string
   /** URL(s) of syndicated copies of this post. */
