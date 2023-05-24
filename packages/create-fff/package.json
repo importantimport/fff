@@ -44,5 +44,8 @@
     "minimist": "^1.2.8",
     "picocolors": "^1.0.0",
     "yaml": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.2"
   }
 }

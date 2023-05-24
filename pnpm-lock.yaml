@@ -15,10 +15,13 @@ importers:
         version: 0.0.7(eslint@8.41.0)(typescript@5.0.4)
       '@microsoft/api-documenter':
         specifier: ^7.22.6
-        version: 7.22.6
+        version: 7.22.6(@types/node@20.2.3)
       '@microsoft/api-extractor':
         specifier: ^7.35.0
-        version: 7.35.0
+        version: 7.35.0(@types/node@20.2.3)
+      '@types/node':
+        specifier: ^20.2.3
+        version: 20.2.3
       '@vitest/coverage-c8':
         specifier: ^0.31.1
         version: 0.31.1(vitest@0.31.1)
@@ -60,7 +63,7 @@ importers:
         version: 0.15.0(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4)
       vitepress:
         specifier: 1.0.0-beta.1
-        version: 1.0.0-beta.1(@algolia/client-search@4.17.0)
+        version: 1.0.0-beta.1(@algolia/client-search@4.17.0)(@types/node@20.2.3)
       vue:
         specifier: ^3.3.4
         version: 3.3.4
@@ -82,6 +85,10 @@ importers:
       yaml:
         specifier: ^2.3.0
         version: 2.3.0
+    devDependencies:
+      '@types/minimist':
+        specifier: ^1.2.2
+        version: 1.2.2
 
   packages/fff-flavored-frontmatter: {}
 
@@ -2106,13 +2113,13 @@ packages:
     resolution: {integrity: sha512-mrC4y8n88BYvgcgzq9bvTlDgFyi2zuvzmPilRvRc3Uz1iIvq8mDhxJ0rHKFUNzPEScpDvJdIujqiDrulMqiudA==}
     dev: true
 
-  /@microsoft/api-documenter@7.22.6:
+  /@microsoft/api-documenter@7.22.6(@types/node@20.2.3):
     resolution: {integrity: sha512-4m981mS9VF3B+Z55kwaEV2NH0G0sMYI3RTvMNGHhNMg9BM2UWSF3B6knX8OKRkXoS0Rmu2YGFjPQey0kMhyB6A==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.27.0
+      '@microsoft/api-extractor-model': 7.27.0(@types/node@20.2.3)
       '@microsoft/tsdoc': 0.14.2
-      '@rushstack/node-core-library': 3.59.1
+      '@rushstack/node-core-library': 3.59.1(@types/node@20.2.3)
       '@rushstack/ts-command-line': 4.13.3
       colors: 1.2.5
       js-yaml: 3.13.1
@@ -2121,24 +2128,24 @@ packages:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor-model@7.27.0:
+  /@microsoft/api-extractor-model@7.27.0(@types/node@20.2.3):
     resolution: {integrity: sha512-wHqIMiwSARmiuVLn/zmVpiRncq6hvBfC5GF+sjrN3w4FqVkqFYk7DetvfRNdy/3URdqqmYGrhJlcU9HpLnHOPg==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.59.1
+      '@rushstack/node-core-library': 3.59.1(@types/node@20.2.3)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor@7.35.0:
+  /@microsoft/api-extractor@7.35.0(@types/node@20.2.3):
     resolution: {integrity: sha512-yBGfPJeEtzk8sg2hE2/vOPRvnJBvstbWNGeyGV1jIEUSgytzQ0QPgPEkOsP2n7nBfnyRXmZaBa2vJPGOzVWy+g==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.27.0
+      '@microsoft/api-extractor-model': 7.27.0(@types/node@20.2.3)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.59.1
+      '@rushstack/node-core-library': 3.59.1(@types/node@20.2.3)
       '@rushstack/rig-package': 0.3.19
       '@rushstack/ts-command-line': 4.13.3
       colors: 1.2.5
@@ -2239,7 +2246,7 @@ packages:
       rollup: 2.79.1
     dev: true
 
-  /@rushstack/node-core-library@3.59.1:
+  /@rushstack/node-core-library@3.59.1(@types/node@20.2.3):
     resolution: {integrity: sha512-iy/xaEhXGpX+DY1ZzAtNA+QPw+9+TJh773Im+JxG4R1fu00/vWq470UOEj6upxlUxmp0JxhnmNRxzfptHrn/Uw==}
     peerDependencies:
       '@types/node': '*'
@@ -2247,6 +2254,7 @@ packages:
       '@types/node':
         optional: true
     dependencies:
+      '@types/node': 20.2.3
       colors: 1.2.5
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -7075,7 +7083,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress@1.0.0-beta.1(@algolia/client-search@4.17.0):
+  /vitepress@1.0.0-beta.1(@algolia/client-search@4.17.0)(@types/node@20.2.3):
     resolution: {integrity: sha512-V2yyCwQ+v9fh7rbnGDLp8M7vHa9sLElexXf/JHtBOsOwv7ed9wt1QI4WUagYgKR3TeoJT9v2s6f0UaQSne0EvQ==}
     hasBin: true
     dependencies:
