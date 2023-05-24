@@ -1,7 +1,7 @@
 {
   "name": "remark-fff",
   "type": "module",
-  "version": "0.5.3",
+  "version": "1.0.0-alpha.0",
   "description": "Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
@@ -34,7 +34,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
