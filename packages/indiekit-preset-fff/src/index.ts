@@ -1,5 +1,5 @@
 import TOML, { type JsonMap } from '@iarna/toml'
-import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter/fff'
+import { type FFFFlavoredFrontmatter, strict, type StrictPresetOptions, transform } from 'fff-flavored-frontmatter/fff'
 import YAML from 'yaml'
 
 import { version } from '../package.json'
@@ -17,6 +17,7 @@ export type IndiekitPresetFFFOptions = {
    * @defaultValue `urara`
    */
   types: 'urara'
+  strict?: StrictPresetOptions
 }
 
 /**
@@ -100,33 +101,35 @@ export default class IndiekitPresetFFF {
    * @returns Rendered template
    */
   public postTemplate(properties: FFFFlavoredFrontmatter & { [key: string]: unknown }) {
+    let fm = {
+      audio: properties.audio,
+      bookmark_of: properties.bookmark_of,
+      checkin: properties.checkin,
+      end: properties.end,
+      flags: [
+        ...(properties.draft ? ['draft'] : []),
+        ...(properties.visibility ? [properties.visibility as string] : []),
+      ],
+      image: Array.isArray(properties.photo) ? undefined : properties.photo,
+      images: Array.isArray(properties.photo) ? properties.photo : undefined,
+      in_reply_to: properties['in-reply-to'],
+      like_of: properties['like-of'],
+      location: properties.location,
+      mp_syndicate_to: properties['mp-syndicate-to'],
+      published: properties.published,
+      repost_of: properties['repost-of'],
+      rsvp: properties.rsvp,
+      start: properties.start,
+      summary: properties.summary,
+      syndication: properties.syndication,
+      tags: properties.category,
+      title: properties.name,
+      video: properties.video,
+    } as FFFFlavoredFrontmatter
+    if (this.options.strict)
+      fm = transform(fm, [strict(this.options.strict)])
     return (
-      `${this.frontMatter({
-        audio: properties.audio,
-        bookmark_of: properties.bookmark_of,
-        checkin: properties.checkin,
-        end: properties.end,
-        flags: [
-          ...(properties.draft ? ['draft'] : []),
-          ...(properties.visibility ? [properties.visibility as string] : []),
-        ],
-        image: Array.isArray(properties.photo) ? undefined : properties.photo,
-        images: Array.isArray(properties.photo) ? properties.photo : undefined,
-        in_reply_to: properties['in-reply-to'],
-        like_of: properties['like-of'],
-        location: properties.location,
-        mp_syndicate_to: properties['mp-syndicate-to'],
-        published: properties.published,
-        repost_of: properties['repost-of'],
-        rsvp: properties.rsvp,
-        start: properties.start,
-        summary: properties.summary,
-        syndication: properties.syndication,
-        tags: properties.category,
-        title: properties.name,
-        video: properties.video,
-      } as FFFFlavoredFrontmatter)
-      }${
+      `${this.frontMatter(fm)}${
         (properties.content as { text?: string }).text
         ?? (properties.content as { html?: string }).html
         ?? properties.content
