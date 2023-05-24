@@ -11,6 +11,7 @@ export const hexo: FFFTransformPreset = {
     ...(flags ?? []),
     ...(comments === undefined ? [] : (comments ? ['enable-comments'] : ['disable-comments'])),
   ],
+  images: 'photos',
   summary: 'excerpt',
 }
 
@@ -25,4 +26,5 @@ export const hexoReverse: FFFTransformPresetReverse = {
     : undefined,
   date: 'created',
   excerpt: 'summary',
+  photos: ({ images }) => images?.map(image => typeof image === 'string' ? image : image.src),
 }
