@@ -2,7 +2,6 @@
   "name": "fff-transform-presets",
   "type": "module",
   "version": "0.5.3",
-  "private": true,
   "description": "Predefined transform presets for FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
