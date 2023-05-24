@@ -19,7 +19,7 @@ you can use the badge from [shields.io](https://shields.io) to illustrate this.
 
 <script setup>
   import { version as packageVersion } from '../package.json'
-  const version = packageVersion.split('.').slice(0,2).map((n, i) => i === 1 && /[a-z]/i.test(packageVersion) ? n - 1 : n ).join('.')
+  const version = packageVersion.split('.').slice(0,2).join('.')
 </script>
 
 <ul>
