@@ -106,7 +106,7 @@ export default class IndiekitPresetFFF {
   public postTemplate(properties: FFFFlavoredFrontmatter & Record<string, unknown>) {
     let fm = {
       audio: properties.audio,
-      bookmark_of: properties.bookmark_of,
+      bookmark_of: properties['bookmark-of'],
       checkin: properties.checkin,
       end: properties.end,
       flags: [
