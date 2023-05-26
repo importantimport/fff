@@ -128,6 +128,7 @@ export default class IndiekitPresetFFF {
       tags: properties.category,
       title: properties.name,
       video: properties.video,
+      // TODO: references
     } as FFFFlavoredFrontmatter
     if (this.options.strict)
       fm = transform(fm, [strict(this.options.strict)])
