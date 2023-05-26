@@ -5,7 +5,10 @@ import YAML from 'yaml'
 import { version } from '../package.json'
 import { postTypes } from './post-types'
 
-/** Indiekit Preset FFF Options. */
+/**
+ * Indiekit Preset FFF Options.
+ * @public
+ */
 export type IndiekitPresetFFFOptions = {
   /**
    * Front matter format to use.
