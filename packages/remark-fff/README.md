@@ -1,4 +1,4 @@
-# Remark **FFF**
+# Remark FFF
 
 🌟 Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
 
@@ -25,16 +25,14 @@ Use in MDsveX or Astro or Nuxt:
 ```ts
 import remarkFFF from 'remark-fff'
 
-export default defineConfig({
-  ...,
+export default {
   remarkPlugins: [
-    ...,
     // without options
-    remarkFFF
+    remarkFFF,
     // with options
     [remarkFFF, { presets: ['hugo'], target: 'astro' }]
   ],
-})
+}
 ```
 
 ### Options
@@ -50,6 +48,7 @@ Specifies a preset for how remark-fff will be converted.
 You can create your own presets, or import some from `fff-transform-presets`.
 
 ```ts
+import remarkFFF from 'remark-fff'
 import { hugo } from 'fff-transform-presets'
 
 remarkFFF({
@@ -71,6 +70,8 @@ default: `mdsvex`
 Packages that use this plugin currently support MDsveX, Astro and Nuxt.
 
 ```ts
+import remarkFFF from 'remark-fff'
+
 remarkFFF({ target: 'astro' })
 ```
 
@@ -81,6 +82,8 @@ default: `undefined`
 Forced conversion to a single type, currently limited to media variables.
 
 ```ts
+import remarkFFF from 'remark-fff'
+
 remarkFFF({
   strict: {
     media: {
