@@ -24,7 +24,7 @@ export type FFFTransformPreset<T extends Record<string, unknown> = Record<string
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#transform-function}
  */
 export const transform = (
-  fm: FFFFlavoredFrontmatter & Record<string, unknown>,
+  fm: Record<string, unknown>,
   presets: FFFTransformPreset[],
 ): FFFFlavoredFrontmatter & Record<string, unknown> => {
   for (const preset of presets) {
