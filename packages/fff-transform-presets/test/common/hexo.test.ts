@@ -6,7 +6,7 @@ import { hexo } from '../../src/index'
 describe('remark-fff', () => {
   // https://github.com/hexojs/hexo-theme-unit-test/blob/master/source/_posts/gallery-post.md
   it('gallery-post', () => {
-    let fm: Record<string, unknown> = {
+    const fm = transform({
       categories: [
         [
           'Sports',
@@ -32,8 +32,7 @@ describe('remark-fff', () => {
         'https://via.placeholder.com/350x150.jpg',
       ],
       title: 'Gallery Post',
-    }
-    fm = transform(fm, [hexo])
+    }, [hexo])
     expect(fm.categories).toEqual([
       'Sports',
       'Baseball',
