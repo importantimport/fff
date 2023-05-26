@@ -6,6 +6,8 @@ import type { FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored
  * @see {@link https://hexo.io/docs/front-matter.html}
  */
 export const hexo: FFFTransformPreset = {
+  /** @see {@link https://hexo.io/docs/front-matter.html#Categories-amp-Tags} */
+  categories: ({ categories }) => [...new Set(categories?.flat())],
   created: 'date',
   flags: ({ flags, comments }) => [
     ...(flags ?? []),

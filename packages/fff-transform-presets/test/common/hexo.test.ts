@@ -7,6 +7,23 @@ describe('remark-fff', () => {
   // https://github.com/hexojs/hexo-theme-unit-test/blob/master/source/_posts/gallery-post.md
   it('gallery-post', () => {
     let fm: { [key: string]: unknown } = {
+      categories: [
+        [
+          'Sports',
+          'Baseball',
+        ],
+        [
+          'MLB',
+          'American League',
+          'Boston Red Sox',
+        ],
+        [
+          'MLB',
+          'American League',
+          'New York Yankees',
+        ],
+        'Rivalries',
+      ],
       date: '2013-12-25 00:16:18',
       photos: [
         '/assets/wallpaper-2572384.jpg',
@@ -17,6 +34,15 @@ describe('remark-fff', () => {
       title: 'Gallery Post',
     }
     fm = transform(fm, [hexo])
+    expect(fm.categories).toEqual([
+      'Sports',
+      'Baseball',
+      'MLB',
+      'American League',
+      'Boston Red Sox',
+      'New York Yankees',
+      'Rivalries',
+    ])
     expect(fm.created).toEqual('2013-12-25 00:16:18')
     expect(fm.images).toEqual([
       '/assets/wallpaper-2572384.jpg',
