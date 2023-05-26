@@ -1,4 +1,4 @@
-import type { FFFFlavoredFrontmatter, FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
 
 type AlpineAuthor = {
   name?: string
@@ -11,8 +11,8 @@ type AlpineAuthor = {
  * @beta
  * @see {@link https://github.com/nuxt-themes/alpine/blob/main/.starters/default/content/articles/1.get-started.md?plain=1}
  */
-export const nuxtThemeAlpine: FFFTransformPreset = {
-  authors: ({ author }: FFFFlavoredFrontmatter & { author?: AlpineAuthor }) => author
+export const nuxtThemeAlpine: FFFTransformPreset<{ author?: AlpineAuthor }> = {
+  authors: ({ author }) => author
     ? [{
       avatar: author.avatarUrl,
       name: author.name,
