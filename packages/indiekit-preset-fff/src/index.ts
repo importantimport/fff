@@ -100,7 +100,7 @@ export default class IndiekitPresetFFF {
    * @param properties - Post data variables
    * @returns Rendered template
    */
-  public postTemplate(properties: FFFFlavoredFrontmatter & { [key: string]: unknown }) {
+  public postTemplate(properties: FFFFlavoredFrontmatter & Record<string, unknown>) {
     let fm = {
       audio: properties.audio,
       bookmark_of: properties.bookmark_of,

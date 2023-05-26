@@ -11,7 +11,7 @@ export type MarkdownItEnv = {
   /** `@mdit-vue/plugin-frontmatter` renderExcerpt */
   excerpt?: string
   /** `@mdit-vue/plugin-frontmatter` frontmatter */
-  frontmatter?: FFFFlavoredFrontmatter & { [key: string]: unknown }
+  frontmatter?: FFFFlavoredFrontmatter & Record<string, unknown>
 }
 
 /**

@@ -30,7 +30,7 @@ export type _Post =
       filename: string
       path: never
       data: {
-        fm: FFFFlavoredFrontmatter & { [key: string]: unknown }
+        fm: FFFFlavoredFrontmatter & Record<string, unknown>
         astro: never
       }
     }
@@ -40,7 +40,7 @@ export type _Post =
       data: {
         fm: never
         astro: {
-          frontmatter: FFFFlavoredFrontmatter & { [key: string]: unknown }
+          frontmatter: FFFFlavoredFrontmatter & Record<string, unknown>
         }
       }
     }

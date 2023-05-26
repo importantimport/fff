@@ -6,7 +6,7 @@ import { hexo } from '../../src/index'
 describe('remark-fff', () => {
   // https://github.com/hexojs/hexo-theme-unit-test/blob/master/source/_posts/gallery-post.md
   it('gallery-post', () => {
-    let fm: { [key: string]: unknown } = {
+    let fm: Record<string, unknown> = {
       categories: [
         [
           'Sports',
