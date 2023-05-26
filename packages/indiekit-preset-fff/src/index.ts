@@ -110,7 +110,7 @@ export default class IndiekitPresetFFF {
       checkin: properties.checkin,
       end: properties.end,
       flags: [
-        ...(properties.draft ? ['draft'] : []),
+        ...(properties['post-status'] === 'draft' ? ['draft'] : []),
         ...(properties.visibility ? [properties.visibility as string] : []),
       ],
       image: Array.isArray(properties.photo) ? undefined : properties.photo,
