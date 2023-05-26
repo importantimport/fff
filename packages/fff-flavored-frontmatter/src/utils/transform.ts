@@ -4,15 +4,15 @@ import type { FFFFlavoredFrontmatter } from '../types'
  * FFF Flavor Transform Preset Value
  * @public
  */
-export type FFFTransformPresetValue = string | ((fm: FFFFlavoredFrontmatter & { [key: string]: unknown }) => unknown)
+export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<string, unknown>> = string | ((fm: FFFFlavoredFrontmatter & T) => unknown)
 
 /**
  * Flavor Transform Preset
  * @public
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#fff-transform-preset}
  */
-export type FFFTransformPreset = {
-  [key in keyof FFFFlavoredFrontmatter]: FFFTransformPresetValue
+export type FFFTransformPreset<T extends Record<string, unknown> = Record<string, unknown>> = {
+  [key in keyof FFFFlavoredFrontmatter]: FFFTransformPresetValue<T & Record<string, unknown>>
 }
 
 /**
@@ -20,8 +20,8 @@ export type FFFTransformPreset = {
  * @public
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#reverse}
  */
-export type FFFTransformPresetReverse = {
-  [key: string]: FFFTransformPresetValue
+export type FFFTransformPresetReverse<T extends Record<string, unknown> = Record<string, unknown>> = {
+  [key in keyof (T & Record<string, unknown>)]: FFFTransformPresetValue<T & Record<string, unknown>>
 }
 
 /**
