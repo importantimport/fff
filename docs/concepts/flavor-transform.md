@@ -90,14 +90,14 @@ flags:
 
 Note: When using the arrow function you need to ensure that it returns the original value or null.
 
-### [Reverse](/references/fff-flavored-frontmatter.ffftransformpresetreverse.html)
+### Reverse
 
 Just like [FFF Transform Preset](#fff-transform-preset), but it uses any string as a key to export the FFF Flavored Frontmatter to other incompatible environments.
 
 ```ts
-import type { FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
-const basicReverse: FFFTransformPresetReverse = {
+const basicReverse: FFFTransformPreset = {
   date: 'created',
   draft: ({ flags }) => flags?.includes('draft'),
 }

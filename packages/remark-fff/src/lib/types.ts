@@ -1,7 +1,6 @@
 import type {
   FFFFlavoredFrontmatter,
   FFFTransformPreset,
-  FFFTransformPresetReverse,
   StrictPresetOptions,
 } from 'fff-flavored-frontmatter'
 
@@ -14,7 +13,7 @@ import { path } from '../autofill'
 export type RemarkFFFOptions = {
   // eslint-disable-next-line @typescript-eslint/ban-types
   target: 'mdsvex' | 'astro' | 'nuxt' | (string & {})
-  presets: (FFFTransformPreset | FFFTransformPresetReverse)[]
+  presets: FFFTransformPreset[]
   autofill?: {
     provider: 'fs' | 'git'
     path?: keyof typeof path | ((path: string) => string)

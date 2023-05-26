@@ -1,4 +1,4 @@
-import type { FFFFlavoredFrontmatter, FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFFlavoredFrontmatter, FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * Hugo - FFF Transform Preset
@@ -35,7 +35,7 @@ export const hugo: FFFTransformPreset = {
  * @alpha
  * @see {@link https://gohugo.io/content-management/front-matter/#predefined}
  */
-export const hugoReverse: FFFTransformPresetReverse = {
+export const hugoReverse: FFFTransformPreset = {
   // TODO: images, videos
   draft: ({ flags }) => flags?.includes('draft'),
   keywords: 'tags',

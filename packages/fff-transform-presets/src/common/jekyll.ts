@@ -1,4 +1,4 @@
-import type { FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * Jekyll - FFF Transform Preset
@@ -34,6 +34,6 @@ export const jekyll: FFFTransformPreset = {
  * @alpha
  * @see {@link https://jekyllrb.com/docs/front-matter/}
  */
-export const jekyllReverse: FFFTransformPresetReverse = {
+export const jekyllReverse: FFFTransformPreset = {
   date: 'created',
 }

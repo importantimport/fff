@@ -1,4 +1,4 @@
-import type { FFFFlavoredFrontmatter, FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFFlavoredFrontmatter, FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * Nuxt Content - FFF Transform Preset
@@ -21,7 +21,7 @@ export const nuxt: FFFTransformPreset = {
  * @alpha
  * @see {@link https://content.nuxtjs.org/guide/writing/markdown/#front-matter}
  */
-export const nuxtReverse: FFFTransformPresetReverse = {
+export const nuxtReverse: FFFTransformPreset = {
   description: 'summary',
   draft: ({ flags }) => flags?.includes('draft'),
 }

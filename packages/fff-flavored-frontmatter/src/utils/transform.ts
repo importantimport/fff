@@ -12,16 +12,7 @@ export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<s
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#fff-transform-preset}
  */
 export type FFFTransformPreset<T extends Record<string, unknown> = Record<string, unknown>> = {
-  [key in keyof FFFFlavoredFrontmatter]: FFFTransformPresetValue<T & Record<string, unknown>>
-}
-
-/**
- * Flavor Transform Preset (Reverse)
- * @public
- * @see {@link https://fff.js.org/concepts/flavor-transform.html#reverse}
- */
-export type FFFTransformPresetReverse<T extends Record<string, unknown> = Record<string, unknown>> = {
-  [key in keyof (T & Record<string, unknown>)]: FFFTransformPresetValue<T & Record<string, unknown>>
+  [key in keyof (FFFFlavoredFrontmatter & T & Record<string, unknown>)]: FFFTransformPresetValue<T & Record<string, unknown>>
 }
 
 /**
@@ -34,7 +25,7 @@ export type FFFTransformPresetReverse<T extends Record<string, unknown> = Record
  */
 export const transform = (
   fm: FFFFlavoredFrontmatter & { [key: string]: unknown },
-  presets: (FFFTransformPreset | FFFTransformPresetReverse)[],
+  presets: FFFTransformPreset[],
 ): FFFFlavoredFrontmatter & { [key: string]: unknown } => {
   for (const preset of presets) {
     for (const [output, input] of Object.entries<FFFTransformPresetValue>(preset)) {

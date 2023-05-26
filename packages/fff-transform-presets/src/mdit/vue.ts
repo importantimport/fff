@@ -1,4 +1,4 @@
-import type { FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * `@mdit-vue/plugin-frontmatter` - FFF Transform Preset
@@ -14,6 +14,6 @@ export const mditVue: FFFTransformPreset = {
  * @alpha
  * @see {@link https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-frontmatter}
  */
-export const mditVueReverse: FFFTransformPresetReverse = {
+export const mditVueReverse: FFFTransformPreset = {
   excerpt: 'summary',
 }

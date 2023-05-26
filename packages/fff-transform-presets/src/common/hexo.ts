@@ -1,4 +1,4 @@
-import type { FFFTransformPreset, FFFTransformPresetReverse } from 'fff-flavored-frontmatter'
+import type { FFFTransformPreset, FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * Hexo - FFF Transform Preset
@@ -23,7 +23,7 @@ export const hexo: FFFTransformPreset = {
  * @alpha
  * @see {@link https://hexo.io/docs/front-matter.html}
  */
-export const hexoReverse: FFFTransformPresetReverse = {
+export const hexoReverse: FFFTransformPreset = {
   comments: ({ flags }) => !flags?.some(flag => flag === 'disable-comments'),
   date: 'created',
   disableNunjunks: ({ flags }) => flags?.some(flag => flag === 'disable-nunjunks'),
