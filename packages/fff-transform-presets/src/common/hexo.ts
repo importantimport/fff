@@ -1,4 +1,4 @@
-import type { FFFTransformPreset, FFFTransformPreset } from 'fff-flavored-frontmatter'
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * Hexo - FFF Transform Preset
