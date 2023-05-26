@@ -24,10 +24,9 @@ export const hexo: FFFTransformPreset = {
  * @see {@link https://hexo.io/docs/front-matter.html}
  */
 export const hexoReverse: FFFTransformPresetReverse = {
-  comments: ({ flags }) => flags?.some(flag => flag.endsWith('comments'))
-    ? flags.includes('enable-comments')
-    : undefined,
+  comments: ({ flags }) => !flags?.some(flag => flag === 'disable-comments'),
   date: 'created',
+  disableNunjunks: ({ flags }) => flags?.some(flag => flag === 'disable-nunjunks'),
   excerpt: 'summary',
   photos: ({ images }) => images?.map(image => typeof image === 'string' ? image : image.src),
 }
