@@ -9,9 +9,10 @@ export const hexo: FFFTransformPreset = {
   /** @see {@link https://hexo.io/docs/front-matter.html#Categories-amp-Tags} */
   categories: ({ categories }) => [...new Set(categories?.flat())],
   created: 'date',
-  flags: ({ flags, comments }) => [
+  flags: ({ comments, disableNunjucks, flags }) => [
     ...(flags ?? []),
-    ...(comments === undefined ? [] : (comments ? ['enable-comments'] : ['disable-comments'])),
+    ...(comments === false ? ['disable-comments'] : []),
+    ...(disableNunjucks === true ? ['disable-nunjunks'] : []),
   ],
   images: 'photos',
   summary: 'excerpt',
