@@ -1,7 +1,7 @@
 {
   "name": "create-fff",
   "type": "module",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Create FFF-related configuration files.",
   "author": "藍+85CD",
   "license": "WTFPL",
@@ -28,7 +28,9 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": "./dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsup",
