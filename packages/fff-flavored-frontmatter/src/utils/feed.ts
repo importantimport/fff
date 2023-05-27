@@ -10,7 +10,7 @@ import { transform } from './transform'
  * @returns - JSON Feed Item Object (without content / id / url)
  * @see {@link https://jsonfeed.org/version/1.1}
  */
-export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
+export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): object => {
   fm = transform(fm, [strict({
     media: {
       array: false,
@@ -18,6 +18,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
     },
   })])
   return {
+    ...item,
     /**
      * JSON Feed IndieWeb Extension
      * @see {@link https://indieweb.org/JSON_Feed#IndieWeb_Extension}
@@ -53,7 +54,8 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
  * @returns - JF2 Feed Child Object (without content / uid / url)
  * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
  */
-export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter): object => ({
+export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): object => ({
+  ...child,
   author: fm.authors && {
     name: fm.authors[0].name,
     photo: fm.authors[0].avatar,
