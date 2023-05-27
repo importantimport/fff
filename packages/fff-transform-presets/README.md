@@ -23,10 +23,10 @@ let fm = {
   // ...
 }
 
-// other => fff
+// hexo => fff
 fm = transform(fm, [hexo])
 
-// fff => other
+// fff => hexo
 fm = transform(fm, [hexoReverse])
 ```
 
