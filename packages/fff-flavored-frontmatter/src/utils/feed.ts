@@ -3,14 +3,20 @@ import { strict } from './presets'
 import { transform } from './transform'
 
 /**
+ * Supported Post Type
+ * @beta
+ */
+export type postType = 'rsvp' | 'bookmark' | 'repost' | 'like' | 'reply' | 'video' | 'audio' | 'article' | 'photo' | 'note'
+
+/**
  * Post Type Discovery
  * @beta
  * @param fm - FFF Flavored Frontmatter
- * @returns lower case post type string
+ * @returns lower case post type
  * @see {@link https://ptd.spec.indieweb.org/}
  * @see {@link https://indieweb.org/posts#Types_of_Posts}
  */
-export const typeDiscovery = (fm: FFFFlavoredFrontmatter): string => {
+export const postTypeDiscovery = (fm: FFFFlavoredFrontmatter): postType => {
   // TODO: Event, Checkin, Reply with RSVP
   if (
     fm.rsvp
@@ -64,7 +70,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
       'like-of': fm.like_of,
       'repost-of': fm.repost_of,
       'syndication': fm.syndication,
-      'type': typeDiscovery(fm),
+      'type': postTypeDiscovery(fm),
     },
     authors: fm.authors,
     date_modified: fm.updated,
