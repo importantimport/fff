@@ -12,6 +12,7 @@ import { transform } from './transform'
  */
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): object => {
   fm = transform(fm, [strict({
+    lang: 'string',
     media: {
       array: false,
       type: 'string',
@@ -35,7 +36,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): objec
     date_modified: fm.updated,
     date_published: fm.published ?? fm.created,
     image: fm.image,
-    language: fm.lang?.[0] ?? fm.lang,
+    language: fm.lang,
     summary: fm.summary,
     tags: [
       ...(fm.tags ?? []),
@@ -67,6 +68,7 @@ export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): obje
     ...(fm.categories ?? []),
   ],
   featured: fm.title && fm.image,
+  lang: fm.lang,
   name: fm.title,
   photo: fm.image,
   published: fm.published ?? fm.created,
