@@ -32,7 +32,8 @@ export const transform = <T extends Record<string, unknown> = Record<string, unk
       (fm = {
         ...fm,
         [output]:
-            typeof input === 'function' ? input(fm) : fm[input] ?? fm[output],
+          (typeof input === 'function' ? input(fm) : fm[input])
+            ?? fm[output],
       })
     }
   }
