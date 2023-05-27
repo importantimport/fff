@@ -19,9 +19,24 @@ export type FFFTransformPreset<T extends Record<string, unknown> = Record<string
  * Flavor Transform Function
  * @public
  * @param fm - Input Frontmatter
- * @param presets - FFFTransformPreset Array
+ * @param presets - FFFTransformPreset[]
  * @returns - FFF Flavored Frontmatter
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#transform-function}
+ * @example
+ * ```ts
+ * import { transform } from 'fff-flavored-frontmatter'
+ *
+ * const fm = transform({
+ *   date: '2022-07-18',
+ *   lastmod: '2023-06-04',
+ * }, [{
+ *   created: 'date',
+ *   updated: 'lastmod',
+ * }])
+ *
+ * // { created: '2022-07-18', date: '2022-07-18', lastmod: '2023-06-04', updated: '2023-06-04' }
+ * console.log(fm)
+ * ```
  */
 export const transform = <T extends Record<string, unknown> = Record<string, unknown>>(
   fm: T,
