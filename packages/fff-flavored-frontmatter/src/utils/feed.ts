@@ -46,25 +46,28 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter): object => {
   }
 }
 
-// /**
-//  * From FFF to JF2 Feed Child (Editor's Draft 09 February 2019)
-//  * @alpha
-//  * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
-//  * @param fm FFF Flavored Frontmatter
-//  * @returns JF2 Feed Child Object (without content / uid / url)
-//  */
-// export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter): {} => ({
-//   type: 'entry',
-//   name: fm.title,
-//   published: fm.published ?? fm.created,
-//   updated: fm.updated,
-//   category: fm.tags,
-//   photo: !fm.title && fm.image,
-//   featured: fm.title && fm.image,
-//   author: fm.authors && {
-//     type: 'card',
-//     name: fm.authors[0].name,
-//     photo: fm.authors[0].avatar,
-//     url: fm.authors[0].url,
-//   },
-// })
+/**
+ * From FFF to JF2 Feed Child (Editor's Draft 09 February 2019)
+ * @alpha
+ * @param fm - FFF Flavored Frontmatter
+ * @returns - JF2 Feed Child Object (without content / uid / url)
+ * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
+ */
+export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter): object => ({
+  author: fm.authors && {
+    name: fm.authors[0].name,
+    photo: fm.authors[0].avatar,
+    type: 'card',
+    url: fm.authors[0].url,
+  },
+  category: [
+    ...(fm.tags ?? []),
+    ...(fm.categories ?? []),
+  ],
+  featured: fm.title && fm.image,
+  name: fm.title,
+  photo: fm.image,
+  published: fm.published ?? fm.created,
+  type: 'entry',
+  updated: fm.updated,
+})
