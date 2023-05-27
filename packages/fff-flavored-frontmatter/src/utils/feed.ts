@@ -12,6 +12,7 @@ import { transform } from './transform'
  */
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): object => {
   fm = transform(fm, [strict({
+    categories: false,
     lang: 'string',
     media: {
       array: false,
@@ -38,10 +39,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): objec
     image: fm.image,
     language: fm.lang,
     summary: fm.summary,
-    tags: [
-      ...(fm.tags ?? []),
-      ...(fm.categories ?? []),
-    ],
+    tags: fm.tags,
     title: fm.title,
     // TODO: https://www.jsonfeed.org/version/1.1/#attachments-a-name-attachments-a
     // TODO: https://www.jsonfeed.org/podcasting/
@@ -55,23 +53,30 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): objec
  * @returns - JF2 Feed Child Object (without content / uid / url)
  * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
  */
-export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): object => ({
-  ...child,
-  author: fm.authors && {
-    name: fm.authors[0].name,
-    photo: fm.authors[0].avatar,
-    type: 'card',
-    url: fm.authors[0].url,
-  },
-  category: [
-    ...(fm.tags ?? []),
-    ...(fm.categories ?? []),
-  ],
-  featured: fm.title && fm.image,
-  lang: fm.lang,
-  name: fm.title,
-  photo: fm.image,
-  published: fm.published ?? fm.created,
-  type: 'entry',
-  updated: fm.updated,
-})
+export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): object => {
+  fm = transform(fm, [strict({
+    categories: false,
+    lang: 'string',
+    media: {
+      array: false,
+      type: 'string',
+    },
+  })])
+  return {
+    ...child,
+    author: fm.authors && {
+      name: fm.authors[0].name,
+      photo: fm.authors[0].avatar,
+      type: 'card',
+      url: fm.authors[0].url,
+    },
+    category: fm.tags,
+    featured: fm.title && fm.image,
+    lang: fm.lang,
+    name: fm.title,
+    photo: fm.image,
+    published: fm.published ?? fm.created,
+    type: 'entry',
+    updated: fm.updated,
+  }
+}
