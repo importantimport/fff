@@ -23,18 +23,16 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/fff.d.ts",
-      "require": "./dist/fff.cjs",
-      "import": "./dist/fff.mjs"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/fff.cjs",
-  "module": "./dist/fff.mjs",
-  "types": "./dist/fff.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",

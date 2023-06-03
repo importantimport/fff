@@ -21,5 +21,5 @@ import type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
 // import type { FFFImage, FFFAudio, FFFVideo, FFFAuthor } from 'fff-flavored-frontmatter'
 
 // Deno
-import type { FFFFlavoredFrontmatter } from 'https://deno.land/x/fff/fff.ts'
+import type { FFFFlavoredFrontmatter } from 'https://deno.land/x/fff/mod.ts'
 ```
