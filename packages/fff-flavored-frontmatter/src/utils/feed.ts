@@ -7,7 +7,7 @@ import { transform } from './transform'
  * From FFF to JSON Feed Item (Version 1.1)
  * @beta
  * @param fm - FFF Flavored Frontmatter
- * @returns - JSON Feed Item Object (without content / id / url)
+ * @returns JSON Feed Item Object (without content / id / url)
  * @see {@link https://jsonfeed.org/version/1.1}
  */
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): object => {
@@ -50,7 +50,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): objec
  * From FFF to JF2 Feed Child (Editor's Draft 09 February 2019)
  * @alpha
  * @param fm - FFF Flavored Frontmatter
- * @returns - JF2 Feed Child Object (without content / uid / url)
+ * @returns JF2 Feed Child Object (without content / uid / url)
  * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
  */
 export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): object => {

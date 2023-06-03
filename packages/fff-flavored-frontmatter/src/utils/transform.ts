@@ -23,7 +23,7 @@ export type FFFTransformPreset<T extends Record<string, unknown> = Record<string
  * @typeParam T - Type of input Frontmatter. (optional)
  * @param fm - Input Frontmatter
  * @param presets - FFFTransformPreset[]
- * @returns - FFF Flavored Frontmatter
+ * @returns FFF Flavored Frontmatter
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#transform-function}
  * @example
  * ```ts
