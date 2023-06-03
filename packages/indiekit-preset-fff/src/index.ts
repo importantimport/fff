@@ -1,5 +1,5 @@
 import TOML, { type JsonMap } from '@iarna/toml'
-import { type FFFFlavoredFrontmatter, strict, type StrictPresetOptions, transform } from 'fff-flavored-frontmatter/fff'
+import { type FFFFlavoredFrontmatter, strict, type StrictPresetOptions, transform } from 'fff-flavored-frontmatter'
 import YAML from 'yaml'
 
 import { version } from '../package.json'
@@ -147,4 +147,4 @@ export default class IndiekitPresetFFF {
   }
 }
 
-export type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter/fff'
+export type { FFFFlavoredFrontmatter } from 'fff-flavored-frontmatter'
