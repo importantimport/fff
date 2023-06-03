@@ -32,8 +32,5 @@
     /* minimist */
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "packages/**/src",
-    "packages/fff-flavored-frontmatter/fff.ts"
-  ]
+  "include": ["packages/**/src"]
 }
