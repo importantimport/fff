@@ -15,6 +15,25 @@ export type postType = 'event' | 'rsvp' | 'repost' | 'like' | 'bookmark' | 'repl
  * @returns lower case post type
  * @see {@link https://ptd.spec.indieweb.org/#algorithm}
  * @see {@link https://indieweb.org/posts#Types_of_Posts}
+ * @example
+ * ```ts
+ * import { postTypeDiscovery } from 'fff-flavored-frontmatter'
+ *
+ * const helloWorld = {
+ *   title: 'Hello',
+ *   summary: 'World!',
+ * }
+ *
+ * const fooBar = {
+ *   summary: 'foo',
+ *   tags: ['bar'],
+ * }
+ *
+ * // 'article'
+ * console.log(postTypeDiscovery(helloWorld))
+ * // 'note'
+ * console.log(postTypeDiscovery(fooBar))
+ * ```
  */
 export const postTypeDiscovery = (fm: FFFFlavoredFrontmatter): postType => {
   // TODO: Checkin, Reply with RSVP
