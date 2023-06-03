@@ -1,9 +1,12 @@
 import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
-type AlpineAuthor = {
-  name?: string
-  avatarUrl?: string
-  link?: string
+/** @beta */
+export type NuxtThemeAlpine = {
+  author?: {
+    name?: string
+    avatarUrl?: string
+    link?: string
+  }
 }
 
 /**
@@ -11,7 +14,7 @@ type AlpineAuthor = {
  * @beta
  * @see {@link https://github.com/nuxt-themes/alpine/blob/main/.starters/default/content/articles/1.get-started.md?plain=1}
  */
-export const nuxtThemeAlpine: FFFTransformPreset<{ author?: AlpineAuthor }> = {
+export const nuxtThemeAlpine: FFFTransformPreset<NuxtThemeAlpine> = {
   authors: ({ author }) => author
     ? [{
       avatar: author.avatarUrl,
@@ -28,7 +31,7 @@ export const nuxtThemeAlpine: FFFTransformPreset<{ author?: AlpineAuthor }> = {
  * @alpha
  * @see {@link https://github.com/nuxt-themes/alpine/blob/main/.starters/default/content/articles/1.get-started.md?plain=1}
  */
-export const nuxtThemeAlpineReverse: FFFTransformPreset = {
+export const nuxtThemeAlpineReverse: FFFTransformPreset<NuxtThemeAlpine> = {
   author: ({ authors }) => authors
     ? {
       avatarUrl: authors[0].avatar,
