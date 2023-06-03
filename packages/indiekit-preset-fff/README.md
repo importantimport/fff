@@ -1,5 +1,9 @@
 # Indiekit Preset **FFF**
 
+[![npm](https://img.shields.io/npm/v/indiekit-preset-fff?color=yellow)](https://npmjs.com/package/indiekit-preset-fff)
+![minified size](https://img.shields.io/bundlephobia/min/indiekit-preset-fff?color=yellow)
+![downloads](https://img.shields.io/npm/dt/indiekit-preset-fff?color=yellow)
+
 🌟 FFF Flavored Frontmatter publication preset for Indiekit.
 
 ## Installation

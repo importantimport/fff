@@ -1,5 +1,9 @@
 # Create **FFF**
 
+[![npm](https://img.shields.io/npm/v/create-fff?color=yellow)](https://npmjs.com/package/create-fff)
+![minified size](https://img.shields.io/bundlephobia/min/create-fff?color=yellow)
+![downloads](https://img.shields.io/npm/dt/create-fff?color=yellow)
+
 🌟 Create FFF-related configuration files.
 
 ## Usage

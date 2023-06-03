@@ -1,5 +1,9 @@
 # FFF Transform Presets
 
+[![npm](https://img.shields.io/npm/v/fff-transform-presets?color=yellow)](https://npmjs.com/package/fff-transform-presets)
+![minified size](https://img.shields.io/bundlephobia/min/fff-transform-presets?color=yellow)
+![downloads](https://img.shields.io/npm/dt/fff-transform-presets?color=yellow)
+
 🌟 Predefined transform presets for FFF Flavored Frontmatter.
 
 ## Installation

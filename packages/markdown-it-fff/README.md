@@ -1,5 +1,9 @@
 # Markdown It FFF
 
+[![npm](https://img.shields.io/npm/v/markdown-it-fff?color=yellow)](https://npmjs.com/package/markdown-it-fff)
+![minified size](https://img.shields.io/bundlephobia/min/markdown-it-fff?color=yellow)
+![downloads](https://img.shields.io/npm/dt/markdown-it-fff?color=yellow)
+
 🌟 markdown-it plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.
 
 ## Install
