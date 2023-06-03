@@ -1,7 +1,8 @@
 import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
+/** @alpha */
 // eslint-disable-next-line unicorn/prevent-abbreviations
-type HugoThemePaperMod = {
+export type HugoThemePaperMod = {
   /** To show multiple Authors */
   author?: string | string[]
   /** To set site description */
