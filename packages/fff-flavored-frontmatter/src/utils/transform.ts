@@ -3,12 +3,14 @@ import type { FFFFlavoredFrontmatter } from '../types'
 /**
  * FFF Flavor Transform Preset Value
  * @public
+ * @typeParam T - Type of input / output Frontmatter. (optional)
  */
 export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<string, unknown>> = string | ((fm: FFFFlavoredFrontmatter & T) => unknown)
 
 /**
  * Flavor Transform Preset
  * @public
+ * @typeParam T - Type of input / output Frontmatter. (optional)
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#fff-transform-preset}
  */
 export type FFFTransformPreset<T extends Record<string, unknown> = Record<string, unknown>> = {
@@ -18,6 +20,7 @@ export type FFFTransformPreset<T extends Record<string, unknown> = Record<string
 /**
  * Flavor Transform Function
  * @public
+ * @typeParam T - Type of input Frontmatter. (optional)
  * @param fm - Input Frontmatter
  * @param presets - FFFTransformPreset[]
  * @returns - FFF Flavored Frontmatter
