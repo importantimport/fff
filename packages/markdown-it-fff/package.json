@@ -1,7 +1,7 @@
 {
   "name": "markdown-it-fff",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "markdown-it plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
