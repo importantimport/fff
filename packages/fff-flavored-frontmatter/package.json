@@ -1,7 +1,7 @@
 {
   "name": "fff-flavored-frontmatter",
   "type": "module",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Type definition of the FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
@@ -32,7 +32,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
