@@ -9,6 +9,11 @@ outline: deep
 For non-version-related changes, please refer to the [git commit history](https://github.com/importantimport/fff/commits/main).
 :::
 
+## [Version 1.0](/version/1.0.html) (2023-06-04)
+
+- Add: [`alt`](/version/1.0.html#alt) [`categories`](/version/1.0.html#categories)
+- Improve: [`lang`](/version/1.0.html#lang) support arrays
+
 ## [Version 0.5](/version/0.5.html) (2023-01-01)
 
 - Add: [`images`](/version/0.5.html#images)
