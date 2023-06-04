@@ -12,6 +12,6 @@
     "markdown-it-fff": "0.5.3",
     "remark-fff": "0.5.3"
   },
-  "mode": "pre",
+  "mode": "exit",
   "tag": "alpha"
 }
