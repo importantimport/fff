@@ -1,5 +1,12 @@
 # fff-transform-presets
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`a5007a6`](https://github.com/importantimport/fff/commit/a5007a640af3f52ea165764bcdbf7cee02e6fc42)]:
+  - fff-flavored-frontmatter@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
