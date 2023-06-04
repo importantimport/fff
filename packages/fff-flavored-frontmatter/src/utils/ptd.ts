@@ -6,7 +6,7 @@ import type { FFFFlavoredFrontmatter } from '../types.ts'
  * @see {@link https://ptd.spec.indieweb.org/#algorithm}
  * @see {@link https://indieweb.org/posts#Types_of_Posts}
  */
-export type postType = 'event' | 'rsvp' | 'repost' | 'like' | 'bookmark' | 'reply' | 'video' | 'audio' | 'article' | 'photo' | 'note'
+export type PostType = 'event' | 'rsvp' | 'repost' | 'like' | 'bookmark' | 'reply' | 'video' | 'audio' | 'article' | 'photo' | 'note'
 
 /**
  * Post Type Discovery
@@ -35,7 +35,7 @@ export type postType = 'event' | 'rsvp' | 'repost' | 'like' | 'bookmark' | 'repl
  * console.log(postTypeDiscovery(fooBar))
  * ```
  */
-export const postTypeDiscovery = (fm: FFFFlavoredFrontmatter): postType => {
+export const postTypeDiscovery = (fm: FFFFlavoredFrontmatter): PostType => {
   // TODO: Checkin, Reply with RSVP
   /** may be modified in the future */
   if (fm.flags?.includes('event'))
