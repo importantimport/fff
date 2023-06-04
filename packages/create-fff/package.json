@@ -1,7 +1,7 @@
 {
   "name": "create-fff",
   "type": "module",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Create FFF-related configuration files.",
   "author": "藍+85CD",
   "license": "WTFPL",
