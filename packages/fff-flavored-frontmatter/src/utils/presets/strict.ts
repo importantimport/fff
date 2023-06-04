@@ -1,5 +1,5 @@
-import type { FFFAudio, FFFImage, FFFVideo } from '../../types'
-import type { FFFTransformPreset } from '../transform'
+import type { FFFAudio, FFFImage, FFFVideo } from '../../types.ts'
+import type { FFFTransformPreset } from '../transform.ts'
 
 /**
  * Stict Preset Options

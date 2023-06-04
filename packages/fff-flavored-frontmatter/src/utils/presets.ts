@@ -1,1 +1,1 @@
-export * from './presets/strict'
+export * from './presets/strict.ts'

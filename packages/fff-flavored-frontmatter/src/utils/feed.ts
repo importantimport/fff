@@ -1,7 +1,7 @@
-import type { FFFFlavoredFrontmatter } from '../types'
-import { strict } from './presets'
-import { postTypeDiscovery } from './ptd'
-import { transform } from './transform'
+import type { FFFFlavoredFrontmatter } from '../types.ts'
+import { strict } from './presets.ts'
+import { postTypeDiscovery } from './ptd.ts'
+import { transform } from './transform.ts'
 
 /**
  * From FFF to JSON Feed Item (Version 1.1)

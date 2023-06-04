@@ -1,4 +1,4 @@
-import type { FFFFlavoredFrontmatter } from '../types'
+import type { FFFFlavoredFrontmatter } from '../types.ts'
 
 /**
  * FFF Flavor Transform Preset Value
