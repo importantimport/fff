@@ -1,6 +1,21 @@
 /// <reference lib="dom" />
 
 /**
+ * Optional Type Util
+ * @public
+ * @typeParam T - whether to support optional types
+ * - undefined: all available
+ * - true: only optional types are supported
+ * - false: optional types are not supported
+ */
+export type FFFOptionalType<T extends (boolean | undefined), Required, Optional> =
+  T extends undefined
+    ? Required | Optional
+    : T extends true
+      ? Optional
+      : Required
+
+/**
  * Object Image
  * @public
  */
@@ -75,16 +90,20 @@ export type FFFDateTime = {
 /**
  * Media Variables
  * @public
+ * @typeParam T - whether to support optional types
+ * - undefined: all available
+ * - true: only optional types are supported
+ * - false: optional types are not supported
  */
-export type FFFMedia = {
+export type FFFMedia<T extends (boolean | undefined) = undefined> = {
   /** the main image for article or photo post. */
-  image?: string | FFFImage
+  image?: FFFOptionalType<T, string, FFFImage>
   /** the image for multi-photo post. */
-  images?: string[] | FFFImage[]
+  images?: FFFOptionalType<T, string[], FFFImage[]>
   /** the main audio for audio post. */
-  audio?: string | FFFAudio
+  audio?: FFFOptionalType<T, string, FFFAudio>
   /** the main video for video post. */
-  video?: string | FFFVideo
+  video?: FFFOptionalType<T, string, FFFVideo>
   /** image alternate text. */
   alt?: string
 }
@@ -126,9 +145,13 @@ export type FFFExtra = {
 /**
  * Type definition of the {@link https://fff.js.org | FFF Flavored Frontmatter}.
  * @public
+ * @typeParam T - whether to support optional types
+ * - undefined: all available
+ * - true: only optional types are supported
+ * - false: optional types are not supported
  */
-export type FFFFlavoredFrontmatter = FFFBase &
+export type FFFFlavoredFrontmatter<T extends (boolean | undefined) = undefined> = FFFBase &
   FFFDateTime &
-  FFFMedia &
+  FFFMedia<T> &
   FFFMention &
   FFFExtra
