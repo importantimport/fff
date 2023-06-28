@@ -61,15 +61,15 @@ export interface FFFBase {
  */
 export interface FFFDateTime {
   /** the created date of the post. */
-  created?: string | number
+  created?: string
   /** the updated date of the post. */
-  updated?: string | number
+  updated?: string
   /** the published date of the post. */
-  published?: string | number
+  published?: string
   /** datetime the event starts. */
-  start?: string | number
+  start?: string
   /** datetime the event ends. */
-  end?: string | number
+  end?: string
 }
 
 /**
