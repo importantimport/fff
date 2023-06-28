@@ -4,7 +4,7 @@
  * Object Image
  * @public
  */
-export interface FFFImage extends Partial<HTMLImageElement> {
+export type FFFImage = Partial<HTMLImageElement> & {
   sources?: Partial<HTMLSourceElement>[]
   figcaption?: string
 }
@@ -13,7 +13,7 @@ export interface FFFImage extends Partial<HTMLImageElement> {
  * Object Audio
  * @public
  */
-export interface FFFAudio extends Partial<HTMLAudioElement> {
+export type FFFAudio = Partial<HTMLAudioElement> & {
   sources?: Partial<HTMLSourceElement>[]
 }
 
@@ -21,7 +21,7 @@ export interface FFFAudio extends Partial<HTMLAudioElement> {
  * Object Video
  * @public
  */
-export interface FFFVideo extends Partial<HTMLVideoElement> {
+export type FFFVideo = Partial<HTMLVideoElement> & {
   sources?: Partial<HTMLSourceElement>[]
 }
 
@@ -29,7 +29,7 @@ export interface FFFVideo extends Partial<HTMLVideoElement> {
  * Author
  * @public
  */
-export interface FFFAuthor {
+export type FFFAuthor = {
   /** the author's name. */
   name?: string
   /** the URL of a site owned by the author. */
@@ -42,7 +42,7 @@ export interface FFFAuthor {
  * Base Variables
  * @public
  */
-export interface FFFBase {
+export type FFFBase = {
   /** the title of article, non-article posts may omit titles. */
   title?: string
   /** plain text sentence or two describing the post. */
@@ -59,7 +59,7 @@ export interface FFFBase {
  * DateTime Vaeriables
  * @public
  */
-export interface FFFDateTime {
+export type FFFDateTime = {
   /** the created date of the post. */
   created?: string
   /** the updated date of the post. */
@@ -76,7 +76,7 @@ export interface FFFDateTime {
  * Media Variables
  * @public
  */
-export interface FFFMedia {
+export type FFFMedia = {
   /** the main image for article or photo post. */
   image?: string | FFFImage
   /** the image for multi-photo post. */
@@ -93,7 +93,7 @@ export interface FFFMedia {
  * Mention Variables
  * @public
  */
-export interface FFFMention {
+export type FFFMention = {
   /** indicates this post is a bookmark of another URL. */
   bookmark_of?: string
   /** the URL which the post is considered a "like" (favorite, star) of. */
@@ -108,7 +108,7 @@ export interface FFFMention {
  * Extra Variables
  * @public
  */
-export interface FFFExtra {
+export type FFFExtra = {
   /** specifies one or more post authors. */
   authors?: FFFAuthor[]
   /** the primary language for the post. */
