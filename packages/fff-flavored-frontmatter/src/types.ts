@@ -105,7 +105,7 @@ export type FFFMedia<T extends (boolean | undefined) = undefined> = {
   /** the main video for video post. */
   video?: FFFOptionalType<T, string, FFFVideo>
   /** image alternate text. */
-  alt?: string
+  alt?: T extends true ? never : string
 }
 
 /**
