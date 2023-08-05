@@ -5,22 +5,26 @@ import type {
 } from 'fff-flavored-frontmatter'
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export type MarkdownItEnv = {
-  /** `@mdit-vue/plugin-title` */
-  title?: string
+export interface MarkdownItEnv {
+  /** {@link https://lume.land | Lume} frontmatter & data */
+  data?: FFFFlavoredFrontmatter & Record<string, unknown>
   /** `@mdit-vue/plugin-frontmatter` renderExcerpt */
   excerpt?: string
   /** `@mdit-vue/plugin-frontmatter` frontmatter */
   frontmatter?: FFFFlavoredFrontmatter & Record<string, unknown>
+  /** `@mdit-vue/plugin-title` */
+  title?: string
 }
 
 /**
  * Markdown It FFF Plugin Options.
  * @public
  */
-export type FFFPluginOptions = {
+export interface FFFPluginOptions {
   presets: FFFTransformPreset[]
   strict?: StrictPresetOptions
+  /** @defaultValue `mdit-vue` */
+  target: 'lume' | 'mdit-vue'
 }
 
 export { type FFFTransformPreset } from 'fff-flavored-frontmatter'
