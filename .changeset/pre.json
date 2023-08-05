@@ -10,5 +10,7 @@
     "markdown-it-fff": "1.0.1",
     "remark-fff": "1.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "sweet-ants-sing"
+  ]
 }

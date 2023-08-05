@@ -1,5 +1,11 @@
 # markdown-it-fff
 
+## 1.1.0-alpha.0
+
+### Minor Changes
+
+- [`f287d95`](https://github.com/importantimport/fff/commit/f287d957708d6203a5a66fb055d5add0f5631841) Thanks [@kwaa](https://github.com/kwaa)! - Feat: Supoort Lume
+
 ## 1.0.1
 
 ### Patch Changes
