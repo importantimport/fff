@@ -5,18 +5,18 @@ import type { FFFTransformPreset } from '../transform.ts'
  * Stict Preset Options
  * @public
  */
-export type StrictPresetOptions = {
+export interface StrictPresetOptions {
   categories?: boolean
-  lang?: 'string' | 'array'
+  lang?: 'array' | 'string'
   media?: {
-    type?: 'string' | 'object'
     array?: boolean
+    type?: 'object' | 'string'
   }
 }
 
 const strictMediaTransform = (
   options: StrictPresetOptions['media'],
-  media?: string | (FFFImage | FFFAudio | FFFVideo),
+  media?: (FFFAudio | FFFImage | FFFVideo) | string,
 ) =>
   typeof media === 'string'
     ? (options?.type === 'object'
@@ -31,7 +31,7 @@ const strictMediaTransform = (
  * @beta
  */
 export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
-  alt: ({ alt, image, images }) => alt ?? strict.media?.type === 'string' ? ((image || images?.[0]) as FFFImage)?.alt : undefined,
+  alt: ({ alt, image, images }) => alt ?? strict.media?.type === 'string' ? ((image ?? images?.[0]) as FFFImage).alt : undefined,
   audio: ({ audio }) => strictMediaTransform(strict.media, audio),
   image: ({ image, images }) =>
     strictMediaTransform(
@@ -40,7 +40,7 @@ export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
     ),
   images: ({ image, images }) =>
     [...(images ?? []), ...(strict.media?.array ? [image] : [])].map(
-      (image?: string | FFFImage) => strictMediaTransform(strict.media, image),
+      (image?: FFFImage | string) => strictMediaTransform(strict.media, image),
     ),
   lang: ({ lang }) => strict.lang === 'array'
     ? (typeof lang === 'string'
@@ -49,6 +49,6 @@ export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
     : (typeof lang === 'object'
       ? lang[0]
       : lang),
-  tags: ({ tags, categories }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
+  tags: ({ categories, tags }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
   video: ({ video }) => strictMediaTransform(strict.media, video),
 })

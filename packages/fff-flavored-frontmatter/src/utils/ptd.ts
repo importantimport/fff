@@ -6,7 +6,7 @@ import type { FFFFlavoredFrontmatter } from '../types.ts'
  * @see {@link https://ptd.spec.indieweb.org/#algorithm}
  * @see {@link https://indieweb.org/posts#Types_of_Posts}
  */
-export type PostType = 'event' | 'rsvp' | 'repost' | 'like' | 'bookmark' | 'reply' | 'video' | 'audio' | 'article' | 'photo' | 'note'
+export type PostType = 'article' | 'audio' | 'bookmark' | 'event' | 'like' | 'note' | 'photo' | 'reply' | 'repost' | 'rsvp' | 'video'
 
 /**
  * Post Type Discovery
@@ -42,19 +42,16 @@ export const postTypeDiscovery = (fm: FFFFlavoredFrontmatter): PostType => {
     return 'event'
   else if (
     fm.rsvp
-    && ['yes', 'no', 'maybe', 'interested'].includes(fm.rsvp.toLowerCase())
+    && ['interested', 'maybe', 'no', 'yes'].includes(fm.rsvp.toLowerCase())
   )
     return 'rsvp'
-  else if (fm.repost_of && new URL(fm.repost_of))
+  else if (fm.repost_of)
     return 'repost'
-  else if (fm.like_of && new URL(fm.like_of))
+  else if (fm.like_of)
     return 'like'
-  else if (fm.bookmark_of && new URL(fm.bookmark_of))
+  else if (fm.bookmark_of)
     return 'bookmark'
-  else if (
-    fm.in_reply_to
-    && new URL(Array.isArray(fm.in_reply_to) ? fm.in_reply_to[0] : fm.in_reply_to)
-  )
+  else if (fm.in_reply_to)
     return 'reply'
   else if (fm.video)
     return 'video'

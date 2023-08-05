@@ -1,4 +1,5 @@
 import type { FFFFlavoredFrontmatter } from '../types.ts'
+
 import { strict } from './presets.ts'
 import { postTypeDiscovery } from './ptd.ts'
 import { transform } from './transform.ts'
@@ -11,7 +12,7 @@ import { transform } from './transform.ts'
  * @see {@link https://jsonfeed.org/version/1.1}
  */
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): object => {
-  fm = transform(fm, [strict({
+  fm = transform(fm as Record<string, unknown>, [strict({
     categories: false,
     lang: 'string',
     media: {
@@ -54,7 +55,7 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): objec
  * @see {@link https://jf2.spec.indieweb.org/#jf2feed}
  */
 export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): object => {
-  fm = transform(fm, [strict({
+  fm = transform(fm as Record<string, unknown>, [strict({
     categories: false,
     lang: 'string',
     media: {

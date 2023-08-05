@@ -5,7 +5,7 @@ import type { FFFFlavoredFrontmatter } from '../types.ts'
  * @public
  * @typeParam T - Type of input / output Frontmatter. (optional)
  */
-export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<string, unknown>> = string | ((fm: FFFFlavoredFrontmatter & T) => unknown)
+export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<string, unknown>> = ((fm: FFFFlavoredFrontmatter & T) => unknown) | string
 
 /**
  * Flavor Transform Preset
