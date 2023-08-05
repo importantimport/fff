@@ -36,5 +36,6 @@
     "packages/**/src",
     "packages/**/test",
     "packages/fff-flavored-frontmatter/mod.ts"
-  ]
+  ],
+  "references": [{"path": "./tsconfig.node.json"}]
 }
