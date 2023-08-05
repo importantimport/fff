@@ -1,8 +1,10 @@
-import { strict, transform } from 'fff-flavored-frontmatter'
 import type { Transformer } from 'unified'
 
-import * as autofill from './autofill'
+import { strict, transform } from 'fff-flavored-frontmatter'
+
 import type { _Post, RemarkFFFOptions } from './lib/types'
+
+import * as autofill from './autofill'
 
 /**
  * Remark plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.
@@ -21,6 +23,7 @@ export const remarkFFF
     (_tree, file) => {
     // make TS happy
       const post: _Post = file as unknown as _Post
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const path = post.filename ?? post.path
       const fm = transform(
         {

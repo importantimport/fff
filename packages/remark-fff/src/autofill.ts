@@ -1,8 +1,8 @@
+import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
+
 import { execFileSync } from 'node:child_process'
 import { statSync } from 'node:fs'
 import { EOL } from 'node:os'
-
-import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /**
  * Predefined path preset

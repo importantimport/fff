@@ -4,19 +4,19 @@
   "version": "0.4.0",
   "private": true,
   "scripts": {
-    "preinstall": "npx -y only-allow pnpm",
-    "dev": "pnpm -rF fff-docs dev",
     "build": "turbo run build --filter=./packages/*",
-    "docs:build": "run-s build docs:build:api-extractor docs:build:api-documenter docs:build:vitepress",
-    "docs:build:api-extractor": "turbo run api-extractor",
-    "docs:build:api-documenter": "api-documenter markdown -i dist/api-extractor -o docs/references",
-    "docs:build:vitepress": "turbo run build --filter=fff-docs",
-    "test": "turbo run test",
-    "test:watch": "turbo run test:watch",
     "coverage": "turbo run coverage",
+    "dev": "pnpm -rF fff-docs dev",
+    "docs:build": "run-s build docs:build:api-extractor docs:build:api-documenter docs:build:vitepress",
+    "docs:build:api-documenter": "api-documenter markdown -i dist/api-extractor -o docs/references",
+    "docs:build:api-extractor": "turbo run api-extractor",
+    "docs:build:vitepress": "turbo run build --filter=fff-docs",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
-    "release": "pnpm build && pnpm -rF \"./packages/**\" publish --no-git-checks --access public"
+    "preinstall": "npx -y only-allow pnpm",
+    "release": "pnpm build && pnpm -rF \"./packages/**\" publish --no-git-checks --access public",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",

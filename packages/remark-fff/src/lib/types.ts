@@ -10,15 +10,15 @@ import { path } from '../autofill'
  * Remark FFF Plugin Options.
  * @public
  */
-export type RemarkFFFOptions = {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  target: 'mdsvex' | 'astro' | 'nuxt' | (string & {})
-  presets: FFFTransformPreset[]
+export interface RemarkFFFOptions {
   autofill?: {
+    path?: ((path: string) => string) | keyof typeof path
     provider: 'fs' | 'git'
-    path?: keyof typeof path | ((path: string) => string)
   }
+  presets: FFFTransformPreset[]
   strict?: StrictPresetOptions
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  target: 'astro' | 'mdsvex' | 'nuxt' | (string & {})
 }
 
 /**
@@ -27,20 +27,20 @@ export type RemarkFFFOptions = {
  */
 export type _Post =
   | /** MDsveX */ {
-      filename: string
-      path: never
       data: {
-        fm: FFFFlavoredFrontmatter & Record<string, unknown>
-        astro: never
-      }
-    }
-  | /** Astro */ {
-      filename: never
-      path: string
-      data: {
-        fm: never
         astro: {
           frontmatter: FFFFlavoredFrontmatter & Record<string, unknown>
         }
+        fm: never
       }
+      filename: never
+      path: string
+    }
+  | /** Astro */ {
+      data: {
+        astro: never
+        fm: FFFFlavoredFrontmatter & Record<string, unknown>
+      }
+      filename: string
+      path: never
     }
