@@ -1,6 +1,7 @@
 /* eslint-disable unicorn/prevent-abbreviations */
-import { strict, transform } from 'fff-flavored-frontmatter'
 import type MarkdownIt from 'markdown-it'
+
+import { strict, transform } from 'fff-flavored-frontmatter'
 
 import type { FFFPluginOptions, MarkdownItEnv } from './lib/types'
 
