@@ -10,10 +10,10 @@
  */
 export type FFFOptionalType<T extends (boolean | undefined), Required, Optional> =
   T extends undefined
-    ? Optional | Required
-    : T extends true
-      ? Optional
-      : Required
+  ? Optional | Required
+  : T extends true
+  ? Optional
+  : Required
 
 /**
  * Object Image
