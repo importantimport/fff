@@ -1,5 +1,5 @@
 import TOML, { type JsonMap } from '@iarna/toml'
-import { type FFFFlavoredFrontmatter, strict, type StrictPresetOptions, transform } from 'fff-flavored-frontmatter'
+import { type FFFFlavoredFrontmatter, type StrictPresetOptions, strict, transform } from 'fff-flavored-frontmatter'
 import YAML from 'yaml'
 
 import { version } from '../package.json'
@@ -9,18 +9,18 @@ import { postTypes } from './post-types'
  * Indiekit Preset FFF Options.
  * @public
  */
-export type IndiekitPresetFFFOptions = {
+export interface IndiekitPresetFFFOptions {
   /**
    * Front matter format to use.
    * @defaultValue `yaml`
    */
   format: 'json' | 'toml' | 'yaml'
+  strict?: StrictPresetOptions
   /**
    * Post types.
    * @defaultValue `urara`
    */
   types: 'urara'
-  strict?: StrictPresetOptions
 }
 
 /**
@@ -38,37 +38,6 @@ export default class IndiekitPresetFFF {
     this.meta = import.meta
     this.name = `FFF ${version} preset`
     this.options = { format: 'yaml', types: 'urara', ...options }
-  }
-
-  get info() {
-    return {
-      name: `FFF Flavored Frontmatter ${version}`,
-    }
-  }
-
-  get prompts() {
-    return [
-      {
-        choices: [
-          {
-            title: 'JSON',
-            value: 'json',
-          },
-          {
-            title: 'TOML',
-            value: 'toml',
-          },
-          {
-            title: 'YAML',
-            value: 'yaml',
-          },
-        ],
-        initial: 2,
-        message: 'Which front matter format are you using?',
-        name: 'format',
-        type: 'select',
-      },
-    ]
   }
 
   /**
@@ -90,12 +59,14 @@ export default class IndiekitPresetFFF {
     }
   }
 
-  /**
-   * Post types
-   * @returns defaults to Urara compatible paths
-   */
-  get postTypes() {
-    return postTypes[this.options.types]
+  get info() {
+    return {
+      name: `FFF Flavored Frontmatter ${version}`,
+    }
+  }
+
+  public init(Indiekit: { addPreset: (t: unknown) => void }) {
+    Indiekit.addPreset(this)
   }
 
   /**
@@ -134,16 +105,45 @@ export default class IndiekitPresetFFF {
       fm = transform(fm, [strict(this.options.strict)])
     return (
       `${this.frontMatter(fm)}${
-        (properties.content as { text?: string }).text
-        ?? (properties.content as { html?: string }).html
-        ?? properties.content
-        ?? ''
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        typeof properties.content === 'object'
+          ? (properties.content as { text?: string }).text ?? (properties.content as { html?: string }).html
+          : properties.content ?? ''
       }\n`
     )
   }
 
-  public init(Indiekit: { addPreset: (t: unknown) => void }) {
-    Indiekit.addPreset(this)
+  /**
+   * Post types
+   * @returns defaults to Urara compatible paths
+   */
+  get postTypes() {
+    return postTypes[this.options.types]
+  }
+
+  get prompts() {
+    return [
+      {
+        choices: [
+          {
+            title: 'JSON',
+            value: 'json',
+          },
+          {
+            title: 'TOML',
+            value: 'toml',
+          },
+          {
+            title: 'YAML',
+            value: 'yaml',
+          },
+        ],
+        initial: 2,
+        message: 'Which front matter format are you using?',
+        name: 'format',
+        type: 'select',
+      },
+    ]
   }
 }
 
