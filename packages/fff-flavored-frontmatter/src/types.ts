@@ -58,7 +58,10 @@ export interface FFFAuthor {
  * @public
  */
 export interface FFFBase {
-  /** categories array, any plain text values you want. */
+  /**
+   * categories array, any plain text values you want.
+   * @remarks optional
+   */
   categories?: string[]
   /** flags array, any plain text values you want. */
   flags?: string[]
@@ -132,6 +135,11 @@ export interface FFFExtra {
   authors?: FFFAuthor[]
   /** the URL of the venue/location h-card which the h-entry is considered a "checkin" of. */
   checkin?: string
+  /**
+   * when true, the post is considered a draft.
+   * @remarks optional
+   */
+  draft?: boolean
   /** the primary language for the post. */
   lang?: string | string[]
   /** location the post was posted from. */
@@ -140,6 +148,12 @@ export interface FFFExtra {
   rsvp?: 'interested' | 'maybe' | 'no' | 'yes'
   /** URL(s) of syndicated copies of this post. */
   syndication?: string | string[]
+  /**
+   * post visibility, consistent with micropub extensions.
+   * @remarks optional
+   */
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  visibility?: 'private' | 'public' | 'unlisted' | (string & {})
 }
 
 /**
