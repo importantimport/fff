@@ -1,13 +1,13 @@
 /* eslint-disable unicorn/prevent-abbreviations */
+import { readFileSync } from 'node:fs'
+
 import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
 import { hexo, mditVue } from 'fff-transform-presets'
 import MarkdownIt from 'markdown-it'
-import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
-import type { MarkdownItEnv } from '../src/lib/types'
-
 import { fffPlugin } from '../src/index'
+import type { MarkdownItEnv } from '../src/lib/types'
 
 describe('markdown-it-fff', () => {
   const md = MarkdownIt()
@@ -19,7 +19,6 @@ describe('markdown-it-fff', () => {
     })
     .use(fffPlugin, {
       presets: [hexo, mditVue],
-      target: 'mdit-vue',
     })
   it('basic', () => {
     const src = readFileSync('test/fixture/basic.md').toString()
