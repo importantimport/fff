@@ -1,5 +1,13 @@
 # fff-flavored-frontmatter
 
+## 1.1.0-alpha.0
+
+### Minor Changes
+
+- [`b01e153`](https://github.com/importantimport/fff/commit/b01e1538195c501ade2d96c32b860e19e9a8df54) Thanks [@kwaa](https://github.com/kwaa)! - Feat: add `draft` `visibility`
+  Refactor: DateTime no longer supports number
+  Refactor: Provide generics for types
+
 ## 1.0.1
 
 ### Patch Changes
