@@ -1,4 +1,5 @@
 /// <reference lib="dom" />
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 
 /**
  * Optional Type Util
@@ -44,7 +45,7 @@ export type FFFVideo = Partial<HTMLVideoElement> & {
  * Author
  * @public
  */
-export interface FFFAuthor {
+export type FFFAuthor = {
   /** the URL for an image for the author. */
   avatar?: string
   /** the author's name. */
@@ -57,7 +58,7 @@ export interface FFFAuthor {
  * Base Variables
  * @public
  */
-export interface FFFBase {
+export type FFFBase = {
   /**
    * categories array, any plain text values you want.
    * @remarks optional
@@ -77,7 +78,7 @@ export interface FFFBase {
  * DateTime Vaeriables
  * @public
  */
-export interface FFFDateTime {
+export type FFFDateTime = {
   /** the created date of the post. */
   created?: string
   /** datetime the event ends. */
@@ -98,7 +99,7 @@ export interface FFFDateTime {
  * - true: only optional types are supported
  * - false: optional types are not supported
  */
-export interface FFFMedia<T extends (boolean | undefined) = undefined> {
+export type FFFMedia<T extends (boolean | undefined) = undefined> = {
   /** image alternate text. */
   alt?: T extends true ? never : string
   /** the main audio for audio post. */
@@ -115,7 +116,7 @@ export interface FFFMedia<T extends (boolean | undefined) = undefined> {
  * Mention Variables
  * @public
  */
-export interface FFFMention {
+export type FFFMention = {
   /** indicates this post is a bookmark of another URL. */
   bookmark_of?: string
   /** URL which the post is considered reply to. */
@@ -130,7 +131,7 @@ export interface FFFMention {
  * Extra Variables
  * @public
  */
-export interface FFFExtra {
+export type FFFExtra = {
   /** specifies one or more post authors. */
   authors?: FFFAuthor[]
   /** the URL of the venue/location h-card which the h-entry is considered a "checkin" of. */
@@ -169,3 +170,4 @@ export type FFFFlavoredFrontmatter<T extends (boolean | undefined) = undefined> 
   FFFMedia<T> &
   FFFMention &
   FFFExtra
+/* eslint-enable @typescript-eslint/consistent-type-definitions */
