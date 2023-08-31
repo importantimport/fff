@@ -1,5 +1,16 @@
 # remark-fff
 
+## 1.1.0
+
+### Minor Changes
+
+- [`e8a727f`](https://github.com/importantimport/fff/commit/e8a727fcd0bf8a4a21b2b0b8b18234beffccbfbe) Thanks [@kwaa](https://github.com/kwaa)! - Version 1.1.0-alpha.0
+
+### Patch Changes
+
+- Updated dependencies [[`b01e153`](https://github.com/importantimport/fff/commit/b01e1538195c501ade2d96c32b860e19e9a8df54)]:
+  - fff-flavored-frontmatter@1.1.0
+
 ## 1.1.0-alpha.0
 
 ### Minor Changes
