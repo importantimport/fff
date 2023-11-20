@@ -18,8 +18,8 @@ If your project is already FFF compatible,
 you can use the badge from [shields.io](https://shields.io) to illustrate this.
 
 <script setup>
-  import { version as packageVersion } from '../package.json'
-  const version = packageVersion.split('.').slice(0,2).join('.')
+  import { version as pkgVersion } from '../../packages/fff-flavored-frontmatter/package.json'
+  const version = pkgVersion.split('.').slice(0, 2).join('.')
 </script>
 
 <ul>

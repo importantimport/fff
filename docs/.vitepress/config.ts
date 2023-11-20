@@ -2,7 +2,7 @@ import { withPwa } from '@vite-pwa/vitepress'
 import footnote from 'markdown-it-footnote'
 import { defineConfig } from 'vitepress'
 
-import { version } from '../package.json'
+import { version } from '../../packages/fff-flavored-frontmatter/package.json'
 
 const nav = () => [
   {
