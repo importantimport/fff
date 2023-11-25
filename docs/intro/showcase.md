@@ -17,6 +17,6 @@ It provides FFF's types and flavor transform features and is expected to be avai
 
 ## Themes / Templates
 
-### [Urara](https://github.com/importantimport/urara) <Badge type="warning" text="official" /> <Badge type="tip" text="stable" />
+### [Urara](https://github.com/importantimport/urara) <Badge type="warning" text="official" /> <Badge type="info" text="stable" />
 
 As the origin of FFF, Urara supports a subset of FFF and supports flavor transform.
