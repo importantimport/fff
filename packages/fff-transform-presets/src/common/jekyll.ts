@@ -7,19 +7,20 @@ import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
  */
 export const jekyll: FFFTransformPreset = {
   categories: ({
-    category,
     categories,
+    category,
   }: {
-    category?: string
     categories?: string | string[]
+    category?: string
   }) =>
     [...new Set([
       category,
       ...(categories
         ? (typeof categories === 'string'
-          ? categories.split(' ')
-          : categories)
-        : [])])]
+            ? categories.split(' ')
+            : categories)
+        : []),
+    ])]
       .filter(tag => tag !== undefined),
   created: 'date',
   tags: ({ tags }: {

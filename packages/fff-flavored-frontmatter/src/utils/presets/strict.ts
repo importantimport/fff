@@ -20,11 +20,11 @@ const strictMediaTransform = (
 ) =>
   typeof media === 'string'
     ? (options?.type === 'object'
-      ? { src: media }
-      : media)
+        ? { src: media }
+        : media)
     : (options?.type === 'string'
-      ? media?.src
-      : media)
+        ? media?.src
+        : media)
 
 /**
  * Strict - FFF Transform Preset
@@ -44,11 +44,11 @@ export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
     ),
   lang: ({ lang }) => strict.lang === 'array'
     ? (typeof lang === 'string'
-      ? [lang]
-      : lang)
+        ? [lang]
+        : lang)
     : (typeof lang === 'object'
-      ? lang[0]
-      : lang),
+        ? lang[0]
+        : lang),
   tags: ({ categories, tags }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
   video: ({ video }) => strictMediaTransform(strict.media, video),
 })

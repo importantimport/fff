@@ -1,7 +1,9 @@
+// eslint-disable-next-line import/named
 import { inBrowser } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
+
 import './custom.css'
 
-if (inBrowser) import('./pwa')
+if (inBrowser)
+  import('./pwa')
 
-export default DefaultTheme
+export { default } from 'vitepress/theme'

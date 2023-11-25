@@ -7,11 +7,11 @@ import type { FFFFlavoredFrontmatter, FFFTransformPreset } from 'fff-flavored-fr
  */
 export const nuxt: FFFTransformPreset = {
   flags: ({
-    flags,
     draft,
+    flags,
   }: {
-    flags?: FFFFlavoredFrontmatter['flags']
     draft?: boolean
+    flags?: FFFFlavoredFrontmatter['flags']
   }) => [...new Set([...(flags ?? []), ...(draft ? ['draft'] : [])])],
   summary: 'description',
 }

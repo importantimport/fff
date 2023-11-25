@@ -8,20 +8,20 @@ import type { FFFFlavoredFrontmatter, FFFTransformPreset } from 'fff-flavored-fr
 export const hugo: FFFTransformPreset = {
   // TODO: images, videos
   flags: ({
-    flags,
     draft,
+    flags,
   }: {
-    flags?: FFFFlavoredFrontmatter['flags']
     draft?: boolean
+    flags?: FFFFlavoredFrontmatter['flags']
   }) =>
     [...new Set([
       ...(flags ?? []),
       ...(draft ? ['draft'] : []),
     ])],
   published: 'publishDate',
-  tags: ({ tags, keywords }: {
-    tags?: FFFFlavoredFrontmatter['tags'],
+  tags: ({ keywords, tags }: {
     keywords?: string[]
+    tags?: FFFFlavoredFrontmatter['tags'],
   }) =>
     [...new Set([
       ...(tags ?? []),

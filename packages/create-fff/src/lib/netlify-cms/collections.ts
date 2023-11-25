@@ -9,9 +9,9 @@ const common: Collection<{ type: string }> = options => ({
   // TODO: public_folder
   filter: options.filter
     ? {
-      field: 'type',
-      value: options.type,
-    }
+        field: 'type',
+        value: options.type,
+      }
     : undefined,
 
   folder: options.folder,

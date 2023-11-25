@@ -1,8 +1,6 @@
-#!/usr/bin/env node
+import { cancel, confirm, isCancel, note, outro, text } from '@clack/prompts'
 import { access, constants, mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
-
-import { cancel, confirm, isCancel, note, outro, text } from '@clack/prompts'
 import color from 'picocolors'
 import { stringify } from 'yaml'
 

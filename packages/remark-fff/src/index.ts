@@ -31,24 +31,24 @@ export const remarkFFF
           ...(options.target === 'mdsvex'
             ? post.data.fm
             : (options.target === 'astro'
-              ? post.data.astro.frontmatter
-              : (options.target === 'nuxt'
-                ? post.data
-                : post.data))),
+                ? post.data.astro.frontmatter
+                : (options.target === 'nuxt'
+                    ? post.data
+                    : post.data))),
           /* eslint-enable unicorn/no-nested-ternary */
         },
         [
           ...options.presets,
           ...(options.autofill?.provider
             ? [
-              autofill[options.autofill.provider](
-                options.autofill.path
-                  ? (typeof options.autofill.path === 'function'
-                    ? options.autofill.path(path)
-                    : autofill.path[options.autofill.path](path))
-                  : post.filename,
-              ),
-            ]
+                autofill[options.autofill.provider](
+                  options.autofill.path
+                    ? (typeof options.autofill.path === 'function'
+                        ? options.autofill.path(path)
+                        : autofill.path[options.autofill.path](path))
+                    : post.filename,
+                ),
+              ]
             : []),
           ...(options.strict ? [strict(options.strict)] : []),
         ],

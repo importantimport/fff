@@ -1,13 +1,13 @@
 /* eslint-disable unicorn/prevent-abbreviations */
-import { readFileSync } from 'node:fs'
-
 import { frontmatterPlugin } from '@mdit-vue/plugin-frontmatter'
 import { hexo, mditVue } from 'fff-transform-presets'
 import MarkdownIt from 'markdown-it'
+import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
-import { fffPlugin } from '../src/index'
 import type { MarkdownItEnv } from '../src/lib/types'
+
+import { fffPlugin } from '../src/index'
 
 describe('markdown-it-fff', () => {
   const md = MarkdownIt()

@@ -22,4 +22,4 @@ export interface FFFPluginOptions {
   strict?: StrictPresetOptions
 }
 
-export { type FFFTransformPreset } from 'fff-flavored-frontmatter'
+export type { FFFTransformPreset } from 'fff-flavored-frontmatter'

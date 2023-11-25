@@ -62,27 +62,27 @@ export const image = ({
   name: 'image',
   ...(object_media
     ? {
-      fields: [
-        {
-          allow_multiple: false,
-          label: 'Source',
-          name: 'src',
-          widget: 'image',
-        },
-        {
-          label: 'Alternate Text',
-          name: 'alt',
-          widget: 'string',
-        },
-        {
-          label: 'Figure Caption',
-          name: 'figcaption',
-          widget: 'string',
-        },
-      ],
-      max: 1,
-      widget: 'list',
-    }
+        fields: [
+          {
+            allow_multiple: false,
+            label: 'Source',
+            name: 'src',
+            widget: 'image',
+          },
+          {
+            label: 'Alternate Text',
+            name: 'alt',
+            widget: 'string',
+          },
+          {
+            label: 'Figure Caption',
+            name: 'figcaption',
+            widget: 'string',
+          },
+        ],
+        max: 1,
+        widget: 'list',
+      }
     : { allow_multiple: false, widget: 'image' }),
 })
 

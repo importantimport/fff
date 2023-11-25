@@ -1,4 +1,5 @@
 import type { FFFFlavoredFrontmatter, FFFImage } from 'fff-flavored-frontmatter'
+
 import { hexo, hugo } from 'fff-transform-presets'
 import { remark } from 'remark'
 // eslint-disable-next-line import/default
