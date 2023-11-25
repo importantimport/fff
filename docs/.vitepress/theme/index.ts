@@ -1,9 +1,11 @@
 // eslint-disable-next-line import/named
 import { inBrowser } from 'vitepress'
+import DefaultTheme from 'vitepress/theme-without-fonts'
 
 import './custom.css'
 
 if (inBrowser)
   import('./pwa')
 
-export { default } from 'vitepress/theme'
+// eslint-disable-next-line unicorn/prefer-export-from
+export default DefaultTheme
