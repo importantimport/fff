@@ -7,18 +7,16 @@ outline: deep
 
 The "FFF-compatible" project showcase. If your project is FFF compatible, please let me know!
 
-## Blog Template/Starter/Framework
+## SSG / Static Site Generator
 
-### [Urara](https://github.com/importantimport/urara) <Badge type="warning" text="importantimport" />
+### [Lume](https://github.com/lumeland/lume) <Badge type="warning" text="official" /> <Badge type="danger" text="experimental" />
 
-Sweet, Powerful, IndieWeb-Compatible SvelteKit Blog Starter.
+Lume has an FFF plugin in [`lumeland/experimental_plugins`](https://github.com/lumeland/experimental-plugins/blob/main/fff/mod.ts).
 
-### [Lume Theme Shiraha](https://github.com/importantimport/lume_theme_shiraha) <Badge type="warning" text="importantimport" />
+It provides FFF's types and flavor transform features and is expected to be available in the main repository as of Lume 2.1.
 
-Material 3-inspired Lume Blog Theme.
+## Themes / Templates
 
-### [Gumori](https://github.com/importantimport/gumori) <Badge type="warning" text="importantimport" />
+### [Urara](https://github.com/importantimport/urara) <Badge type="warning" text="official" /> <Badge type="tip" text="stable" />
 
-Minimal Stylesheets Astro Blog Starter,
-
-Semantic HTML + Microformats/OpenGraph/Schema.org + the smallest possible default stylesheet for designing your own blog or pairing it with a classless CSS framework.
+As the origin of FFF, Urara supports a subset of FFF and supports flavor transform.
