@@ -13,17 +13,17 @@
   },
   "bugs": "https://github.com/importantimport/fff/issues",
   "scripts": {
-    "dev": "vitepress dev",
     "build": "vitepress build",
+    "dev": "vitepress dev",
     "serve": "vitepress serve"
   },
   "devDependencies": {
-    "@vite-pwa/vitepress": "^0.2.0",
+    "@vite-pwa/vitepress": "^0.3.0",
     "markdown-it-footnote": "^3.0.3",
-    "vite": "^4.3.9",
-    "vite-plugin-pwa": "^0.16.4",
-    "vitepress": "1.0.0-beta.3",
-    "vue": "^3.3.4",
+    "vite": "^5.0.2",
+    "vite-plugin-pwa": "^0.17.0",
+    "vitepress": "1.0.0-rc.31",
+    "vue": "^3.3.9",
     "workbox-window": "^7.0.0"
   }
 }
