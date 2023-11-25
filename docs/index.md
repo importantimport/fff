@@ -7,7 +7,9 @@ hero:
   text: |
     Flavored
     Frontmatter
-  image: /glowing_star.svg
+  image:
+    src: /glowing_star.svg
+    alt: Glowing star
   tagline: |
     The Flexible & Functional Frontmatter Solution.
   actions:
