@@ -8,8 +8,9 @@ hero:
     Flavored
     Frontmatter
   image:
-    src: /glowing_star.svg
-    alt: Glowing star
+    # https://googlefonts.github.io/noto-emoji-animation/?icon.query=:glowing-star:
+    src: https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.webp
+    alt: "Animated Emoji from googlefonts/noto-emoji-animation. License: CC BY 4.0"
   tagline: |
     The Flexible & Functional Frontmatter Solution.
   actions:
