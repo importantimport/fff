@@ -22,7 +22,7 @@ const nav = [
 
 const sidebar = [
   {
-    collapsed: true,
+    // collapsed: true,
     items: [
       { link: '/intro/what-is-fff', text: 'What is FFF?' },
       { link: '/intro/implementing', text: 'Implementing' },
@@ -35,7 +35,7 @@ const sidebar = [
     text: 'Introduction',
   },
   {
-    collapsed: true,
+    // collapsed: true,
     items: [
       {
         link: '/concepts/object-media',
@@ -53,10 +53,10 @@ const sidebar = [
     text: 'Concepts',
   },
   {
-    collapsed: false,
+    // collapsed: false,
     items: [
-      { link: '/version/changelog', text: 'Changelog' },
       { link: '/version/1.1', text: '1.1' },
+      { link: '/version/changelog', text: 'Changelog' },
     ],
     text: 'Versions',
   },
