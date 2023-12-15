@@ -55,6 +55,20 @@ const sidebar = () => [
   {
     collapsible: true,
     items: [
+      { link: '/version/changelog', text: 'Changelog' },
+      { link: '/version/1.1', text: '1.1' },
+      { link: '/version/1.0', text: '1.0' },
+      { link: '/version/0.5', text: '0.5' },
+      { link: '/version/0.4', text: '0.4' },
+      { link: '/version/0.3', text: '0.3' },
+      { link: '/version/0.2', text: '0.2' },
+      { link: '/version/0.1', text: '0.1' },
+    ],
+    text: 'Version',
+  },
+  {
+    collapsible: true,
+    items: [
       {
         link: '/packages/fff-flavored-frontmatter',
         text: 'fff-flavored-frontmatter',
@@ -88,20 +102,6 @@ const sidebar = () => [
     ],
     link: '/references/index',
     text: 'References',
-  },
-  {
-    collapsible: true,
-    items: [
-      { link: '/version/changelog', text: 'Changelog' },
-      { link: '/version/1.1', text: '1.1' },
-      { link: '/version/1.0', text: '1.0' },
-      { link: '/version/0.5', text: '0.5' },
-      { link: '/version/0.4', text: '0.4' },
-      { link: '/version/0.3', text: '0.3' },
-      { link: '/version/0.2', text: '0.2' },
-      { link: '/version/0.1', text: '0.1' },
-    ],
-    text: 'Version',
   },
 ]
 
