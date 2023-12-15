@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 
 import { version } from '../../packages/fff-flavored-frontmatter/package.json'
 
-const nav = () => [
+const nav = [
   {
     items: [
       {
@@ -20,7 +20,7 @@ const nav = () => [
   },
 ]
 
-const sidebar = () => [
+const sidebar = [
   {
     collapsed: true,
     items: [
@@ -220,9 +220,9 @@ export default withPwa(
         text: 'Suggest changes to this page',
       },
       logo: '/glowing_star.svg',
-      nav: nav(),
+      nav,
       search: { provider: 'local' },
-      sidebar: sidebar(),
+      sidebar,
       siteTitle: 'FFF',
       socialLinks: [
         { icon: 'github', link: 'https://github.com/importantimport/fff' },
