@@ -40,6 +40,8 @@
     "build:watch": "tsup --watch",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "api-extractor": "api-extractor run --local --verbose"
   }
 }
