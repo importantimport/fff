@@ -51,11 +51,11 @@
     "fff-flavored-frontmatter": "workspace:*"
   },
   "devDependencies": {
-    "@mdit-vue/plugin-frontmatter": "^1.0.0",
+    "@mdit-vue/plugin-frontmatter": "^2.0.0",
     "@types/linkify-it": "^3.0.5",
     "@types/markdown-it": "^13.0.7",
     "@types/mdurl": "^1.0.5",
     "fff-transform-presets": "workspace:*",
-    "markdown-it": "^13.0.2"
+    "markdown-it": "^14.0.0"
   }
 }
