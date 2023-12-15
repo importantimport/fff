@@ -22,7 +22,7 @@ const nav = () => [
 
 const sidebar = () => [
   {
-    collapsible: true,
+    collapsed: true,
     items: [
       { link: '/intro/what-is-fff', text: 'What is FFF?' },
       { link: '/intro/implementing', text: 'Implementing' },
@@ -35,7 +35,7 @@ const sidebar = () => [
     text: 'Introduction',
   },
   {
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         link: '/concepts/object-media',
@@ -53,10 +53,16 @@ const sidebar = () => [
     text: 'Concepts',
   },
   {
-    collapsible: true,
+    collapsed: false,
     items: [
       { link: '/version/changelog', text: 'Changelog' },
       { link: '/version/1.1', text: '1.1' },
+    ],
+    text: 'Versions',
+  },
+  {
+    collapsed: true,
+    items: [
       { link: '/version/1.0', text: '1.0' },
       { link: '/version/0.5', text: '0.5' },
       { link: '/version/0.4', text: '0.4' },
@@ -64,10 +70,10 @@ const sidebar = () => [
       { link: '/version/0.2', text: '0.2' },
       { link: '/version/0.1', text: '0.1' },
     ],
-    text: 'Version',
+    text: 'Legacy Versions',
   },
   {
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         link: '/packages/fff-flavored-frontmatter',
@@ -85,7 +91,7 @@ const sidebar = () => [
     text: 'Packages',
   },
   {
-    collapsible: true,
+    collapsed: true,
     items: [
       {
         link: '/references/fff-flavored-frontmatter',
