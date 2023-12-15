@@ -9,7 +9,7 @@ The "FFF-compatible" project showcase.
 
 If your project is FFF compatible, please let me know!
 
-## SSG / Static Site Generator
+## SSG (Static Site Generator)
 
 ### [Lume](https://github.com/lumeland/lume) <Badge type="warning" text="official" /> <Badge type="danger" text="experimental" />
 
