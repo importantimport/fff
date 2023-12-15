@@ -11,7 +11,7 @@ import { transform } from './transform.ts'
  * @returns JSON Feed Item Object (without content / id / url)
  * @see {@link https://jsonfeed.org/version/1.1}
  */
-export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: object): object => {
+export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: Record<string, unknown>): Record<string, unknown> => {
   fm = transform(fm as Record<string, unknown>, [strict({
     categories: false,
     lang: 'string',
