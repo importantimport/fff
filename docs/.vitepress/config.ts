@@ -55,6 +55,7 @@ const sidebar = [
   {
     // collapsed: false,
     items: [
+      { link: '/version/1.2', text: '1.2 (draft)' },
       { link: '/version/1.1', text: '1.1' },
       { link: '/version/changelog', text: 'Changelog' },
     ],
