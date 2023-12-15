@@ -5,13 +5,15 @@ outline: deep
 
 # Showcase
 
-The "FFF-compatible" project showcase. If your project is FFF compatible, please let me know!
+The "FFF-compatible" project showcase.
+
+If your project is FFF compatible, please let me know!
 
 ## SSG / Static Site Generator
 
 ### [Lume](https://github.com/lumeland/lume) <Badge type="warning" text="official" /> <Badge type="danger" text="experimental" />
 
-Lume has an FFF plugin in [`lumeland/experimental_plugins`](https://github.com/lumeland/experimental-plugins/blob/main/fff/mod.ts).
+Lume has an FFF plugin in [`lumeland/lume#529`](https://github.com/lumeland/lume/pull/529).
 
 It provides FFF's types and flavor transform features and is expected to be available in the main repository as of Lume 2.1.
 
