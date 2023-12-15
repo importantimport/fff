@@ -31,7 +31,7 @@ const strictMediaTransform = (
  * @beta
  */
 export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
-  alt: ({ alt, image, images }) => alt ?? strict.media?.type === 'string' ? ((image ?? images?.[0]) as FFFImage).alt : undefined,
+  alt: ({ alt, image, images }) => alt ?? (strict.media?.type === 'string' && (image || images)) ? ((image ?? images?.[0]) as FFFImage).alt : undefined,
   audio: ({ audio }) => strictMediaTransform(strict.media, audio),
   image: ({ image, images }) =>
     strictMediaTransform(
