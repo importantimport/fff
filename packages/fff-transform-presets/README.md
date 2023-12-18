@@ -16,7 +16,7 @@ pnpm add fff-transform-presets # pnpm
 
 ## Usage
 
-You can use it with the transform function or the remark / markdown-it plugin.
+You can use it with the transform function or the [remark-fff](https://npmjs.com/package/remark-fff) / [markdown-it-fff](https://npmjs.com/package/markdown-it-fff) plugin.
 
 ```ts
 import { transform } from 'fff-flavored-frontmatter'
