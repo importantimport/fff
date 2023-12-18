@@ -1,4 +1,4 @@
-import type { Transformer } from 'unified'
+import type { Plugin, Transformer } from 'unified'
 
 import { strict, transform } from 'fff-flavored-frontmatter'
 
@@ -12,7 +12,7 @@ import * as autofill from './autofill'
  * @returns FFF Flavored Frontmatter
  * @public
  */
-export const remarkFFF
+export const remarkFFF: Plugin<[RemarkFFFOptions]>
   = (
     // eslint-disable-next-line unicorn/no-object-as-default-parameter
     options: RemarkFFFOptions = {
