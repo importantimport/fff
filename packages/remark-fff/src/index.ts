@@ -23,19 +23,17 @@ export const remarkFFF: Plugin<[RemarkFFFOptions]>
     (_tree, file) => {
     // make TS happy
       const post: _Post = file as unknown as _Post
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const path = post.filename ?? post.path
       const fm = transform(
         {
-          /* eslint-disable unicorn/no-nested-ternary */
           ...(options.target === 'mdsvex'
             ? post.data.fm
             : (options.target === 'astro'
                 ? post.data.astro.frontmatter
+                // eslint-disable-next-line unicorn/no-nested-ternary
                 : (options.target === 'nuxt'
                     ? post.data
                     : post.data))),
-          /* eslint-enable unicorn/no-nested-ternary */
         },
         [
           ...options.presets,
