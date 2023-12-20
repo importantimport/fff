@@ -1,2 +1,3 @@
-export * from './types.ts'
+export type * from './schema.ts'
+export type * from './types.ts'
 export * from './utils.ts'
