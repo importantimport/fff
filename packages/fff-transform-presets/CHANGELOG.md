@@ -1,5 +1,16 @@
 # fff-transform-presets
 
+## 1.2.0-alpha.0
+
+### Minor Changes
+
+- [`aac39a2`](https://github.com/importantimport/fff/commit/aac39a240087e9eaa94d8a5649654d206ce2bb58) Thanks [@kwaa](https://github.com/kwaa)! - Version 1.2.0-alpha.0
+
+### Patch Changes
+
+- Updated dependencies [[`aac39a2`](https://github.com/importantimport/fff/commit/aac39a240087e9eaa94d8a5649654d206ce2bb58)]:
+  - fff-flavored-frontmatter@1.2.0-alpha.0
+
 ## 1.1.0
 
 ### Minor Changes
