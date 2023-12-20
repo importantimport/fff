@@ -92,11 +92,19 @@ export const strictCategories = ({ categories: options }: StrictPresetOptions = 
   tags: ({ categories, tags }) => options === false ? [...(tags ?? []), ...(categories ?? [])] : tags,
 })
 
+/**
+ * Strict - FFF Transform Preset (Draft Only)
+ * @alpha
+ */
 export const strictDraft = ({ draft: options }: StrictPresetOptions = {}): FFFTransformPreset => ({
   draft: ({ draft, flags }) => draft ?? options === true ? flags?.includes('draft') : undefined,
   flags: ({ draft, flags }) => (options === false && draft) ? [...(flags ?? []), 'draft'] : flags,
 })
 
+/**
+ * Strict - FFF Transform Preset (Visibility Only)
+ * @alpha
+ */
 export const strictVisibility = ({ visibility: options }: StrictPresetOptions = {}): FFFTransformPreset => ({
   flags: ({ flags, visibility }) => (options === false && visibility) ? [...(flags ?? []), visibility] : flags,
   visibility: ({ flags, visibility }) => visibility ?? options === true ? flags?.find(flag => ['private', 'public', 'unlisted'].includes(flag)) : undefined,
