@@ -22,8 +22,21 @@ export interface StrictPresetOptions {
    * - `undefined` - do not transform draft and draft flags
    */
   draft?: boolean
+  /** transform media (alt / image / images / audio / video). */
   media?: {
+    /**
+     * @defaultValue `undefined`
+     * - `true` - merge image into images[0] (image unchanged)
+     * - `false` - merge images[0] into image (images unchanged)
+     * - `undefined` - do not transform image and images
+     */
     array?: boolean
+    /**
+     * @defaultValue `undefined`
+     * - `object` - transform string media to object
+     * - `string` - transform object media to string
+     * - `undefined` - do not transform string/object media
+     */
     type?: 'object' | 'string'
   }
   /**
@@ -60,7 +73,7 @@ export const strictMedia = ({ media: options }: StrictPresetOptions = {}): FFFTr
   image: ({ alt, image, images }) =>
     strictMediaTransform(
       options,
-      options?.array ? image : image ?? images?.[0],
+      options?.array === false ? (image ?? images?.[0]) : image,
       alt,
     ),
   images: ({ alt, image, images }) =>
