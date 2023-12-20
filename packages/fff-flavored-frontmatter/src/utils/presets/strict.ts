@@ -14,34 +14,45 @@ export interface StrictPresetOptions {
   }
 }
 
+/** @internal */
 const strictMediaTransform = (
   options: StrictPresetOptions['media'],
   media?: (FFFAudio | FFFImage | FFFVideo) | string,
+  alt?: string,
 ) =>
   typeof media === 'string'
     ? (options?.type === 'object'
-        ? { src: media }
+        ? { alt, src: media }
         : media)
     : (options?.type === 'string'
         ? media?.src
         : media)
 
 /**
+ * Strict - FFF Transform Preset (Media Only)
+ * @alpha
+ */
+export const strictMedia = ({ media: options }: StrictPresetOptions = {}): FFFTransformPreset => ({
+  alt: ({ alt, image, images }) => alt ?? (options?.type === 'string' && (image || images)) ? ((image ?? images?.[0]) as FFFImage).alt : undefined,
+  audio: ({ audio }) => strictMediaTransform(options, audio),
+  image: ({ image, images }) =>
+    strictMediaTransform(
+      options,
+      options?.array ? image : image ?? images?.[0],
+    ),
+  images: ({ image, images }) =>
+    [...(images ?? []), ...(options?.array ? [image] : [])].map(
+      (image?: FFFImage | string) => strictMediaTransform(options, image),
+    ),
+  video: ({ video }) => strictMediaTransform(options, video),
+})
+
+/**
  * Strict - FFF Transform Preset
  * @beta
  */
 export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
-  alt: ({ alt, image, images }) => alt ?? (strict.media?.type === 'string' && (image || images)) ? ((image ?? images?.[0]) as FFFImage).alt : undefined,
-  audio: ({ audio }) => strictMediaTransform(strict.media, audio),
-  image: ({ image, images }) =>
-    strictMediaTransform(
-      strict.media,
-      strict.media?.array ? image : image ?? images?.[0],
-    ),
-  images: ({ image, images }) =>
-    [...(images ?? []), ...(strict.media?.array ? [image] : [])].map(
-      (image?: FFFImage | string) => strictMediaTransform(strict.media, image),
-    ),
+  ...strictMedia(strict),
   lang: ({ lang }) => strict.lang === 'array'
     ? (typeof lang === 'string'
         ? [lang]
@@ -50,5 +61,4 @@ export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
         ? lang[0]
         : lang),
   tags: ({ categories, tags }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
-  video: ({ video }) => strictMediaTransform(strict.media, video),
 })
