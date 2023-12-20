@@ -10,5 +10,7 @@
     "markdown-it-fff": "1.1.0",
     "remark-fff": "1.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "cyan-wombats-warn"
+  ]
 }
