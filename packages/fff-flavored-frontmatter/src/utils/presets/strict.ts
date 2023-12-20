@@ -6,6 +6,13 @@ import type { FFFTransformPreset } from '../transform.ts'
  * @public
  */
 export interface StrictPresetOptions {
+  /**
+   * transform categories and tags.
+   * @defaultValue `undefined`
+   * - `true` - merge tags into categories (tags unchanged)
+   * - `false` - merge categories into tags (categories unchanged)
+   * - `undefined` - do not transform tags and categories
+   */
   categories?: boolean
   media?: {
     array?: boolean
@@ -47,11 +54,16 @@ export const strictMedia = ({ media: options }: StrictPresetOptions = {}): FFFTr
   video: ({ video }) => strictMediaTransform(options, video),
 })
 
+export const strictCategories = ({ categories: options }: StrictPresetOptions = {}): FFFTransformPreset => ({
+  categories: ({ categories, tags }) => options === true ? [...(categories ?? []), ...(tags ?? [])] : categories,
+  tags: ({ categories, tags }) => options === false ? [...(tags ?? []), ...(categories ?? [])] : tags,
+})
+
 /**
  * Strict - FFF Transform Preset
  * @beta
  */
-export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
-  ...strictMedia(strict),
-  tags: ({ categories, tags }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
+export const strict = (options: StrictPresetOptions): FFFTransformPreset => ({
+  ...strictCategories(options),
+  ...strictMedia(options),
 })
