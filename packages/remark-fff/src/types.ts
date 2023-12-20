@@ -4,17 +4,11 @@ import type {
   StrictPresetOptions,
 } from 'fff-flavored-frontmatter'
 
-import { path } from '../autofill'
-
 /**
  * Remark FFF Plugin Options.
  * @public
  */
 export interface RemarkFFFOptions {
-  autofill?: {
-    path?: ((path: string) => string) | keyof typeof path
-    provider: 'fs' | 'git'
-  }
   presets: FFFTransformPreset[]
   strict?: StrictPresetOptions
   // eslint-disable-next-line @typescript-eslint/ban-types
