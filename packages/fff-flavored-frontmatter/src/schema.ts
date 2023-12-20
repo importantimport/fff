@@ -1,4 +1,4 @@
-import type { FFFBase, FFFDateTime, FFFExtra, FFFMention } from './types'
+import type { FFFBase, FFFDateTime, FFFExtra, FFFMention } from './types.ts'
 
 export type FFFSchemaMedia = {
   /** image alternate text. */
