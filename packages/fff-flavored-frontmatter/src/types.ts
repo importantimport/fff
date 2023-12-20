@@ -57,13 +57,16 @@ export type FFFAuthor = {
 /**
  * Base Variables
  * @public
+ * @typeParam T - whether to support optional types
+ * - undefined / true: all available
+ * - false: optional types are not supported
  */
-export type FFFBase = {
+export type FFFBase<T extends (boolean | undefined) = undefined> = {
   /**
    * categories array, any plain text values you want.
    * @remarks optional
    */
-  categories?: string[]
+  categories?: T extends false ? never : string[]
   /** flags array, any plain text values you want. */
   flags?: string[]
   /** plain text sentence or two describing the post. */
@@ -130,8 +133,11 @@ export type FFFMention = {
 /**
  * Extra Variables
  * @public
+ * @typeParam T - whether to support optional types
+ * - undefined / true: all available
+ * - false: optional types are not supported
  */
-export type FFFExtra = {
+export type FFFExtra<T extends (boolean | undefined) = undefined> = {
   /** specifies one or more post authors. */
   authors?: FFFAuthor[]
   /** the URL of the venue/location h-card which the h-entry is considered a "checkin" of. */
@@ -140,7 +146,7 @@ export type FFFExtra = {
    * when true, the post is considered a draft.
    * @remarks optional
    */
-  draft?: boolean
+  draft?: T extends false ? never : boolean
   /** the primary language for the post. */
   lang?: string
   /** location the post was posted from. */
@@ -154,7 +160,7 @@ export type FFFExtra = {
    * @remarks optional
    */
   // eslint-disable-next-line @typescript-eslint/ban-types
-  visibility?: 'private' | 'public' | 'unlisted' | (string & {})
+  visibility?: T extends false ? never : ('private' | 'public' | 'unlisted' | (string & {}))
 }
 
 /**
