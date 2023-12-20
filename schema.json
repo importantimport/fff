@@ -1,0 +1,171 @@
+{
+  "$id": "https://fff.js.org/schema.json",
+  "$ref": "#/definitions/FFFSchema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FFFAuthor": {
+      "additionalProperties": false,
+      "description": "Author",
+      "properties": {
+        "avatar": {
+          "description": "the URL for an image for the author.",
+          "type": "string"
+        },
+        "name": {
+          "description": "the author's name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "the URL of a site owned by the author.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FFFSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "alt": {
+          "description": "image alternate text.",
+          "type": "string"
+        },
+        "audio": {
+          "description": "the main audio for audio post.",
+          "type": "string"
+        },
+        "authors": {
+          "description": "specifies one or more post authors.",
+          "items": {
+            "$ref": "#/definitions/FFFAuthor"
+          },
+          "type": "array"
+        },
+        "bookmark_of": {
+          "description": "indicates this post is a bookmark of another URL.",
+          "type": "string"
+        },
+        "categories": {
+          "description": "categories array, any plain text values you want.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "checkin": {
+          "description": "the URL of the venue/location h-card which the h-entry is considered a \"checkin\" of.",
+          "type": "string"
+        },
+        "created": {
+          "description": "the created date of the post.",
+          "type": "string"
+        },
+        "draft": {
+          "description": "when true, the post is considered a draft.",
+          "type": "boolean"
+        },
+        "end": {
+          "description": "datetime the event ends.",
+          "type": "string"
+        },
+        "flags": {
+          "description": "flags array, any plain text values you want.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "image": {
+          "description": "the main image for article or photo post.",
+          "type": "string"
+        },
+        "images": {
+          "description": "the image for multi-photo post.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "in_reply_to": {
+          "description": "URL which the post is considered reply to.",
+          "type": "string"
+        },
+        "lang": {
+          "description": "the primary language for the post.",
+          "type": "string"
+        },
+        "like_of": {
+          "description": "the URL which the post is considered a \"like\" (favorite, star) of.",
+          "type": "string"
+        },
+        "location": {
+          "description": "location the post was posted from.",
+          "type": "string"
+        },
+        "published": {
+          "description": "the published date of the post.",
+          "type": "string"
+        },
+        "repost_of": {
+          "description": "the URL which the post is considered a \"repost\" of.",
+          "type": "string"
+        },
+        "rsvp": {
+          "description": "a reply to an event that says whether the sender is attending.",
+          "enum": [
+            "interested",
+            "maybe",
+            "no",
+            "yes"
+          ],
+          "type": "string"
+        },
+        "start": {
+          "description": "datetime the event starts.",
+          "type": "string"
+        },
+        "summary": {
+          "description": "plain text sentence or two describing the post.",
+          "type": "string"
+        },
+        "syndication": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "URL(s) of syndicated copies of this post."
+        },
+        "tags": {
+          "description": "tags array, any plain text values you want.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "the title of article, non-article posts may omit titles.",
+          "type": "string"
+        },
+        "updated": {
+          "description": "the updated date of the post.",
+          "type": "string"
+        },
+        "video": {
+          "description": "the main video for video post.",
+          "type": "string"
+        },
+        "visibility": {
+          "description": "post visibility, consistent with micropub extensions.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
