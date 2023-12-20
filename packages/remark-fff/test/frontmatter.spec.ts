@@ -11,10 +11,6 @@ import remarkFFF from '../src'
 
 describe('remark-fff', () => {
   it('mdsvex-hugo', () => {
-    const { processSync } = remark().use(remarkFrontmatter).use(remarkFFF, {
-      presets: [hugo],
-      target: 'mdsvex',
-    })
     const file = new VFile({
       data: {
         fm: {
@@ -23,17 +19,14 @@ describe('remark-fff', () => {
         },
       },
     })
-    const { fm } = processSync(file).data as { fm: FFFFlavoredFrontmatter }
+    const { fm } = remark().use(remarkFrontmatter).use(remarkFFF, {
+      presets: [hugo],
+      target: 'mdsvex',
+    }).processSync(file).data as { fm: FFFFlavoredFrontmatter }
     // expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
     expect(fm.flags).toEqual(['draft'])
   })
   it('astro-hexo', () => {
-    const { processSync } = remark()
-      .use(remarkFrontmatter)
-      .use(remarkFFF, {
-        presets: [hexo],
-        target: 'astro',
-      })
     const file = new VFile({
       data: {
         astro: {
@@ -46,9 +39,15 @@ describe('remark-fff', () => {
         },
       },
     })
-    const { frontmatter: fm } = processSync(file).data.astro as {
-      frontmatter: FFFFlavoredFrontmatter
-    }
+    const { frontmatter: fm } = remark()
+      .use(remarkFrontmatter)
+      .use(remarkFFF, {
+        presets: [hexo],
+        target: 'astro',
+      })
+      .processSync(file).data.astro as {
+        frontmatter: FFFFlavoredFrontmatter
+      }
     expect(fm.created).toEqual('2023-01-01')
     expect(fm.summary).toEqual('lorem ipsum')
     // expect(fm.tags).toEqual(['fooo', 'baar', 'baaz', 'foo', 'bar', 'baz'])
@@ -57,18 +56,6 @@ describe('remark-fff', () => {
 
 describe('remark-fff strict mode', () => {
   it('object => string, no-array', () => {
-    const { processSync } = remark()
-      .use(remarkFrontmatter)
-      .use(remarkFFF, {
-        presets: [],
-        strict: {
-          media: {
-            array: false,
-            type: 'string',
-          },
-        },
-        target: 'mdsvex',
-      })
     const file = new VFile({
       data: {
         fm: {
@@ -81,36 +68,7 @@ describe('remark-fff strict mode', () => {
         },
       },
     })
-    const { fm } = processSync(file).data as { fm: FFFFlavoredFrontmatter }
-    expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
-  })
-  it('string => object, array', () => {
-    const { processSync } = remark()
-      .use(remarkFrontmatter)
-      .use(remarkFFF, {
-        presets: [],
-        strict: {
-          media: {
-            array: true,
-            type: 'object',
-          },
-        },
-        target: 'mdsvex',
-      })
-    const file = new VFile({
-      data: {
-        fm: {
-          image: 'https://fff.js.org/glowing_star.svg',
-        },
-      },
-    })
-    const { fm } = processSync(file).data as { fm: FFFFlavoredFrontmatter }
-    expect((fm.images?.[0] as FFFImage).src).toEqual(
-      'https://fff.js.org/glowing_star.svg',
-    )
-  })
-  it('string => string, no-array', () => {
-    const { processSync } = remark()
+    const { fm } = remark()
       .use(remarkFrontmatter)
       .use(remarkFFF, {
         presets: [],
@@ -122,6 +80,35 @@ describe('remark-fff strict mode', () => {
         },
         target: 'mdsvex',
       })
+      .processSync(file).data as { fm: FFFFlavoredFrontmatter }
+    expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
+  })
+  it('string => object, array', () => {
+    const file = new VFile({
+      data: {
+        fm: {
+          image: 'https://fff.js.org/glowing_star.svg',
+        },
+      },
+    })
+    const { fm } = remark()
+      .use(remarkFrontmatter)
+      .use(remarkFFF, {
+        presets: [],
+        strict: {
+          media: {
+            array: true,
+            type: 'object',
+          },
+        },
+        target: 'mdsvex',
+      })
+      .processSync(file).data as { fm: FFFFlavoredFrontmatter }
+    expect((fm.images?.[0] as FFFImage).src).toEqual(
+      'https://fff.js.org/glowing_star.svg',
+    )
+  })
+  it('string => string, no-array', () => {
     const file = new VFile({
       data: {
         fm: {
@@ -129,7 +116,19 @@ describe('remark-fff strict mode', () => {
         },
       },
     })
-    const { fm } = processSync(file).data as { fm: FFFFlavoredFrontmatter }
+    const { fm } = remark()
+      .use(remarkFrontmatter)
+      .use(remarkFFF, {
+        presets: [],
+        strict: {
+          media: {
+            array: false,
+            type: 'string',
+          },
+        },
+        target: 'mdsvex',
+      })
+      .processSync(file).data as { fm: FFFFlavoredFrontmatter }
     expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
   })
 })
