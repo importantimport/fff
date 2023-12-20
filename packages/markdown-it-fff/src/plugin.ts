@@ -2,7 +2,7 @@ import type MarkdownIt from 'markdown-it'
 
 import { strict, transform } from 'fff-flavored-frontmatter'
 
-import type { FFFPluginOptions, MarkdownItEnv } from './lib/types'
+import type { FFFPluginOptions, MarkdownItEnv } from './types'
 
 /**
  * markdown-it plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.

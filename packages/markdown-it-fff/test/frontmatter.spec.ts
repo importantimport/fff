@@ -5,7 +5,7 @@ import MarkdownIt from 'markdown-it'
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
-import type { MarkdownItEnv } from '../src/lib/types'
+import type { MarkdownItEnv } from '../src/types'
 
 import { fffPlugin } from '../src/index'
 
