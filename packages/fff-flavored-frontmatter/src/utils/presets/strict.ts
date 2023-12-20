@@ -7,7 +7,6 @@ import type { FFFTransformPreset } from '../transform.ts'
  */
 export interface StrictPresetOptions {
   categories?: boolean
-  lang?: 'array' | 'string'
   media?: {
     array?: boolean
     type?: 'object' | 'string'
@@ -54,12 +53,5 @@ export const strictMedia = ({ media: options }: StrictPresetOptions = {}): FFFTr
  */
 export const strict = (strict: StrictPresetOptions): FFFTransformPreset => ({
   ...strictMedia(strict),
-  lang: ({ lang }) => strict.lang === 'array'
-    ? (typeof lang === 'string'
-        ? [lang]
-        : lang)
-    : (typeof lang === 'object'
-        ? lang[0]
-        : lang),
   tags: ({ categories, tags }) => strict.categories ? tags : [...(tags ?? []), ...(categories ?? [])],
 })

@@ -142,7 +142,7 @@ export type FFFExtra = {
    */
   draft?: boolean
   /** the primary language for the post. */
-  lang?: string | string[]
+  lang?: string
   /** location the post was posted from. */
   location?: string
   /** a reply to an event that says whether the sender is attending. */
