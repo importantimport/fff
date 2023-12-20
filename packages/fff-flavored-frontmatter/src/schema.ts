@@ -1,5 +1,6 @@
 import type { FFFBase, FFFDateTime, FFFExtra, FFFMention } from './types.ts'
 
+/** @internal */
 export type FFFSchemaMedia = {
   /** image alternate text. */
   alt?: string
@@ -14,8 +15,11 @@ export type FFFSchemaMedia = {
 }
 
 /**
- * Generate JSON Schema:
+ * Type used to generate the schema.
+ * It doesn't support object media due to generator limitations.
+ * @example
  * ```bash
+ * # generate json schema
  * npx ts-json-schema-generator --path 'packages/fff-flavored-frontmatter/src/schema.ts' --type 'FFFSchema'
  * ```
  */
