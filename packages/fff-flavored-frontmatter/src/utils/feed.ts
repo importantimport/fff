@@ -14,7 +14,6 @@ import { transform } from './transform.ts'
 export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: Record<string, unknown>): Record<string, unknown> => {
   fm = transform(fm as Record<string, unknown>, [strict({
     categories: false,
-    lang: 'string',
     media: {
       array: false,
       type: 'string',
@@ -57,7 +56,6 @@ export const toJSONFeedItem = (fm: FFFFlavoredFrontmatter, item?: Record<string,
 export const toJF2FeedChild = (fm: FFFFlavoredFrontmatter, child?: object): object => {
   fm = transform(fm as Record<string, unknown>, [strict({
     categories: false,
-    lang: 'string',
     media: {
       array: false,
       type: 'string',
