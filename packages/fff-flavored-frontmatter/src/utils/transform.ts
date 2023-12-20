@@ -47,12 +47,12 @@ export const transform = <T extends Record<string, unknown> = Record<string, unk
 ): FFFFlavoredFrontmatter & T => {
   for (const preset of presets) {
     for (const [output, input] of Object.entries<FFFTransformPresetValue>(preset)) {
-      (fm = {
+      fm = {
         ...fm,
         [output]:
           (typeof input === 'function' ? input(fm) : fm[input])
             ?? fm[output],
-      })
+      }
     }
   }
   return fm
