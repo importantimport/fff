@@ -35,14 +35,15 @@ const strictMediaTransform = (
 export const strictMedia = ({ media: options }: StrictPresetOptions = {}): FFFTransformPreset => ({
   alt: ({ alt, image, images }) => alt ?? (options?.type === 'string' && (image || images)) ? ((image ?? images?.[0]) as FFFImage).alt : undefined,
   audio: ({ audio }) => strictMediaTransform(options, audio),
-  image: ({ image, images }) =>
+  image: ({ alt, image, images }) =>
     strictMediaTransform(
       options,
       options?.array ? image : image ?? images?.[0],
+      alt,
     ),
-  images: ({ image, images }) =>
+  images: ({ alt, image, images }) =>
     [...(images ?? []), ...(options?.array ? [image] : [])].map(
-      (image?: FFFImage | string) => strictMediaTransform(options, image),
+      (image?: FFFImage | string, index?: number) => strictMediaTransform(options, image, index === 0 ? alt : undefined),
     ),
   video: ({ video }) => strictMediaTransform(options, video),
 })
