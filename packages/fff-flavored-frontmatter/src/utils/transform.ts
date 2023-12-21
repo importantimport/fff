@@ -5,7 +5,7 @@ import type { FFFFlavoredFrontmatter } from '../types.ts'
  * @public
  * @typeParam T - Type of input / output Frontmatter. (optional)
  */
-export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<string, unknown>> = ((fm: FFFFlavoredFrontmatter & T) => unknown) | string
+export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<string, unknown>> = ((fm: T) => unknown) | string
 
 /**
  * Flavor Transform Preset
@@ -13,8 +13,8 @@ export type FFFTransformPresetValue<T extends Record<string, unknown> = Record<s
  * @typeParam T - Type of input / output Frontmatter. (optional)
  * @see {@link https://fff.js.org/concepts/flavor-transform.html#fff-transform-preset}
  */
-export type FFFTransformPreset<T extends Record<string, unknown> = Record<string, unknown>> = {
-  [key in keyof (FFFFlavoredFrontmatter & T & Record<string, unknown>)]: FFFTransformPresetValue<T & Record<string, unknown>>
+export type FFFTransformPreset<T extends Record<string, unknown> = FFFFlavoredFrontmatter & Record<string, unknown>> = {
+  [key in keyof T]: FFFTransformPresetValue<T>
 }
 
 /**
@@ -41,19 +41,24 @@ export type FFFTransformPreset<T extends Record<string, unknown> = Record<string
  * console.log(fm)
  * ```
  */
-export const transform = <T extends Record<string, unknown> = Record<string, unknown>>(
-  fm: T,
+/* eslint-disable @stylistic/js/indent */
+export const transform = <
+  TInput extends Record<string, unknown> = Record<string, unknown>,
+  TOutput extends TInput = FFFFlavoredFrontmatter & TInput
+>(
+  fm: TInput,
   presets: FFFTransformPreset[],
-): FFFFlavoredFrontmatter & T => {
+): TOutput => {
   for (const preset of presets) {
     for (const [output, input] of Object.entries<FFFTransformPresetValue>(preset)) {
       fm = {
         ...fm,
         [output]:
           (typeof input === 'function' ? input(fm) : fm[input])
-            ?? fm[output],
+          ?? fm[output],
       }
     }
   }
-  return fm
+  return fm as TOutput
 }
+/* eslint-enable @stylistic/js/indent */
