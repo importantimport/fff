@@ -1,7 +1,7 @@
 {
   "name": "remark-fff",
   "type": "module",
-  "version": "1.2.0-alpha.1",
+  "version": "1.2.0-alpha.2",
   "description": "Remark plugin for auto-conversion other frontmatter variable formats to FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",
