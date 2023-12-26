@@ -11,6 +11,7 @@
     "remark-fff": "1.1.0"
   },
   "changesets": [
-    "cyan-wombats-warn"
+    "cyan-wombats-warn",
+    "poor-glasses-deliver"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "indiekit-preset-fff",
   "type": "module",
-  "version": "1.2.0-alpha.0",
+  "version": "1.2.0-alpha.1",
   "description": "FFF Flavored Frontmatter publication preset for Indiekit.",
   "author": "藍+85CD",
   "license": "WTFPL",
