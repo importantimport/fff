@@ -1,5 +1,11 @@
 # remark-fff
 
+## 1.2.0-alpha.2
+
+### Patch Changes
+
+- [`05012a2`](https://github.com/importantimport/fff/commit/05012a27a764cb0451d81427ab05224d18336953) Thanks [@kwaa](https://github.com/kwaa)! - Version 1.2.0-alpha.2
+
 ## 1.2.0-alpha.1
 
 ### Patch Changes
