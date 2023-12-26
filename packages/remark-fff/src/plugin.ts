@@ -1,5 +1,6 @@
 import type { Plugin, Transformer } from 'unified'
 
+import deepmerge from '@fastify/deepmerge'
 import { strict, transform } from 'fff-flavored-frontmatter'
 
 import type { RemarkFFFOptions } from './types'
@@ -19,6 +20,7 @@ export const remarkFFF: Plugin<[RemarkFFFOptions]>
     },
   ): Transformer =>
     (_tree, file) => {
+      const merge = deepmerge({ all: true })
       let targets: string[] | undefined
 
       // Compatible with old target parameters before 1.2.
@@ -62,9 +64,9 @@ export const remarkFFF: Plugin<[RemarkFFFOptions]>
       )
 
       file.data = targets
-        ? {
-            ...file.data,
-            ...targets.reduceRight((output, key) => ({ [key]: output }), output),
-          }
+        ? merge(
+          file.data,
+          targets.reduceRight((output, key) => ({ [key]: output }), output),
+        )
         : output
     }

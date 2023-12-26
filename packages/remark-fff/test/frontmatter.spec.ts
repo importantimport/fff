@@ -13,16 +13,22 @@ describe('remark-fff', () => {
   it('mdsvex-hugo', () => {
     const file = new VFile({
       data: {
+        a: 'b',
         fm: {
           draft: true,
           images: 'https://fff.js.org/glowing_star.svg',
         },
       },
     })
-    const { fm } = remark().use(remarkFrontmatter).use(remarkFFF, {
-      presets: [hugo],
-      target: 'mdsvex',
-    }).processSync(file).data as { fm: FFFFlavoredFrontmatter }
+    const { a, fm } = remark()
+      .use(remarkFrontmatter).use(remarkFFF, {
+        presets: [hugo],
+        target: 'mdsvex',
+      }).processSync(file).data as {
+        a: string
+        fm: FFFFlavoredFrontmatter
+      }
+    expect(a).toEqual('b')
     // expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
     expect(fm.flags).toEqual(['draft'])
   })
@@ -30,6 +36,7 @@ describe('remark-fff', () => {
     const file = new VFile({
       data: {
         astro: {
+          a: 'b',
           frontmatter: {
             categories: ['foo', 'bar', 'baz'],
             date: '2023-01-01',
@@ -39,15 +46,17 @@ describe('remark-fff', () => {
         },
       },
     })
-    const { frontmatter: fm } = remark()
+    const { a, frontmatter: fm } = remark()
       .use(remarkFrontmatter)
       .use(remarkFFF, {
         presets: [hexo],
         target: 'astro',
       })
       .processSync(file).data.astro as {
+        a: string
         frontmatter: FFFFlavoredFrontmatter
       }
+    expect(a).toEqual('b')
     expect(fm.created).toEqual('2023-01-01')
     expect(fm.summary).toEqual('lorem ipsum')
     // expect(fm.tags).toEqual(['fooo', 'baar', 'baaz', 'foo', 'bar', 'baz'])
@@ -142,6 +151,9 @@ describe('remark-fff strict mode', () => {
               },
             },
           },
+          e: {
+            f: 'g',
+          },
         },
       },
     })
@@ -151,7 +163,13 @@ describe('remark-fff strict mode', () => {
         presets: [{ created: 'date' }],
         target: ['a', 'b', 'c', 'd'],
       })
-      .processSync(file).data as { a: { b: { c: { d: FFFFlavoredFrontmatter } } } }
+      .processSync(file).data as {
+        a: {
+          b: { c: { d: FFFFlavoredFrontmatter } }
+          e: { f: string }
+        }
+      }
     expect(data.a.b.c.d.created).toEqual('2023-12-25')
+    expect(data.a.e.f).toEqual('g')
   })
 })
