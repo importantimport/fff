@@ -131,4 +131,27 @@ describe('remark-fff strict mode', () => {
       .processSync(file).data as { fm: FFFFlavoredFrontmatter }
     expect(fm.image).toEqual('https://fff.js.org/glowing_star.svg')
   })
+  it('custom nested target', () => {
+    const file = new VFile({
+      data: {
+        a: {
+          b: {
+            c: {
+              d: {
+                date: '2023-12-25',
+              },
+            },
+          },
+        },
+      },
+    })
+    const data = remark()
+      .use(remarkFrontmatter)
+      .use(remarkFFF, {
+        presets: [{ created: 'date' }],
+        target: ['a', 'b', 'c', 'd'],
+      })
+      .processSync(file).data as { a: { b: { c: { d: FFFFlavoredFrontmatter } } } }
+    expect(data.a.b.c.d.created).toEqual('2023-12-25')
+  })
 })

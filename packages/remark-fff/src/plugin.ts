@@ -2,7 +2,7 @@ import type { Plugin, Transformer } from 'unified'
 
 import { strict, transform } from 'fff-flavored-frontmatter'
 
-import type { _Post, RemarkFFFOptions } from './types'
+import type { RemarkFFFOptions } from './types'
 
 /**
  * Remark plugin for auto-conversion other frontmatter variable formats to {@link https://fff.js.org | FFF Flavored Frontmatter}.
@@ -19,40 +19,52 @@ export const remarkFFF: Plugin<[RemarkFFFOptions]>
     },
   ): Transformer =>
     (_tree, file) => {
-    // make TS happy
-      const post: _Post = file as unknown as _Post
-      const fm = transform(
-        {
-          ...(options.target === 'mdsvex'
-            ? post.data.fm
-            : (options.target === 'astro'
-                ? post.data.astro.frontmatter
-                // eslint-disable-next-line unicorn/no-nested-ternary
-                : (options.target === 'nuxt'
-                    ? post.data
-                    : post.data))),
-        },
+      let targets: string[] | undefined
+
+      // Compatible with old target parameters before 1.2.
+      // TODO: remove in 1.3
+      switch (options.target) {
+        case 'mdsvex': {
+          targets = ['fm']
+          break
+        }
+        case 'astro': {
+          targets = ['astro', 'frontmatter']
+          break
+        }
+        case 'nuxt': {
+          targets = undefined
+          break
+        }
+        default: {
+          targets = options.target
+        }
+      }
+
+      let input = file.data as Record<string, unknown>
+      if (targets) {
+        for (const target of targets) {
+          try {
+            input = input[target] as Record<string, unknown>
+          }
+          catch {
+            input = {}
+          }
+        }
+      }
+
+      const output = transform(
+        input,
         [
           ...options.presets,
           ...(options.strict ? [strict(options.strict)] : []),
         ],
       )
-      switch (options.target) {
-        case 'mdsvex': {
-          file.data.fm = fm
-          break
-        }
-        case 'astro': {
-          file.data.astro = {
-            ...file.data.astro as object,
-            frontmatter: fm,
+
+      file.data = targets
+        ? {
+            ...file.data,
+            ...targets.reduceRight((output, key) => ({ [key]: output }), output),
           }
-          break
-        }
-        case 'nuxt': {
-          file.data = fm
-          break
-        }
-        default: { file.data = fm }
-      }
+        : output
     }
