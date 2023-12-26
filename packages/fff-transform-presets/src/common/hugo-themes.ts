@@ -1,4 +1,4 @@
-import type { FFFTransformPreset } from 'fff-flavored-frontmatter'
+import type { FFFFlavoredFrontmatter, FFFTransformPreset } from 'fff-flavored-frontmatter'
 
 /** @alpha */
 // eslint-disable-next-line unicorn/prevent-abbreviations
@@ -17,7 +17,7 @@ export type HugoThemePaperMod = {
  * @see {@link https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-variables/}
  */
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export const hugoThemePaperMod: FFFTransformPreset<HugoThemePaperMod> = {
+export const hugoThemePaperMod: FFFTransformPreset<FFFFlavoredFrontmatter & HugoThemePaperMod> = {
   authors: ({ author }) => Array.isArray(author) ? author.map(name => ({ name })) : [{ name: author }],
   image: 'images',
   summary: 'description',
@@ -29,7 +29,7 @@ export const hugoThemePaperMod: FFFTransformPreset<HugoThemePaperMod> = {
  * @see {@link https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-variables/}
  */
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export const hugoThemePaperModReverse: FFFTransformPreset<HugoThemePaperMod> = {
+export const hugoThemePaperModReverse: FFFTransformPreset<FFFFlavoredFrontmatter & HugoThemePaperMod> = {
   author: ({ authors }) => authors?.map(({ name }) => name),
   description: 'summary',
   images: 'image',
