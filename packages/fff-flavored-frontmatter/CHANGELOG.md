@@ -1,5 +1,11 @@
 # fff-flavored-frontmatter
 
+## 1.2.0-alpha.1
+
+### Patch Changes
+
+- [`f6e8100`](https://github.com/importantimport/fff/commit/f6e8100da143d522c90dc34fe0ae6c5107ad9c47) Thanks [@kwaa](https://github.com/kwaa)! - Version 1.2.0-alpha.1
+
 ## 1.2.0-alpha.0
 
 ### Minor Changes
