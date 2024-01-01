@@ -55,8 +55,7 @@ const sidebar = [
   {
     // collapsed: false,
     items: [
-      { link: '/version/1.2', text: '1.2 (draft)' },
-      { link: '/version/1.1', text: '1.1' },
+      { link: '/version/1.2', text: '1.2' },
       { link: '/version/changelog', text: 'Changelog' },
     ],
     text: 'Versions',
@@ -64,6 +63,7 @@ const sidebar = [
   {
     collapsed: true,
     items: [
+      { link: '/version/1.1', text: '1.1' },
       { link: '/version/1.0', text: '1.0' },
       { link: '/version/0.5', text: '0.5' },
       { link: '/version/0.4', text: '0.4' },
