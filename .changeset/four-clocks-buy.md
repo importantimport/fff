@@ -1,5 +1,0 @@
----
-"remark-fff": patch
----
-
-Version 1.2.0-alpha.2
