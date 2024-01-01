@@ -1,7 +1,7 @@
 {
   "name": "fff-flavored-frontmatter",
   "type": "module",
-  "version": "1.2.0-alpha.1",
+  "version": "1.2.0",
   "description": "Type definition of the FFF Flavored Frontmatter.",
   "author": "藍+85CD",
   "license": "WTFPL",

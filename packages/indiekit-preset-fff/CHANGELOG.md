@@ -1,5 +1,18 @@
 # indiekit-preset-fff
 
+## 1.2.0
+
+### Minor Changes
+
+- [`aac39a2`](https://github.com/importantimport/fff/commit/aac39a240087e9eaa94d8a5649654d206ce2bb58) Thanks [@kwaa](https://github.com/kwaa)! - Version 1.2.0-alpha.0
+
+### Patch Changes
+
+- [`f6e8100`](https://github.com/importantimport/fff/commit/f6e8100da143d522c90dc34fe0ae6c5107ad9c47) Thanks [@kwaa](https://github.com/kwaa)! - Version 1.2.0-alpha.1
+
+- Updated dependencies [[`aac39a2`](https://github.com/importantimport/fff/commit/aac39a240087e9eaa94d8a5649654d206ce2bb58), [`f6e8100`](https://github.com/importantimport/fff/commit/f6e8100da143d522c90dc34fe0ae6c5107ad9c47)]:
+  - fff-flavored-frontmatter@1.2.0
+
 ## 1.2.0-alpha.1
 
 ### Patch Changes
