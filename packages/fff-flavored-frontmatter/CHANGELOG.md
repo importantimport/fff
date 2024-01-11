@@ -1,5 +1,11 @@
 # fff-flavored-frontmatter
 
+## 1.2.1
+
+### Patch Changes
+
+- [`1ecdec4`](https://github.com/importantimport/fff/commit/1ecdec409e6f76e8fa5192d4b6048a5869815572) Thanks [@kwaa](https://github.com/kwaa)! - Refactor(fff): improve `toJSONFeedItem` function
+
 ## 1.2.0
 
 ### Minor Changes
