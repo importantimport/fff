@@ -13,6 +13,10 @@ For non-version-related changes, please refer to the [git commit history](https:
 
 - Modify: [`lang`](/version/1.2.html#lang) no longer supports arrays
 
+### Version 1.2.1 (2024-01-11)
+
+- Improve `toJSONFeedItem` function
+
 ## [Version 1.1](/version/1.1.html) (2023-08-31)
 
 - Add: [`draft`](/version/1.1.html#draft) [`visibility`](/version/1.1.html#visibility)

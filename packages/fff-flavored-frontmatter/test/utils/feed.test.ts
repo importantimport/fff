@@ -62,32 +62,32 @@ describe('fff-flavored-frontmatter feed util', () => {
     }
     const bookmarkOfOutput = toJSONFeedItem(bookmarkOf)
 
-    expect((bookmarkOfOutput._indieweb as Record<string, string>).type).toEqual('bookmark')
-    expect((bookmarkOfOutput._indieweb as Record<string, string>)['bookmark-of']).toEqual(example)
+    expect(bookmarkOfOutput._indieweb.type).toEqual('bookmark')
+    expect(bookmarkOfOutput._indieweb?.['bookmark-of']).toEqual(example)
 
     const inReplyTo: FFFFlavoredFrontmatter = {
       in_reply_to: example,
     }
     const inReplyToOutput = toJSONFeedItem(inReplyTo)
 
-    expect((inReplyToOutput._indieweb as Record<string, string>).type).toEqual('reply')
-    expect((inReplyToOutput._indieweb as Record<string, string>)['in-reply-to']).toEqual(example)
+    expect(inReplyToOutput._indieweb.type).toEqual('reply')
+    expect(inReplyToOutput._indieweb?.['in-reply-to']).toEqual(example)
 
     const likeOf: FFFFlavoredFrontmatter = {
       like_of: example,
     }
     const likeOfOutput = toJSONFeedItem(likeOf)
 
-    expect((likeOfOutput._indieweb as Record<string, string>).type).toEqual('like')
-    expect((likeOfOutput._indieweb as Record<string, string>)['like-of']).toEqual(example)
+    expect(likeOfOutput._indieweb.type).toEqual('like')
+    expect(likeOfOutput._indieweb?.['like-of']).toEqual(example)
 
     const repostOf: FFFFlavoredFrontmatter = {
       repost_of: example,
     }
     const repostOfOutput = toJSONFeedItem(repostOf)
 
-    expect((repostOfOutput._indieweb as Record<string, string>).type).toEqual('repost')
-    expect((repostOfOutput._indieweb as Record<string, string>)['repost-of']).toEqual(example)
+    expect(repostOfOutput._indieweb.type).toEqual('repost')
+    expect(repostOfOutput._indieweb?.['repost-of']).toEqual(example)
   })
 
   it('custom', () => {
@@ -105,10 +105,44 @@ describe('fff-flavored-frontmatter feed util', () => {
       url: 'http://jsonfeed.micro.blog/2020/08/07/json-feed-version.html',
     })
 
-    expect((output._hatsu as Record<string, string>).about).toEqual('https://github.com/importantimport/hatsu/issues/1')
-    expect((output._hatsu as Record<string, string>).banner_image).toEqual('https://example.com/foo.png')
+    expect(output._hatsu.about).toEqual('https://github.com/importantimport/hatsu/issues/1')
+    expect(output._hatsu.banner_image).toEqual('https://example.com/foo.png')
     expect(output.content_html).toEqual('Custom Item Test')
     expect(output.id).toEqual('http://jsonfeed.micro.blog/2020/08/07/json-feed-version.html')
     expect(output.url).toEqual('http://jsonfeed.micro.blog/2020/08/07/json-feed-version.html')
+  })
+
+  it('json feed extension', () => {
+    const input: FFFFlavoredFrontmatter & Record<string, unknown> = {
+      _hatsu: { about: 'https://github.com/importantimport/hatsu/issues/1' },
+      _indieweb: { hello: 'world' },
+    }
+    const output = toJSONFeedItem(input)
+
+    expect(output._hatsu?.about).toEqual('https://github.com/importantimport/hatsu/issues/1')
+    expect(output._indieweb.hello).toEqual('world')
+  })
+
+  it('override _indieweb', () => {
+    const input: FFFFlavoredFrontmatter & Record<string, unknown> = {
+      _indieweb: {
+        b: 'b',
+        syndication: 'https://fff.js.org/b',
+        type: 'rsvp',
+      },
+      syndication: 'https://fff.js.org/a',
+    }
+    const output = toJSONFeedItem(input, {
+      _indieweb: {
+        c: 'c',
+        syndication: 'https://fff.js.org/c',
+        type: 'article',
+      },
+    })
+
+    expect((output._indieweb as Record<string, string>).b).toEqual('b')
+    expect(output._indieweb.c).toEqual('c')
+    expect(output._indieweb.syndication).toEqual('https://fff.js.org/c')
+    expect(output._indieweb.type).toEqual('article')
   })
 })
