@@ -67,45 +67,47 @@ export type JSONFeedItemAttachment = {
  * @returns JSON Feed Item Object (without content_\{text,html\} / id / url)
  * @see {@link https://jsonfeed.org/version/1.1}
  */
-export const toJSONFeedItem
-  = <TInput extends Partial<JSONFeedItem> = Partial<JSONFeedItem>, TOutput extends TInput = TInput & { _indieweb: JSONFeedItemIndieWeb }>(fm: FFFFlavoredFrontmatter & Record<string, unknown>, item?: TInput): TOutput => {
-    fm = transform(fm as Record<string, unknown>, [strict({
-      categories: false,
-      media: {
-        array: false,
-        type: 'string',
-      },
-    })])
-    return {
-      ...item,
-      /**
-       * Treats keys starts with underscore as Custom JSON Feed Extensions
-       * @see {@link https://www.jsonfeed.org/version/1.1/#extensions-a-name-extensions-a}
-       */
-      ...Object.fromEntries(
-        Object.entries(fm)
-          .filter(([key, value]) => key.startsWith('_') && typeof value === 'object'),
-      ),
-      _indieweb: {
-        'bookmark-of': fm.bookmark_of,
-        'in-reply-to': fm.in_reply_to,
-        'like-of': fm.like_of,
-        'repost-of': fm.repost_of,
-        'syndication': fm.syndication,
-        'type': postTypeDiscovery(fm),
-        ...fm._indieweb as Partial<JSONFeedItemIndieWeb>,
-        ...item?._indieweb as Partial<JSONFeedItemIndieWeb>,
-      },
-      authors: fm.authors,
-      date_modified: fm.updated,
-      date_published: fm.published ?? fm.created,
-      image: fm.image,
-      language: fm.lang,
-      summary: fm.summary,
-      tags: fm.tags,
-      title: fm.title,
-    } as JSONFeedItem as TOutput
-  }
+export const toJSONFeedItem = <
+  TInput extends Partial<JSONFeedItem> = Partial<JSONFeedItem>,
+  TOutput extends TInput = TInput & { _indieweb: JSONFeedItemIndieWeb }
+>(fm: FFFFlavoredFrontmatter & Record<string, unknown>, item?: TInput): TOutput => {
+  fm = transform(fm as Record<string, unknown>, [strict({
+    categories: false,
+    media: {
+      array: false,
+      type: 'string',
+    },
+  })])
+  return {
+    ...item,
+    /**
+     * Treats keys starts with underscore as Custom JSON Feed Extensions
+     * @see {@link https://www.jsonfeed.org/version/1.1/#extensions-a-name-extensions-a}
+     */
+    ...Object.fromEntries(
+      Object.entries(fm)
+        .filter(([key, value]) => key.startsWith('_') && typeof value === 'object'),
+    ),
+    _indieweb: {
+      'bookmark-of': fm.bookmark_of,
+      'in-reply-to': fm.in_reply_to,
+      'like-of': fm.like_of,
+      'repost-of': fm.repost_of,
+      'syndication': fm.syndication,
+      'type': postTypeDiscovery(fm),
+      ...fm._indieweb as Partial<JSONFeedItemIndieWeb>,
+      ...item?._indieweb as Partial<JSONFeedItemIndieWeb>,
+    },
+    authors: fm.authors,
+    date_modified: fm.updated,
+    date_published: fm.published ?? fm.created,
+    image: fm.image,
+    language: fm.lang,
+    summary: fm.summary,
+    tags: fm.tags,
+    title: fm.title,
+  } as JSONFeedItem as TOutput
+}
 
 /**
  * From FFF to JF2 Feed Child (Editor's Draft 09 February 2019)
