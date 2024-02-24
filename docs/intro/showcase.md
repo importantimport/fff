@@ -14,11 +14,11 @@ If your project is FFF compatible, please let me know!
 
 ## SSG (Static Site Generator)
 
-### [Lume](https://github.com/lumeland/lume) <Badge type="warning" text="official plug-in" /> <Badge type="danger" text="experimental" />
+### [Lume](https://github.com/lumeland/lume) <Badge type="warning" text="official plug-in" />
 
-Lume has an FFF plugin in [`lumeland/lume#529`](https://github.com/lumeland/lume/pull/529).
+Lume has an FFF plugin, It provides FFF's types and flavor transform features. [Docs](https://lume.land/plugins/fff/)
 
-It provides FFF's types and flavor transform features and is expected to be available in the main repository as of Lume 2.1.
+<!-- ## CMS (Content Management System) -->
 
 ## Themes / Templates
 
